@@ -44,6 +44,8 @@ Este proyecto es una página web personal diseñada como portfolio para mostrar 
 
 Abre el archivo `index.html` con tu navegador web. Desde ahí puedes navegar por todo el portfolio.
 
+URL: (https://luciaaoertiiz5.github.io/fdweb/portfolio/index.html)
+
 El estilo por defecto es el modo oscuro (`main.css`). El modo claro (`theme.css`) está listo, pero no se activa automáticamente. Si se quiere activar, hay que cambiar la hoja de estilo manualmente o usar JavaScript (no usado en este caso).
 
 ## 👩‍🎨 Autora
@@ -53,3 +55,8 @@ Lucía Ortiz
 ---
 
 *Este proyecto ha sido desarrollado como parte de un ejercicio de portfolio visual, combinando diseño, estructura, y usabilidad.*
+
+## Licencia
+
+Este proyecto está bajo la **Apache License 2.0**. Para más detalles, consulta el archivo [LICENSE](./LICENSE).
+
