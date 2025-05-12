@@ -1,4 +1,4 @@
-/* Reset */
+ /* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -464,3 +464,8 @@ body, html {
   opacity: 0.7;
 }
 
+@media (max-width: 600px) {
+  body {
+    overflow-x: auto; /* Previene que la web se rompa en pantallas pequeñas */
+  }
+}
