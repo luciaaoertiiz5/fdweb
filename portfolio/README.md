@@ -2,20 +2,20 @@
 
 Este proyecto es una página web personal diseñada como portfolio para mostrar mis trabajos, habilidades, y estilo visual como creadora. La web está hecha con HTML y CSS, combinando diseño visual con interactividad.
 
-## ✨ Características principales
+## Características principales
 
-- 🌙 Estilo por defecto: **modo oscuro** (usando `main.css`)
-- ☀️ **Modo claro** disponible en `theme.css` (preparado pero no activado automáticamente)
-- 🎠 Carrusel de imágenes animado en la página de inicio
-- 📄 Navegación clara con las siguientes secciones:
+- Estilo por defecto: **modo oscuro** (usando `main.css`)
+- **Modo claro** disponible en `theme.css` (preparado pero no activado automáticamente)
+- Carrusel de imágenes animado en la página de inicio
+- Navegación clara con las siguientes secciones:
   - Inicio
   - Sobre mí
   - Mis trabajos (con enlaces a proyectos individuales)
   - Fotografía
   - Mi contacto
   - Página de error 404 personalizada (dentro de uno de los proyectos)
-- 📱 Diseño responsive
-- 🎨 Estilo visual coherente con tipografías elegantes y colores intensos
+- Diseño responsive
+- Estilo visual coherente con tipografías elegantes y colores intensos
 
 ## 🛠️ Tecnologías utilizadas
 
@@ -24,7 +24,7 @@ Este proyecto es una página web personal diseñada como portfolio para mostrar 
 - Tipografías personalizadas de Google Fonts (`Montserrat`, `Playfair Display`, `EB Garamond`)
 - Animaciones CSS para efectos de desplazamiento e interacción
 
-## 🗂️ Estructura de archivos
+## Estructura de archivos
 
 /index.html
 /sobre-mi.html
@@ -40,7 +40,7 @@ Este proyecto es una página web personal diseñada como portfolio para mostrar 
 /fonts/
 
 
-## 🧭 Cómo ver el proyecto
+## Cómo ver el proyecto
 
 Abre el archivo `index.html` con tu navegador web. Desde ahí puedes navegar por todo el portfolio.
 
@@ -48,7 +48,7 @@ URL: (https://luciaaoertiiz5.github.io/fdweb/portfolio/index.html)
 
 El estilo por defecto es el modo oscuro (`main.css`). El modo claro (`theme.css`) está listo, pero no se activa automáticamente. Si se quiere activar, hay que cambiar la hoja de estilo manualmente o usar JavaScript (no usado en este caso).
 
-## 👩‍🎨 Autora
+## Autora
 
 Lucía Ortiz
 
