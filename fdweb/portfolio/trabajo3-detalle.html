@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trabajo de Tipografía</title>
+  <link rel="icon" href="icons/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <button class="btn-back" onclick="window.history.back()">&#8592;</button>
+
+  <!-- ENCABEZADO -->
+  <header class="encabezado">
+    <h1>Mis 5 adejtivos</h1>
+  </header>
+
+
+  <!-- CONTENEDOR DE LAS TARJETAS -->
+  <section class="contenedor-tarjetas">
+
+    <div class="tarjeta">
+      <img src="images/tipo 1.png" alt="Adjetivo 1">
+      <p>"Desaparecida" is presented using a bold and heavy typeface to evoke a strong visual impact.
+The choice of thick lettering emphasizes power, presence, and emotional weight. This typographic treatment transforms the word into more than just a description — it becomes a statement, demanding attention and evoking a sense of urgency and significance. The strength of the type contrasts with the vulnerability implied by the word itself, creating a powerful tension that invites reflection and underscores the gravity of absence.</p>
+    </div>
+
+    <div class="tarjeta">
+      <img src="images/tipo 2.png" alt="Adjetivo 2">
+      <p>"Correcta" is depicted using a delicate and elegant typeface to convey a sense of softness and refinement.
+The choice of a light, graceful font reflects precision and subtlety, giving the word a calm and assured presence. The addition of a subtle check mark (✓) integrated with the typography reinforces the idea of correctness and validation, enhancing the overall message with a visual cue of approval. This combination of style and symbol creates a harmonious balance between elegance and clarity.</p>
+    </div>
+
+    <div class="tarjeta">
+      <img src="images/tipo 3.png" alt="Adjetivo 3">
+      <p>"Inestable" is presented using a distorted typeface designed to evoke a feeling of unease and tension.
+The letters appear carefully balanced yet irregular, creating a visual instability that mirrors the meaning of the word. This deliberate distortion makes the text seem as if it could tip or wobble at any moment, capturing a sense of fragility and unpredictability. The equilibrium within the imbalance adds depth, reflecting both precariousness and subtle control.</p>
+    </div>
+
+    <div class="tarjeta">
+      <img src="images/tipo 4.png" alt="Adjetivo 4">
+      <p>"Confundida" this adjective is represented with a double exposure typography effect that conveys a visual sense of confusion and disorientation. The overlapping letters are slightly misaligned and blurred, creating a layered and chaotic look. This design choice reflects the unsettled and unclear nature of being confused, capturing the emotional complexity through the type treatment.</p>
+    </div>
+
+  </section>
+
+</body>
+
+<!-- ESTILOS DENTRO DEL HTML -->
+<style>
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #2a0010;
+    color: #333;
+  }
+
+  .encabezado {
+    text-align: center;
+    padding: 40px 20px 20px 20px;
+    background-color: #2a0010;
+  }
+
+  .encabezado h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: white;
+    text-transform: lowercase;
+  }
+
+  .contenedor-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+ .btn-back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.btn-back:hover {
+    opacity: 0.7;
+}
+
+  .tarjeta {
+    background-color: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .tarjeta img {
+    max-width: 120%;
+    border-radius: 10px;
+    margin-bottom: 25px;
+  }
+
+  .tarjeta p {
+    font-family: 'EB Garamond', serif;
+    font-size: 16px;
+    color: #444;
+  }
+
+  @media (max-width: 600px) {
+    .contenedor-tarjetas {
+      padding: 20px;
+    }
+  }
+</style>
+</html>

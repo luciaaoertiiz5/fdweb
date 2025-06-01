@@ -1,0 +1,144 @@
+
+  <!DOCTYPE html>
+  <html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre mí</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=EB+Garamond&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+<style>
+  /* Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'EB Garamond', serif;
+    background-color: #2a0010;
+    color: white;
+    overflow-x: hidden;
+  }
+
+  /* Contenedor hero */
+  .hero-sobre-mi {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+  /* Imagen de fondo como <img> */
+  .imagen-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Texto que va debajo */
+  .titulo-principal {
+  position: relative;
+  z-index: 1;
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  text-transform: lowercase;
+  padding: 20px;
+  text-align: center;
+}
+
+  /* Contenedor para contenido debajo de hero */
+  .contenido-scroll {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+  .texto {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin-bottom: 40px;
+  flex: 1 1 250px;
+  column-count: 1;
+  column-gap: 30px;
+}
+
+.habilidades {
+  flex: 1 1 200px;
+  font-size: 1.1rem;
+  line-height: 2;
+  color: white;
+  margin-left: 200px;
+}
+</style>
+</head>
+<body>
+  <body>
+    <!-- Menu de navegación -->
+<nav class="menu">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="mis-trabajos.html">My works</a></li>
+    <li><a href="fotografia.html">Photography</a></li>
+    <li><a href="mi-contacto.html">My contact</a></li>
+  </ul>
+</nav>
+  
+    <!-- Sección de portada con fondo -->
+    <section class="hero-sobre-mi">
+  <img src="images/sobre mi.png" alt="Imagen de fondo" class="imagen-fondo" />
+  <h1 class="titulo-principal">about me</h1>
+</section>
+  
+    <!-- Sección scrollable -->
+    <section class="contenido-scroll">
+      <div class="texto">
+        <p>
+          I am Lucia Ortiz, currently undergoing academic and personal development within this creative world that I am passionate about, as a second-year student of Graphic and Multimedia Design at the University of Design, Innovation, and Technology. Since I discovered the power that images, shapes, colors, and typography have to communicate ideas, I knew I wanted to dedicate myself to this, although my path did not start here but in engineering. I realized that the best thing was to combine my technical skills and spatial vision with a more creative side.
+        </p>
+        <p>
+          During my training, I have explored different areas of design: from creating visual identities to editorial design, including illustration, digital design, and the use of tools such as Photoshop, Illustrator, and InDesign. Each project has been an opportunity to learn not only techniques but also to develop critical thinking, teamwork skills, and to find effective and creative visual solutions.
+        </p>
+        <p>
+          I consider myself a curious, observant, and committed person. I enjoy both the process and the final result, and I value well-done work, even in the smallest details. Although I am still building my professional path, I am eager to keep growing, to face new challenges, and to apply everything I learn in projects that connect with people and make an impact.
+        </p>
+        <p>
+          This portfolio is a small showcase of what I have learned so far and what I am excited to continue developing in the future. Thank you for taking the time to learn a little more about me and what I do.
+        </p>
+
+      </div>
+  
+      <div class="habilidades">
+        <p>Illustrator ★★★★☆</p>
+        <p>Photoshop ★★★☆☆</p>
+        <p>InDesign ★☆☆☆☆</p>
+        <p>Lightroom ★★★☆☆</p>
+        <p>Procreate ★★★★☆</p>
+        <p>Figma ★★★☆☆</p>
+      </div>
+    </section>
+  
+  </body>
+  </html>
+

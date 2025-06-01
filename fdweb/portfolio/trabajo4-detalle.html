@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trabajo 4 Detalle</title>
+  <link rel="stylesheet" href="main.css" />
+  <style>
+    body {
+      background-color: #2a0010;
+      margin: 0;
+      font-family: 'EB Garamond', serif;
+      color: white;
+      position: relative;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Flecha volver, estilo como en trabajo uno */
+  .btn-back {
+  text-decoration: none; /* evita subrayado */
+  outline: none; /* opcional, evita borde azul en foco si molesta */
+  border: none;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  font-size: 30px;
+  position: absolute;
+  top: 40px;
+  left: 60px; /* un poco a la derecha */
+}
+    .btn-back:hover {
+    opacity: 0.7;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      margin-bottom: 50px;
+      color: white;
+      text-transform: lowercase;
+    }
+
+    .cards-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 33px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background-color: white;
+      color: #2a0010;
+      border-radius: 25px;
+      padding: 20px;
+      flex: 1 1 30%;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 20px 20px 0 0;
+      margin-bottom: 15px;
+      background-color: #f5f5f5;
+    }
+
+    .card h2 {
+      font-family: 'EB Garamond', serif;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .text-box-wide {
+      background-color: white;
+      color: #000000;
+      border-radius: 25px;
+      padding: 30px 40px;
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 100%;
+      box-sizing: border-box;
+      margin: 0 auto 60px;
+    }
+
+    .card-5-images {
+      background-color: white;
+      color: #2a0010;
+      border-radius: 25px;
+      padding: 30px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      margin-bottom: 60px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card-5-images img {
+      height: auto;
+      max-height: 250px;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      flex: 1 1 150px;
+      border-radius: 15px;
+      background-color: #f5f5f5;
+    }
+
+    @media (max-width: 768px) {
+      .cards-row {
+        flex-direction: column;
+      }
+
+      .card {
+        flex: 1 1 100%;
+      }
+
+      .card-5-images img {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="mis-trabajos.html" class="btn-back" aria-label="Volver">&#8592;</a>
+
+  <div class="container">
+    <h1>Four Seasons</h1>
+    
+    <!-- Tarjetas de 3 ilustraciones -->
+    <div class="cards-row">
+      <div class="card">
+        <img src="images/Ilustración_sin_título 1.png" alt="Ilustración Riviera Francesa" />
+        <h2>French Riviera</h2>
+      </div>
+      <div class="card">
+        <img src="images/Ilustración_sin_título 2.png" alt="Ilustración Marruecos" />
+        <h2>Morocco</h2>
+      </div>
+      <div class="card">
+        <img src="images/Ilustración_sin_título.png" alt="Ilustración Tailandia" />
+        <h2>Thailand</h2>
+      </div>
+    </div>
+
+    <!-- Caja de texto explicativa -->
+    <div class="text-box-wide">
+      <p>
+        This series of promotional illustrations highlights a variety of exotic destinations where the Four Seasons Hotel offers unique and unforgettable experiences. Each image is carefully crafted to capture the perfect blend of luxury and cultural charm, showcasing not only the breathtaking landscapes and iconic landmarks but also the rich traditions and vibrant atmospheres that make each location special. Through elegant design and thoughtful details, these illustrations invite viewers to imagine themselves immersed in an exclusive world of comfort, sophistication, and authentic cultural encounters that only the Four Seasons can provide.
+      </p>
+    </div>
+
+    <!-- Tarjeta adicional con 5 imágenes -->
+    <div class="card-5-images">
+      <img src="images/publi 1.png" alt="Imagen 1" />
+      <img src="images/publi 2.png" alt="Imagen 2" />
+      <img src="images/publi 3.png" alt="Imagen 3" />
+      <img src="images/publi 4.png" alt="Imagen 4" />
+      <img src="images/publi 5.png" alt="Imagen 5" />
+    </div>
+  </div>
+</body>
+</html>

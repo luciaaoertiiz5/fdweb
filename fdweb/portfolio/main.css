@@ -1,0 +1,525 @@
+ /* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #2a0010; 
+  color: #fff;
+  /*overflow: hidden;*/
+}
+
+/* Menu de navegación */
+.menu {
+  position: absolute;   /* fijo arriba */
+  top: 30px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 200;     /* más alto que el título para que esté encima */
+  background-color: transparent;
+  padding: 15px 0;
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu ul li {
+  display: inline-block;
+  margin-right: 30px;
+}
+
+.menu ul li:last-child {
+  margin-right: 0;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+.menu a:hover {
+  color: white;
+  border-bottom: 2px solid white;
+}
+
+
+/* Título en el centro */
+.hero {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  text-align: center;
+}
+
+.portfolio-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: bold;
+  color: white;
+  text-transform: lowercase;
+}
+
+/* Carrusel de fondo horizontal con imágenes horizontales */
+.background-carousel {
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100vh; 
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 10px; 
+  animation: scroll-horizontal 40s linear infinite;
+  opacity: 0.50;
+}
+
+.carousel-track img {
+  width: 100vw;
+  height: 100vh; 
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Animación horizontal continua */
+@keyframes scroll-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.bottom-marquee {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  overflow: hidden;
+  z-index: 30;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.marquee-track {
+  display: flex;
+  animation: scroll-text 25s linear infinite;
+  white-space: nowrap;
+  gap: 80px; 
+  padding-left: 100%;
+}
+
+.marquee-track span {
+  font-family: 'Montserrat', sans-serif; 
+  font-size: 14px;
+  font-weight: 500;
+  color: #2a0010; 
+}
+
+/* Animación */
+@keyframes scroll-text {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #2a0010; /* Fondo burdeos */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Estilo de la tarjeta ajustada al contenido */
+.card {
+    background-color: white;
+    max-width: 1200px;
+    width: 95%;
+    padding: 60px 40px;
+    border-radius: 20px;
+    margin: 40px auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Botón de "Volver" con solo la flecha visible */
+.btn-back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: transparent;
+    color: #2a0010;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.btn-back:hover {
+    opacity: 0.7;
+}
+
+/* Secciones alternas con texto + imagen */
+.detalle-seccion {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.detalle-seccion img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.detalle-seccion img:hover {
+    transform: scale(1.03);
+}
+
+/* Texto de cada bloque */
+.detalle-texto h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: #2a0010;
+    margin-bottom: 10px;
+}
+
+.detalle-texto p {
+    font-family: 'EB Garamond', serif;
+    font-size: 18px;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* Encabezado */
+.detalle-header {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.detalle-titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: #2a0010;
+    margin-bottom: 10px;
+}
+
+.detalle-descripcion {
+    font-family: 'EB Garamond', serif;
+    font-size: 20px;
+    color: #444;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Contenedor de las imágenes */
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;  /* Espacio entre las imágenes */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.image-container img {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.05);
+}
+
+/* ====== Estilos para la página "Mis trabajos" ====== */
+.hero-mis-trabajos {
+  width: 100%;           /* Que ocupe todo el ancho de la pantalla */
+  text-align: center;    /* Centrar texto dentro */
+  padding: 100px 0 20px 0;       /* Separación arriba y abajo */
+  position: absolute;       /* Para que esté fijo arriba */
+  top: 0;                /* Pegado arriba */
+  left: 0;
+  background-color: #2a0010; /* Mismo color de fondo para que no se vea raro */
+  z-index: 100;          /* Para que esté encima de todo */
+}
+
+.titulo-principal {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  color: white;
+  text-transform: lowercase;
+  margin: 0 auto;          /* Centra si es inline-block */
+  display: inline-block;
+}
+
+/* Sección de los trabajos */
+.contenido-trabajos {
+  margin-top: 220px; /* baja todo el bloque */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 33px; /* margen entre tarjetas */
+  padding-bottom: 150px; /* espacio al final para que no quede pegado abajo */
+}
+
+.trabajo {
+  flex: 1 1 calc((100% - 66px) / 3);
+  max-width: 400px; /* un poco menos */
+  min-width: 280px; /* un poco menos */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  color: #2a0010;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.trabajo:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.imagen-trabajo img {
+    width: 100%;
+    height: auto; 
+    object-fit: contain; 
+    padding: 10px; 
+    border-top-left-radius: 8px; 
+    border-top-right-radius: 8px; 
+}
+
+.contenido-texto {
+    padding: 15px; 
+    text-align: center; 
+    flex-grow: 1;
+}
+
+.trabajo h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.trabajo p {
+    font-family: 'EB Garamond', serif;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #555; 
+}
+
+.trabajo-pequena {
+    height: auto; 
+}
+
+.boton-detalle {
+    position: relative;
+    background-color: #2a0010;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 50px; 
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 60%;
+    margin: 10px auto 0; 
+}
+
+.boton-detalle:hover {
+    background-color: #4a0020;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .trabajo {
+    width: 90%; 
+    min-height: auto; 
+  }
+}
+
+/* Página fotografía */
+.titulo-pagina {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  color: white;
+  text-align: center;
+  margin-top: 120px;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%; /* Asegura que ocupa todo el ancho */
+   flex: 1 1 100%;   /* Para que ocupe todo el ancho dentro del flex */
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.flecha-volver {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 2rem;
+  text-decoration: none;
+  color: white;
+  z-index: 2;
+  font-family: 'Playfair Display', serif;
+}
+
+.galeria-fotos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 60px;
+  background-color: #2a0010;
+}
+
+.foto {
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Tamaños variados */
+.foto.pequeña {
+  width: 200px;
+  height: 200px;
+}
+
+.foto.mediana {
+  width: 300px;
+  height: 300px;
+}
+
+.foto.vertical {
+  width: 30vw;
+  height: 85vh;
+  object-fit: cover;
+}
+
+.foto.grande {
+  width: 90vw;
+  height: 80vh;
+  max-width: 1000px;
+  margin: 20px auto;
+}
+
+/* Página de Contacto */
+
+
+.contenido-contacto {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 40px;
+  text-align: center;
+  color: white;
+  font-family: 'EB Garamond', serif;
+}
+
+.contenido-contacto h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  margin-bottom: 20px;
+  text-transform: lowercase;
+}
+
+.contenido-contacto p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+.contact-info {
+  font-size: 1.1rem;
+  line-height: 2;
+}
+
+.contact-info a {
+  color: white;
+  text-decoration: underline;
+}
+
+/* Error 404 */
+.error-404 {
+  background-color: #ffffff;
+  color: #2a0010;
+  font-family: 'Playfair Display', serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  padding: 40px;
+}
+
+.error-404 h1 {
+  font-size: 90px;
+  margin-bottom: 20px;
+}
+
+.error-404 p {
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+.volver-inicio {
+  font-size: 18px;
+  color: #2a0010;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.volver-inicio:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+  body {
+    overflow-x: auto; 
+  }
+}
