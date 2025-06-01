@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trabajo 5 Detalle</title>
+  <style>
+    /* Aplicamos box-sizing global para evitar sumas inesperadas de padding/margin */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #2a0010; /* Fondo oscuro */
+      margin: 0;
+      font-family: 'EB Garamond', serif;
+      color: white;
+    }
+
+    .container {
+      width: 95vw;          /* ancho casi total del viewport */
+      max-width: 1200px;    /* límite máximo razonable */
+      margin: 40px auto;    /* margen arriba y abajo para separar, auto para centrar */
+      padding: 0 15px;      /* padding lateral pequeño para margen interno */
+    }
+
+    /* Flecha volver, estilo como en trabajo uno */
+  .btn-back {
+  text-decoration: none; /* evita subrayado */
+  outline: none; /* opcional, evita borde azul en foco si molesta */
+  border: none;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  font-size: 30px;
+  position: absolute;
+  top: 40px;
+  left: 60px; /* un poco a la derecha */
+}
+    .btn-back:hover {
+    opacity: 0.7;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      margin-top: 0;
+      margin-bottom: 40px;
+      color: white;
+      text-transform: lowercase;
+    }
+
+    .card {
+      width: 100%;
+      padding: 30px 25px; /* menos padding para no hacerla enorme */
+      border-radius: 25px;
+      background-color: white;
+      color: #2a0010;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .img-text {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .img-text img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      object-fit: contain; /* muestra la imagen completa */
+      background-color: #ffffff; /* para ver si hay espacio extra */
+    }
+
+    .img-text p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .row-images {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+
+    .row-images img {
+      width: 50%;
+      border-radius: 20px;
+      object-fit: contain;
+      height: auto;
+      background-color: #ffffff;
+    }
+
+    .text-large {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+    <a href="mis-trabajos.html" class="btn-back" aria-label="Volver">&#8592;</a>
+  <div class="container">
+    <h1>Gulliver’s Travels</h1>
+
+    <div class="card">
+      <div class="img-text">
+        <img src="images/Captura de pantalla 2025-06-01 a las 0.21.12.png" alt="Imagen principal del proyecto" />
+        <p>This editorial project was created to celebrate the 300th anniversary of Gulliver’s Travels, one of the most influential works of classic literature. The goal was to design a commemorative edition that honors Jonathan Swift’s timeless narrative while offering a fresh, modern visual interpretation. The editorial concept focuses on blending historical references with contemporary graphic elements to evoke both the book’s rich heritage and its enduring relevance. Through the careful selection of typefaces, illustrations, and textures, the design conveys the adventurous spirit and satirical tone of the story. The project also incorporates thematic motifs inspired by the fantastical islands and characters Gulliver encounters, creating a cohesive visual language that enhances the reader’s immersion into the world of the novel.</p>
+      </div>
+
+      <div class="row-images">
+        <img src="images/Captura de pantalla 2025-06-01 a las 0.21.00.png" alt="Imagen secundaria 1" />
+        <img src="images/Captura de pantalla 2025-06-01 a las 0.20.42.png" alt="Imagen secundaria 2" />
+      </div>
+
+      <p class="text-large">
+        The layout phase emphasized clarity, hierarchy, and rhythm to ensure a seamless reading experience while reflecting the complexity and whimsy of Swift’s text. Strict grid systems were employed to maintain consistency across chapters, allowing diverse content — from maps and illustrations to footnotes and quotes — to coexist harmoniously on each page. Typography choices balanced readability with stylistic personality, using serif fonts to evoke the classic feel of 18th-century literature, complemented by more modern sans-serifs for headings and captions. The arrangement of visual elements was carefully considered to guide the reader’s eye naturally, creating an engaging flow that respects the narrative’s pacing. Overall, the layout design sought to merge tradition and innovation, making this anniversary edition both a tribute and a fresh interpretation for contemporary audiences.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
