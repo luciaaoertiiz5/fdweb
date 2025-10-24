@@ -523,3 +523,113 @@ body {
     overflow-x: auto; 
   }
 }
+
+/* ===== Estilos específicos para la página de Fotografía ===== */
+.pagina-fotografia {
+  background-color: #f4f1f1; /* Fondo blanco */
+  color: #2a0010; /* Texto en granate */
+}
+
+/* Menú en granate sobre fondo blanco */
+.pagina-fotografia .menu {
+  background-color: #f4f1f1;
+}
+
+.pagina-fotografia .menu a {
+  color: #2a0010;
+}
+
+.pagina-fotografia .menu a:hover {
+  color: #600020;
+  border-bottom: 2px solid #600020;
+}
+
+/* Título de la página en granate */
+.pagina-fotografia .titulo-pagina {
+  color: #2a0010;
+}
+
+/* Fondo de la galería también blanco */
+.pagina-fotografia .galeria-fotos {
+  background-color: #f4f1f1;
+}
+
+/* Asegura que las fotos sigan viéndose bien */
+.pagina-fotografia .foto {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* ===== Estilos específicos para la página "About Me" ===== */
+.hero-sobre-mi {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.imagen-fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.titulo-principal {
+  position: relative;
+  z-index: 1;
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  text-transform: lowercase;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Contenedor de texto y habilidades */
+.contenido-scroll {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column; /* texto arriba, habilidades abajo */
+  align-items: flex-start;
+}
+
+/* Texto en dos columnas */
+.texto {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: justify;
+  column-count: 2; /* 💡 Lo importante */
+  column-gap: 40px;
+  margin-bottom: 50px;
+  color: white;
+}
+.texto, .habilidades {
+  font-family: 'EB Garamond', serif;
+}
+
+/* Habilidades abajo, alineadas a la izquierda */
+.habilidades {
+  font-size: 1.1rem;
+  line-height: 2;
+  color: white;
+  text-align: left;
+  margin-left: -5px; /* Mueve más a la izquierda */
+  width: 100%;
+}
+
+/* Responsive: en móviles vuelve a una sola columna */
+@media (max-width: 768px) {
+  .texto {
+    column-count: 1;
+  }
+}

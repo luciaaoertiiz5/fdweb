@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trabajo Detalle 6</title>
+  <link rel="icon" href="icons/favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=EB+Garamond&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Botón de volver -->
+  <button class="btn-back" onclick="window.history.back()">&#8592;</button>
+
+  <!-- ENCABEZADO -->
+  <header class="encabezado">
+    <h1>SEO Birdlife</h1>
+  </header>
+
+  <!-- CONTENEDOR DE TARJETAS -->
+  <section class="contenedor-tarjetas">
+
+    <!-- Bloque horizontal con 2 tarjetas -->
+    <div class="fila">
+      <div class="tarjeta">
+        <img src="https://ik.imagekit.io/h7eo6ofoi/2164-1-6-Ortiz_Garcia_Lucia_279bd019-798e-4b28-ad18-efe38c18adbb_Pa%CC%81gina_02.jpg" alt="Imagen 1">
+        <img src="https://ik.imagekit.io/h7eo6ofoi/2164-1-6-Ortiz_Garcia_Lucia_279bd019-798e-4b28-ad18-efe38c18adbb_Pa%CC%81gina_03.jpg" alt="Imagen 1 extra">
+        <p>Primer bloque con varias imágenes y descripción resumida.</p>
+      </div>
+      <div class="tarjeta">
+        <img src="https://ik.imagekit.io/h7eo6ofoi/2164-1-6-Ortiz_Garcia_Lucia_279bd019-798e-4b28-ad18-efe38c18adbb_Pa%CC%81gina_13.jpg" alt="Imagen 2">
+        <img src="https://ik.imagekit.io/h7eo6ofoi/2164-1-6-Ortiz_Garcia_Lucia_279bd019-798e-4b28-ad18-efe38c18adbb_Pa%CC%81gina_14.jpg" alt="Imagen 2 extra">
+        <p>Segunda parte con más imágenes del proceso y detalles del diseño.</p>
+      </div>
+    </div>
+
+    <!-- Tarjeta grande debajo -->
+    <div class="tarjeta grande">
+      <img src="https://ik.imagekit.io/h7eo6ofoi/2164-1-6-Ortiz_Garcia_Lucia_279bd019-798e-4b28-ad18-efe38c18adbb_Pa%CC%81gina_22.jpg" alt="Proceso">
+      <p>Tarjeta grande para mostrar el proceso completo con imagen destacada y explicación más detallada.</p>
+    </div>
+
+    <!-- Otra fila con 2 tarjetas -->
+    <div class="fila">
+      <div class="tarjeta">
+        <img src="https://ik.imagekit.io/h7eo6ofoi/2164-1-6-Ortiz_Garcia_Lucia_279bd019-798e-4b28-ad18-efe38c18adbb_Pa%CC%81gina_37.jpg?updatedAt=1761300518440" alt="Imagen 3">
+        <p>Bloque adicional con nuevas imágenes y descripción.</p>
+      </div>
+      <div class="tarjeta">
+        <img src="https://ik.imagekit.io/h7eo6ofoi/2164-1-6-Ortiz_Garcia_Lucia_279bd019-798e-4b28-ad18-efe38c18adbb_Pa%CC%81gina_38.jpg?updatedAt=1761300518779" alt="Imagen 4">
+        <p>Otro bloque horizontal con información extra y más fotos.</p>
+      </div>
+    </div>
+
+    <!-- Tarjeta con PDF incrustado -->
+    <div class="tarjeta grande">
+      <h2>Ver PDF del proyecto</h2>
+      <iframe src="pdf/2164-1-6-Ortiz_Garcia_Lucia_279bd019-798e-4b28-ad18-efe38c18adbb.pdf" width="100%" height="600px">
+        Tu navegador no soporta PDFs. 
+        <a href="docs/mi-archivo.pdf" target="_blank">Descargar PDF</a>
+      </iframe>
+    </div>
+
+  </section>
+
+</body>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'EB Garamond', serif;
+  background-color: #2a0010;
+  color: #333;
+}
+
+.encabezado {
+  text-align: center;
+  padding: 40px 20px 20px 20px;
+  background-color: #2a0010;
+}
+
+.encabezado h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  color: white;
+  text-transform: none; /* mantiene SEO y Birdlife con mayúsculas */
+}
+
+.contenedor-tarjetas {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.fila {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tarjeta {
+  background-color: white;
+  border-radius: 15px;
+  padding: 50px 40px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1 1 400px;
+}
+
+.tarjeta.grande {
+  max-width: 100%;
+}
+
+.tarjeta img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+.tarjeta p {
+  font-family: 'EB Garamond', serif;
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.tarjeta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.btn-back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.btn-back:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .fila {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .tarjeta {
+    flex: 1 1 100%;
+  }
+}
+</style>
+</html>
