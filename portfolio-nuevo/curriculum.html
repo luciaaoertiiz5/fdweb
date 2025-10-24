@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curriculum - Lucía Ortiz</title>
+  <link rel="stylesheet" href="main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=EB+Garamond&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      font-family: 'EB Garamond', serif;
+      background-color: #2a0010;
+      color: white;
+      overflow-x: hidden;
+      margin: 0;
+    }
+
+    /* Título centrado más abajo, como en photography/about me */
+    .titulo-pagina {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      text-transform: lowercase;
+      text-align: center;
+      margin-top: 120px; /* espacio desde el top */
+      color: white;
+    }
+
+    /* Contenedor de la imagen tipo A4 */
+    .curriculum-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 20px;
+      width: 100%;
+      min-height: calc(100vh - 200px); /* ocupa todo el viewport menos espacio del título */
+    }
+
+    .curriculum-container img {
+      width: auto;
+      height: 95vh;       /* más alto para ocupar casi toda la pantalla */
+    max-width: 900px; 
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu de navegación -->
+  <nav class="menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="sobre-mi.html">About me</a></li>
+      <li><a href="mis-trabajos.html">My works</a></li>
+      <li><a href="fotografia.html">Photography</a></li>
+      <li><a href="mi-contacto.html">My contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Título de la página -->
+  <h1 class="titulo-pagina">curriculum</h1>
+
+  <!-- Imagen del curriculum -->
+  <section class="curriculum-container">
+    <img src="images/Currículum Vitae Cv de Marketing Minimalista Beige.png" alt="Curriculum">
+  </section>
+
+</body>
+</html>

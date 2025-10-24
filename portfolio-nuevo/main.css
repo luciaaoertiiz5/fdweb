@@ -622,8 +622,7 @@ body {
   font-size: 1.1rem;
   line-height: 2;
   color: white;
-  text-align: left;
-  margin-left: -5px; /* Mueve más a la izquierda */
+  text-align: justify;
   width: 100%;
 }
 
