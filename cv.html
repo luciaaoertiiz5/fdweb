@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucía Ortiz – CV</title>
+    
+    <link rel="icon" type="image/png" href="assets/images/android-chrome-192x192.png">
+    <link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --granate: #5F060F;
+            --crema: #FFF9F4;
+            --negro: #000000;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: white;
+            color: var(--negro);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ---------- NAVEGACIÓN ---------- */
+        .back-arrow {
+            text-decoration: none;
+            color: var(--granate);
+            font-size: 35px;
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            transition: opacity 0.3s;
+            z-index: 10;
+        }
+        .back-arrow:hover { opacity: 0.5; }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 40px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--granate);
+            border: 1px solid var(--granate);
+            background-color: var(--crema);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+        nav a:hover { background-color: var(--granate); color: var(--crema); }
+
+        /* ---------- BOTÓN ESTILO SEO.HTML (EXACTO) ---------- */
+        .pdf-button {
+            position: fixed;
+            top: 60px; 
+            right: 60px;
+            z-index: 100;
+            padding: 10px 20px;
+            border: 1px solid var(--negro);
+            color: var(--negro);
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            font-weight: 100;
+            background-color: rgba(255, 255, 255, 0.5); 
+            backdrop-filter: blur(5px);
+        }
+
+        .pdf-button:hover {
+            background-color: var(--negro);
+            color: white;
+        }
+
+        /* ---------- CONTENIDO CV ---------- */
+        .cv-container {
+            max-width: 900px;
+            margin: 0 auto 100px auto;
+            padding: 0 40px;
+        }
+
+        .cv-header {
+            border-bottom: 2px solid var(--granate);
+            padding-bottom: 20px;
+            margin-bottom: 50px;
+            margin-top: 20px;
+        }
+
+        .cv-title h1 {
+            font-family: 'Ballet', cursive;
+            font-size: 100px;
+            color: var(--granate);
+            line-height: 0.8;
+            margin-top: 10px;
+        }
+
+        .cv-content {
+            display: grid;
+            grid-template-columns: 1.2fr 2fr;
+            gap: 60px;
+        }
+
+        h3 {
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: var(--granate);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .section { margin-bottom: 40px; }
+
+        .cv-item { margin-bottom: 25px; }
+        .cv-item h4 { font-size: 16px; font-weight: bold; margin-bottom: 5px; color: var(--granate); }
+        .cv-item span { font-size: 12px; color: #666; display: block; margin-bottom: 8px; text-transform: uppercase; }
+        .cv-item p { font-size: 14px; font-weight: 300; text-align: justify; }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .skill-tag {
+            font-size: 12px;
+            border: 1px solid var(--granate);
+            padding: 4px 12px;
+            border-radius: 4px;
+            color: var(--granate);
+        }
+
+        @media (max-width: 768px) {
+            .cv-content { grid-template-columns: 1fr; }
+            .pdf-button { position: static; display: block; text-align: center; margin-bottom: 20px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-arrow">←</a>
+    
+    <a href="Currículum Vitae Cv de Marketing Minimalista Beige.pdf" class="pdf-button" download>DOWNLOAD CV PDF</a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="aboutme.html">About me</a>
+        <a href="works.html">Works</a>
+        <a href="contact.html">Contact</a>
+        <a href="cv.html">CV</a>
+    </nav>
+
+    <main class="cv-container">
+        
+        <header class="cv-header">
+            <div class="cv-title">
+                <h1>Lucía Ortiz</h1>
+            </div>
+        </header>
+
+        <div class="cv-content">
+            
+            <aside>
+                <div class="section">
+                    <h3>About Me</h3>
+                    <p style="font-size: 14px; font-weight: 300;">Personally and professionally, I am an organized and disciplined individual. I enjoy being creative and exploring more spontaneous ideas, yet I consider myself a technically minded person who values having clear creative guidelines to work within.</p>
+                    <br>
+                    <p style="font-size: 14px; font-weight: 300;">After finishing my compulsory secondary education and later completing my Baccalaureate in the scientific-technical track, I began studying Aerospace Engineering during my first year at university. After that stage, I started the path that led me to where I am now.</p>
+                </div>
+
+                <div class="section">
+                    <h3>Contact</h3>
+                    <p style="font-size: 14px;">+34 636 13 14 99</p>
+                    <p style="font-size: 14px;">luciaaortiiz5@gmail.com</p>
+                    <p style="font-size: 14px;">luciaaoertiiz5.github.io</p>
+                </div>
+
+                <div class="section">
+                    <h3>Habilities</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Illustrator</span>
+                        <span class="skill-tag">Photoshop</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Web (Visual Code)</span>
+                        <span class="skill-tag">InDesign</span>
+                        <span class="skill-tag">Photography</span>
+                    </div>
+                </div>
+            </aside>
+
+            <section>
+                <div class="section">
+                    <h3>Work Experience</h3>
+                    
+                    <div class="cv-item">
+                        <h4>Event Hostess</h4>
+                        <p>Assisted in the organization and coordination of various events, ensuring a welcoming atmosphere and smooth guest experience.</p>
+                    </div>
+
+                    <div class="cv-item">
+                        <h4>Private High School Tutor</h4>
+                        <span>Santisima Trinidad School</span>
+                        <p>Offered individualized academic support to high school students, helping them strengthen study habits and improve performance in key subjects.</p>
+                    </div>
+
+                    <div class="cv-item">
+                        <h4>Wedding Catering Waitress</h4>
+                        <span>La Dama</span>
+                        <p>Provided professional table service and support during wedding receptions and private celebrations, maintaining attention to detail and customer satisfaction.</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Education</h3>
+                    
+                    <div class="cv-item">
+                        <h4>Bachelor's Degree in Graphic Design</h4>
+                        <span>Universidad de Diseño, Innovación y Tecnología (UDIT)</span>
+                        <span>2023 — 2027</span>
+                    </div>
+
+                    <div class="cv-item">
+                        <h4>Technical Baccalaureate</h4>
+                        <span>Santisima Trinidad School</span>
+                        <span>2007 — 2022</span>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+</body>
+</html>

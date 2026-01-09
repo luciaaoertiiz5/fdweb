@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unseen Detail – Lucía Ortiz</title>
+    <style>
+        :root {
+            --negro: #000000;
+            --blanco: #ffffff;
+            --gris-suave: #f4f4f4;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: var(--blanco);
+            color: var(--negro);
+            -webkit-font-smoothing: antialiased; /* Suaviza la fuente para que el thin se vea mejor */
+        }
+
+        header {
+            padding: 40px 60px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .back-arrow {
+            text-decoration: none;
+            color: var(--negro);
+            font-size: 30px;
+        }
+
+        .editorial-layout {
+            max-width: 1200px;
+            margin: 140px auto 100px auto;
+            padding: 0 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 120px; 
+        }
+
+        .img-block {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+        }
+
+        /* TEXTO SOBRE FOTO 1 (THIN ITALIC) */
+        .overlay-quote {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--blanco);
+            font-weight: 100;    /* THIN */
+            font-style: italic;  /* ITALIC */
+            font-size: 24px;
+            text-align: center;
+            width: 80%;
+            pointer-events: none;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.4);
+        }
+
+        /* TEXTOS REGULARES (THIN) */
+        .inter-text {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 18px;
+            line-height: 1.7;
+            text-align: center;
+            color: var(--negro);
+            font-weight: 100;    /* THIN */
+            letter-spacing: 0.5px;
+        }
+
+        /* FRASE FINAL (THIN ITALIC) */
+        .italic-quote {
+            font-weight: 100;    /* THIN */
+            font-style: italic;  /* ITALIC */
+        }
+
+        .grande { width: 100%; }
+        .mediana { width: 75%; margin: 0 auto; }
+        .pequeña { width: 50%; margin: 0 auto; }
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .vertical img {
+            max-height: 85vh; 
+            width: auto;
+        }
+
+        .parallel-row {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .parallel-row .img-block {
+            flex: 1;
+        }
+
+        footer {
+            padding: 60px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            border-top: 1px solid var(--gris-suave);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="unseen.html" class="back-arrow">←</a>
+    </header>
+
+    <main class="editorial-layout">
+
+        <div class="img-block grande">
+            <img src="assets/images/1.jpg" alt="Photo 1">
+            <div class="overlay-quote">
+                "The biggest problem with having a mental illness isn't that, it's that people expect you to act as if you don't have it."
+            </div>
+        </div>
+
+        <div class="parallel-row">
+            <div class="img-block vertical">
+                <img src="assets/images/2.jpg" alt="Photo 2">
+            </div>
+            <div class="img-block vertical">
+                <img src="assets/images/3.jpg" alt="Photo 3">
+            </div>
+        </div>
+
+        <div class="img-block grande">
+            <img src="assets/images/4.jpg" alt="Photo 4">
+        </div>
+
+        <div class="img-block mediana">
+            <img src="assets/images/5.jpg" alt="Photo 5">
+        </div>
+
+        <div class="inter-text">
+            Capturing the silence that follows a panic attack, where the world feels distant and the fog begins to settle, turning every familiar space into an unknown territory.
+        </div>
+
+        <div class="img-block grande">
+            <img src="assets/images/6.jpg" alt="Photo 6">
+        </div>
+
+        <div class="img-block mediana">
+            <img src="assets/images/7.jpg" alt="Photo 7">
+        </div>
+
+        <div class="img-block vertical mediana">
+            <img src="assets/images/8.jpg" alt="Photo 8">
+        </div>
+
+        <div class="img-block grande">
+            <img src="assets/images/9.jpg" alt="Photo 9">
+        </div>
+
+        <div class="img-block vertical pequeña">
+            <img src="assets/images/10.jpg" alt="Photo 10">
+        </div>
+
+        <div class="inter-text">
+            In the absence of color, emotions speak louder. Each shadow represents a weight carried in silence, a part of the self that remains unseen by the casual observer.
+        </div>
+
+        <div class="img-block mediana">
+            <img src="assets/images/11.jpg" alt="Photo 11">
+        </div>
+
+        <div class="parallel-row">
+            <div class="img-block vertical">
+                <img src="assets/images/12.jpg" alt="Photo 12">
+            </div>
+            <div class="img-block">
+                <img src="assets/images/13.jpg" alt="Photo 13">
+            </div>
+        </div>
+
+        <div class="inter-text">
+            Acceptance is not a destination, but a slow walk through the dark. It is the moment we stop fighting the tide and start learning how to breathe underwater.
+        </div>
+
+        <div class="img-block mediana">
+            <img src="assets/images/14.jpg" alt="Photo 14">
+        </div>
+
+        <div class="img-block vertical grande">
+            <img src="assets/images/15.jpg" alt="Photo 15">
+        </div>
+
+        <div class="parallel-row">
+            <div class="img-block vertical">
+                <img src="assets/images/16.jpg" alt="Photo 16">
+            </div>
+            <div class="img-block">
+                <img src="assets/images/17.jpg" alt="Photo 17">
+            </div>
+        </div>
+
+        <div class="img-block vertical mediana">
+            <img src="assets/images/18.jpg" alt="Photo 18">
+        </div>
+
+        <div class="img-block vertical grande">
+            <img src="assets/images/19.jpg" alt="Photo 19">
+        </div>
+
+        <div class="img-block vertical pequeña">
+            <img src="assets/images/20.jpg" alt="Photo 20">
+        </div>
+
+        <div class="inter-text italic-quote">
+            "Sometimes, the bravest thing we can do is to acknowledge the shadows, for only then can we begin to see the light that has always been there."
+        </div>
+
+    </main>
+
+    <footer>
+        <div><b>PRESENTED BY:</b> LUCÍA ORTIZ</div>
+        <div><b>WORKS:</b> 2023–2026</div>
+        <div><b>EMAIL:</b> LUCIAAORTIIZ5@GMAIL.COM</div>
+    </footer>
+
+</body>
+</html>

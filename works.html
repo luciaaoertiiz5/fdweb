@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucía Ortiz – Works</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blanco: #ffffff;
+            --negro: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            color: var(--blanco);
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            background-image: url('assets/images/fondo-works.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: var(--negro); 
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ---------- NAV ---------- */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding-top: 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--blanco);
+            border: 1px solid var(--blanco);
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background-color: transparent;
+        }
+
+        nav a:hover {
+            background-color: var(--blanco);
+            color: var(--negro);
+        }
+
+        /* ---------- CONTENIDO PRINCIPAL ---------- */
+        .main-content {
+            display: flex;
+            height: calc(100vh - 100px);
+            width: 100%;
+            position: relative;
+            padding: 60px;
+        }
+
+        .back-arrow {
+            position: absolute;
+            left: 60px;
+            top: 50%;
+            transform: translateY(-50%);
+            text-decoration: none;
+            color: var(--blanco);
+            font-size: 40px;
+            transition: opacity 0.3s;
+        }
+
+        .back-arrow:hover { opacity: 0.6; }
+
+        .works-title {
+            position: absolute;
+            right: 80px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: baseline;
+            pointer-events: none;
+        }
+
+        .works-title span.letra-w {
+            font-family: 'Ballet', cursive;
+            font-size: 200px; 
+            line-height: 0.8;
+        }
+
+        .works-title span.resto-orks {
+            font-size: 110px; 
+            margin-left: 15px;
+            font-weight: normal;
+        }
+
+        .works-list {
+            position: absolute;
+            bottom: 60px;
+            left: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 20;
+        }
+
+        .works-list a {
+            text-decoration: none;
+            color: var(--blanco);
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: 300;
+            letter-spacing: 1px;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .works-list a:hover {
+            font-weight: bold;
+            padding-left: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="aboutme.html">About me</a>
+        <a href="works.html">Works</a>
+        <a href="contact.html">Contact</a>
+        <a href="cv.html">CV</a>
+    </nav>
+
+    <div class="main-content">
+        <a href="index.html" class="back-arrow">←</a>
+
+        <div class="works-list">
+            <a href="zipprevolution.html">ZIPP REVOLUTION</a>
+            <a href="fourseasons.html">4 SEASONS</a>
+            <a href="unseen.html">UNSEEN</a>
+            <a href="seo.html">SEO BIRDLIFE</a>
+            <a href="sabon.html">SABON</a>
+            <a href="principito.html">THE LITTLE PRINCE</a>
+        </div>
+
+        <div class="works-title">
+            <span class="letra-w">W</span>
+            <span class="resto-orks">orks</span>
+        </div>
+    </div>
+
+</body>
+</html>

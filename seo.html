@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO BirdLife – Lucía Ortiz</title>
+    <style>
+        :root {
+            --negro: #000000;
+            --gris-claro: #cccccc;
+            --blanco: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: var(--blanco);
+            color: var(--negro);
+            overflow: hidden; 
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ---------- COLUMNA IZQUIERDA (FIJA) ---------- */
+        .sidebar {
+            width: 40%;
+            height: 100vh;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 10;
+            background-color: var(--blanco);
+        }
+
+        .back-arrow {
+            text-decoration: none;
+            color: var(--negro);
+            font-size: 35px;
+            margin-bottom: 40px;
+            display: inline-block;
+        }
+
+        .works-nav {
+            margin-bottom: 40px;
+        }
+
+        .works-nav a {
+            display: block;
+            text-decoration: none;
+            color: var(--gris-claro);
+            font-size: 18px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            transition: color 0.3s;
+        }
+
+        .works-nav a:hover { color: var(--negro); }
+        .works-nav a.active { color: var(--negro); font-weight: bold; }
+
+        .description-text {
+            font-size: 15px;
+            line-height: 1.6;
+            text-align: justify;
+            color: var(--negro);
+            font-weight: 100; /* Thin */
+            letter-spacing: 0.3px;
+        }
+
+        /* ---------- BOTÓN PDF (ESQUINA SUPERIOR DERECHA FLOTANTE) ---------- */
+        .pdf-button {
+            position: fixed;
+            top: 60px; /* Alineado con el padding de la sidebar */
+            right: 60px;
+            z-index: 100; /* Por encima de todo */
+            padding: 10px 20px;
+            border: 1px solid var(--negro);
+            color: var(--negro);
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            font-weight: 100;
+            background-color: rgba(255, 255, 255, 0.5); /* Sutil transparencia */
+            backdrop-filter: blur(5px); /* Efecto cristal para no tapar bruscamente la imagen */
+        }
+
+        .pdf-button:hover {
+            background-color: var(--negro);
+            color: var(--blanco);
+        }
+
+        /* ---------- COLUMNA DERECHA (CARRUSEL DE IMÁGENES) ---------- */
+        .carousel-vertical {
+            width: 60%;
+            margin-left: 40%;
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scrollbar-width: none; 
+        }
+
+        .carousel-vertical::-webkit-scrollbar { display: none; } 
+
+        .carousel-item {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: start;
+            padding: 40px 60px;
+        }
+
+        .carousel-item img {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 30px 60px;
+            font-size: 11px;
+            background: rgba(255,255,255,0.9);
+            z-index: 5;
+        }
+
+    </style>
+</head>
+<body>
+
+    <a href="pdf.html" class="pdf-button">Brandbook PDF</a>
+
+    <aside class="sidebar">
+        <a href="works.html" class="back-arrow">←</a>
+        
+        <nav class="works-nav">
+            <a href="zipprevolution.html">ZIPP REVOLUTION</a>
+            <a href="fourseasons.html">4 SEASONS</a>
+            <a href="unseen.html">UNSEEN</a>
+            <a href="seo.html" class="active">SEO BIRDLIFE</a>
+            <a href="sabon.html">SABON</a>
+            <a href="principito.html">THE LITTLE PRINCE</a>
+        </nav>
+
+        <div class="description-text">
+            <p>This project focuses on the rebranding of SEO/BirdLife, a non-governmental organization dedicated to the protection of nature and biodiversity. The goal of this redesign was to bring light, clarity, and modernity to the brand, creating a more complete and contemporary visual identity while staying true to its core values.</p>
+            <br>
+            <p>The process began with a deep analysis of what SEO/BirdLife represents: environmental commitment, conservation, education, and respect for nature. From this foundation, the new visual identity was developed to better communicate its mission and strengthen its presence across different platforms.</p>
+            <br>
+            <p>The rebranding introduces a cleaner, more flexible, and modern visual system, designed to adapt to digital and print media. Color, typography, and graphic elements were carefully chosen to reflect nature, transparency, and accessibility, ensuring the brand feels approachable while remaining professional and trustworthy.</p>
+        </div>
+    </aside>
+
+    <main class="carousel-vertical">
+        <div class="carousel-item"><img src="assets/images/seo1.jpg" alt="SEO 1"></div>
+        <div class="carousel-item"><img src="assets/images/seo2.jpg" alt="SEO 2"></div>
+        <div class="carousel-item"><img src="assets/images/seo3.jpg" alt="SEO 3"></div>
+        <div class="carousel-item"><img src="assets/images/seo4.jpg" alt="SEO 4"></div>
+        <div class="carousel-item"><img src="assets/images/seo5.jpg" alt="SEO 5"></div>
+        <div class="carousel-item"><img src="assets/images/seo6.jpg" alt="SEO 6"></div>
+        <div class="carousel-item"><img src="assets/images/seo7.jpg" alt="SEO 7"></div>
+    </main>
+
+    <footer>
+        <div><b>PRESENTED BY:</b> LUCÍA ORTIZ</div>
+        <div><b>WORKS:</b> 2023–2026</div>
+        <div><b>EMAIL:</b> LUCIAAORTIIZ5@GMAIL.COM</div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Little Prince – Lucía Ortiz</title>
+    <style>
+        :root {
+            --negro: #000000;
+            --gris-claro: #cccccc;
+            --blanco: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: var(--blanco);
+            color: var(--negro);
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ---------- COLUMNA IZQUIERDA (FIJA SIN SCROLL) ---------- */
+        .sidebar {
+            width: 40%;
+            height: 100vh;
+            padding: 50px 60px; /* Reducido un poco el padding superior */
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            left: 0; top: 0;
+            z-index: 10;
+            background-color: var(--blanco);
+        }
+
+        .back-arrow {
+            text-decoration: none;
+            color: var(--negro);
+            font-size: 35px;
+            margin-bottom: 30px; /* Reducido */
+            display: inline-block;
+        }
+
+        .works-nav { margin-bottom: 30px; } /* Reducido */
+        .works-nav a {
+            display: block;
+            text-decoration: none;
+            color: var(--gris-claro);
+            font-size: 17px; /* Un punto menos para ganar espacio */
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            transition: color 0.3s;
+        }
+        .works-nav a:hover { color: var(--negro); }
+        .works-nav a.active { color: var(--negro); font-weight: bold; }
+
+        .description-text {
+            font-size: 14px; /* Un punto menos para que quepa todo el texto largo */
+            line-height: 1.5;
+            text-align: justify;
+            color: var(--negro);
+            font-weight: 100;
+            letter-spacing: 0.2px;
+        }
+
+        .description-text p {
+            margin-bottom: 15px; /* Control manual del espacio entre párrafos */
+        }
+
+        /* ---------- COLUMNA DERECHA (CARRUSEL) ---------- */
+        .carousel-vertical {
+            width: 60%;
+            margin-left: 40%;
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scrollbar-width: none;
+        }
+        .carousel-vertical::-webkit-scrollbar { display: none; }
+
+        .carousel-item {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: start;
+            padding: 40px 60px;
+        }
+
+        .carousel-item img {
+            max-width: 100%;
+            max-height: 75vh;
+            object-fit: contain;
+        }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            position: fixed;
+            bottom: 0; left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 30px 60px;
+            font-size: 11px;
+            background: transparent;
+            z-index: 2000;
+            pointer-events: none;
+        }
+        footer div { pointer-events: auto; }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <a href="works.html" class="back-arrow">←</a>
+        <nav class="works-nav">
+            <a href="zipprevolution.html">ZIPP REVOLUTION</a>
+            <a href="fourseasons.html">4 SEASONS</a>
+            <a href="unseen.html">UNSEEN</a>
+            <a href="seo.html">SEO BIRDLIFE</a>
+            <a href="sabon.html">SABON</a>
+            <a href="principito.html" class="active">THE LITTLE PRINCE</a>
+        </nav>
+        <div class="description-text">
+            <p>This project involved the design of a magazine inspired by the famous book The Little Prince, conceived as a graphic journey through its world. Through editorial design, we aimed to visually reinterpret the story, its characters, and the values it represents: imagination, friendship, innocence, and the importance of seeing beyond what is visible.</p>
+            
+            <p>The magazine was designed as a colorful, dynamic, and playful experience, reflecting the poetic and symbolic nature of the book. Each page was carefully crafted to guide the reader through the different worlds and emotions present in the story, combining illustration, color, and editorial composition.</p>
+            
+            <p>It was a group project, which allowed us to learn how to collaborate, share ideas, and unify different design approaches into a coherent final result. Additionally, this was our first time working with Adobe InDesign, marking the beginning of our exploration into the world of editorial design and opening the door to a new creative discipline.</p>
+            
+            <p>This project became more than a technical exercise; it was a creative and narrative experience where design served as a storytelling tool, paying tribute to the timeless universe of The Little Prince.</p>
+        </div>
+    </aside>
+
+    <main class="carousel-vertical">
+        <div class="carousel-item"><img src="assets/images/Fanzine el principito.png" alt="Prince 1"></div>
+        <div class="carousel-item"><img src="assets/images/mock up 1.png" alt="Prince 2"></div>
+        <div class="carousel-item"><img src="assets/images/Fanzine el principito13.png" alt="Prince 3"></div>
+        <div class="carousel-item"><img src="assets/images/mock up 2.png" alt="Prince 4"></div>
+        <div class="carousel-item"><img src="assets/images/Fanzine el principito22.png" alt="Prince 1"></div>
+        <div class="carousel-item"><img src="assets/images/mock up 3.png" alt="Prince 2"></div>
+        <div class="carousel-item"><img src="assets/images/Fanzine el principito9.png" alt="Prince 3"></div>
+        <div class="carousel-item"><img src="assets/images/mock up 4.png" alt="Prince 4"></div>
+    </main>
+
+    <footer>
+        <div><b>PRESENTED BY:</b> LUCÍA ORTIZ</div>
+        <div><b>WORKS:</b> 2023–2026</div>
+        <div><b>EMAIL:</b> LUCIAAORTIIZ5@GMAIL.COM</div>
+    </footer>
+
+</body>
+</html>
