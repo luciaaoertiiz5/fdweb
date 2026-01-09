@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucía Ortiz – Works</title>
+    
+    <link rel="icon" href="assets/images/android-chrome-192x192.png" type="image/png">
+
     <link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -20,9 +23,9 @@
         body {
             font-family: Helvetica, Arial, sans-serif;
             color: var(--blanco);
-            height: 100vh;
+            min-height: 100vh;
             width: 100vw;
-            overflow: hidden;
+            overflow-x: hidden;
             background-image: url('assets/images/fondo-works.jpg'); 
             background-size: cover;
             background-position: center;
@@ -36,9 +39,10 @@
             display: flex;
             justify-content: center;
             gap: 15px;
-            padding-top: 40px;
+            padding: 40px 15px 10px 15px;
             position: relative;
             z-index: 10;
+            flex-wrap: wrap; 
         }
 
         nav a {
@@ -60,28 +64,29 @@
         /* ---------- CONTENIDO PRINCIPAL ---------- */
         .main-content {
             display: flex;
-            height: calc(100vh - 100px);
+            min-height: calc(100vh - 100px);
             width: 100%;
             position: relative;
-            padding: 60px;
+            padding: 40px;
         }
 
         .back-arrow {
             position: absolute;
-            left: 60px;
+            left: 40px;
             top: 50%;
             transform: translateY(-50%);
             text-decoration: none;
             color: var(--blanco);
             font-size: 40px;
             transition: opacity 0.3s;
+            z-index: 30;
         }
 
         .back-arrow:hover { opacity: 0.6; }
 
         .works-title {
             position: absolute;
-            right: 80px;
+            right: 40px;
             top: 50%;
             transform: translateY(-50%);
             display: flex;
@@ -91,12 +96,12 @@
 
         .works-title span.letra-w {
             font-family: 'Ballet', cursive;
-            font-size: 200px; 
+            font-size: clamp(100px, 20vw, 200px); 
             line-height: 0.8;
         }
 
         .works-title span.resto-orks {
-            font-size: 110px; 
+            font-size: clamp(50px, 10vw, 110px); 
             margin-left: 15px;
             font-weight: normal;
         }
@@ -114,7 +119,7 @@
         .works-list a {
             text-decoration: none;
             color: var(--blanco);
-            font-size: 18px;
+            font-size: clamp(16px, 4vw, 18px); 
             text-transform: uppercase;
             font-weight: 300;
             letter-spacing: 1px;
@@ -127,6 +132,33 @@
             padding-left: 10px;
         }
 
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+            }
+            .works-title {
+                position: relative;
+                right: auto;
+                top: auto;
+                transform: none;
+                margin-bottom: 30px;
+            }
+            .works-list {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                text-align: center;
+                align-items: center;
+            }
+            .back-arrow {
+                top: 20px;
+                left: 20px;
+                transform: none;
+            }
+        }
     </style>
 </head>
 <body>

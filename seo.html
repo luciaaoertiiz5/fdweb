@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEO BirdLife – Lucía Ortiz</title>
+    
+    <link rel="icon" href="assets/images/android-chrome-192x192.png" type="image/png">
+
     <style>
         :root {
             --negro: #000000;
@@ -17,7 +20,7 @@
             font-family: Helvetica, Arial, sans-serif;
             background-color: var(--blanco);
             color: var(--negro);
-            overflow: hidden; 
+            overflow-x: hidden; 
             -webkit-font-smoothing: antialiased;
         }
 
@@ -51,7 +54,7 @@
             display: block;
             text-decoration: none;
             color: var(--gris-claro);
-            font-size: 18px;
+            font-size: clamp(14px, 1.5vw, 18px);
             text-transform: uppercase;
             margin-bottom: 5px;
             transition: color 0.3s;
@@ -65,16 +68,20 @@
             line-height: 1.6;
             text-align: justify;
             color: var(--negro);
-            font-weight: 100; /* Thin */
+            font-weight: 100;
             letter-spacing: 0.3px;
+            max-height: 40vh;
+            overflow-y: auto;
+            scrollbar-width: none;
         }
+        .description-text::-webkit-scrollbar { display: none; }
 
-        /* ---------- BOTÓN PDF (ESQUINA SUPERIOR DERECHA FLOTANTE) ---------- */
+        /* ---------- BOTÓN PDF ---------- */
         .pdf-button {
             position: fixed;
-            top: 60px; /* Alineado con el padding de la sidebar */
+            top: 60px;
             right: 60px;
-            z-index: 100; /* Por encima de todo */
+            z-index: 100;
             padding: 10px 20px;
             border: 1px solid var(--negro);
             color: var(--negro);
@@ -84,8 +91,8 @@
             text-transform: uppercase;
             transition: all 0.3s ease;
             font-weight: 100;
-            background-color: rgba(255, 255, 255, 0.5); /* Sutil transparencia */
-            backdrop-filter: blur(5px); /* Efecto cristal para no tapar bruscamente la imagen */
+            background-color: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
         }
 
         .pdf-button:hover {
@@ -93,7 +100,7 @@
             color: var(--blanco);
         }
 
-        /* ---------- COLUMNA DERECHA (CARRUSEL DE IMÁGENES) ---------- */
+        /* ---------- COLUMNA DERECHA ---------- */
         .carousel-vertical {
             width: 60%;
             margin-left: 40%;
@@ -129,17 +136,60 @@
             width: 100%;
             display: flex;
             justify-content: space-between;
-            padding: 30px 60px;
-            font-size: 11px;
+            padding: 20px 60px;
+            font-size: 10px;
             background: rgba(255,255,255,0.9);
             z-index: 5;
         }
 
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 900px) {
+            body { overflow-y: auto; }
+            
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 40px 20px;
+            }
+
+            .pdf-button {
+                position: relative;
+                top: 0;
+                right: 0;
+                display: inline-block;
+                margin-top: 20px;
+                text-align: center;
+                width: 100%;
+                background-color: var(--blanco);
+            }
+
+            .carousel-vertical {
+                width: 100%;
+                margin-left: 0;
+                height: auto;
+                overflow-y: visible;
+            }
+
+            .carousel-item {
+                height: auto;
+                min-height: 60vh;
+                padding: 20px;
+                scroll-snap-align: none;
+            }
+
+            footer {
+                position: relative;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                padding: 40px 20px;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
-
-    <a href="pdf.html" class="pdf-button">Brandbook PDF</a>
 
     <aside class="sidebar">
         <a href="works.html" class="back-arrow">←</a>
@@ -156,10 +206,10 @@
         <div class="description-text">
             <p>This project focuses on the rebranding of SEO/BirdLife, a non-governmental organization dedicated to the protection of nature and biodiversity. The goal of this redesign was to bring light, clarity, and modernity to the brand, creating a more complete and contemporary visual identity while staying true to its core values.</p>
             <br>
-            <p>The process began with a deep analysis of what SEO/BirdLife represents: environmental commitment, conservation, education, and respect for nature. From this foundation, the new visual identity was developed to better communicate its mission and strengthen its presence across different platforms.</p>
-            <br>
-            <p>The rebranding introduces a cleaner, more flexible, and modern visual system, designed to adapt to digital and print media. Color, typography, and graphic elements were carefully chosen to reflect nature, transparency, and accessibility, ensuring the brand feels approachable while remaining professional and trustworthy.</p>
+            <p>The rebranding introduces a cleaner, more flexible, and modern visual system, designed to adapt to digital and print media. Color, typography, and graphic elements were carefully chosen to reflect nature, transparency, and accessibility.</p>
         </div>
+
+        <a href="pdf.html" class="pdf-button">Brandbook PDF</a>
     </aside>
 
     <main class="carousel-vertical">

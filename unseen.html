@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unseen – Lucía Ortiz</title>
+    
+    <link rel="icon" href="assets/images/android-chrome-192x192.png" type="image/png">
+
     <style>
         :root {
             --negro: #000000;
@@ -17,10 +20,10 @@
             font-family: Helvetica, Arial, sans-serif;
             background-color: var(--blanco);
             color: var(--negro);
-            overflow: hidden; 
+            overflow-x: hidden; 
         }
 
-        /* ---------- COLUMNA IZQUIERDA FIJA ---------- */
+        /* ---------- SIDEBAR (Adaptado) ---------- */
         .sidebar {
             width: 40%;
             height: 100vh;
@@ -31,6 +34,7 @@
             left: 0;
             top: 0;
             z-index: 10;
+            background: var(--blanco);
         }
 
         .back-arrow {
@@ -49,27 +53,21 @@
             display: block;
             text-decoration: none;
             color: var(--gris-claro);
-            font-size: 18px;
+            font-size: clamp(14px, 1.5vw, 18px);
             text-transform: uppercase;
             margin-bottom: 5px;
             transition: color 0.3s;
         }
 
         .works-nav a:hover { color: var(--negro); }
-
-        /* Activo para Unseen */
-        .works-nav a.active {
-            color: var(--negro);
-            font-weight: bold;
-        }
+        .works-nav a.active { color: var(--negro); font-weight: bold; }
 
         .description-wrapper {
             max-width: 450px;
-            height: 50vh;
+            max-height: 40vh;
             overflow-y: auto;
             scrollbar-width: none;
         }
-
         .description-wrapper::-webkit-scrollbar { display: none; }
 
         .description-text {
@@ -79,7 +77,7 @@
             color: var(--negro);
         }
 
-        /* ---------- COLUMNA DERECHA: IMÁGENES AMONTONADAS ---------- */
+        /* ---------- STACK (Adaptado) ---------- */
         .stack-container {
             width: 60%;
             margin-left: 40%;
@@ -92,8 +90,9 @@
 
         .image-stack {
             position: relative;
-            width: 400px;
-            height: 500px;
+            width: clamp(250px, 30vw, 400px);
+            height: clamp(320px, 40vw, 500px);
+            cursor: pointer;
         }
 
         .stack-item {
@@ -103,25 +102,21 @@
             object-fit: cover;
             border: 1px solid rgba(0,0,0,0.1);
             transition: transform 0.4s ease, z-index 0s;
-            cursor: pointer;
             background-color: white;
         }
 
-        /* Posiciones iniciales amontonadas */
         .stack-item:nth-child(1) { transform: rotate(-5deg) translate(-20px, -10px); z-index: 1; }
         .stack-item:nth-child(2) { transform: rotate(3deg) translate(15px, 5px); z-index: 2; }
         .stack-item:nth-child(3) { transform: rotate(-2deg) translate(5px, -15px); z-index: 3; }
         .stack-item:nth-child(4) { transform: rotate(6deg) translate(-10px, 10px); z-index: 4; }
         .stack-item:nth-child(5) { transform: rotate(0deg); z-index: 5; }
 
-        /* Efecto al poner el cursor */
         .stack-item:hover {
             transform: scale(1.05) rotate(0deg) !important;
             z-index: 100;
             box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
 
-        /* ---------- FOOTER ---------- */
         footer {
             position: fixed;
             bottom: 0;
@@ -129,18 +124,23 @@
             width: 100%;
             display: flex;
             justify-content: space-between;
-            padding: 30px 60px;
-            font-size: 11px;
+            padding: 20px 60px;
+            font-size: 10px;
             background: rgba(255,255,255,0.8);
             z-index: 10;
+        }
+
+        /* RESPONSIVE MÓVIL */
+        @media (max-width: 900px) {
+            .sidebar { position: relative; width: 100%; height: auto; padding: 40px 20px; }
+            .stack-container { width: 100%; margin-left: 0; height: 60vh; }
+            footer { position: relative; flex-direction: column; text-align: center; gap: 10px; padding: 40px 20px; }
         }
     </style>
 </head>
 <body>
-
     <aside class="sidebar">
         <a href="works.html" class="back-arrow">←</a>
-        
         <nav class="works-nav">
             <a href="zipprevolution.html">ZIPP REVOLUTION</a>
             <a href="fourseasons.html">4 SEASONS</a>
@@ -149,14 +149,11 @@
             <a href="sabon.html">SABON</a>
             <a href="principito.html">THE LITTLE PRINCE</a>
         </nav>
-
         <div class="description-wrapper">
             <div class="description-text">
                 <p>Unseen is a deeply personal photography project inspired by my experiences with depression and anxiety. Through this work, I wanted to explore and visually express the emotional journey of facing what is often invisible to others.</p>
                 <br>
-                <p>The series is mostly in black and white, reflecting the intensity and depth of these emotions. Cold, foggy landscapes create a sense of isolation, while the central figure moves through different emotional stages: acceptance, anger, sadness, and self-reflection.</p>
-                <br>
-                <p>Each image was carefully captured and edited to convey mood, texture, and emotion, allowing the viewer to experience these intimate moments. Unseen is both a personal exploration and a visual narrative of resilience, vulnerability, and the search for light in the shadows.</p>
+                <p>The series is mostly in black and white, reflecting the intensity and depth of these emotions. Cold, foggy landscapes create a sense of isolation, while the central figure moves through different emotional stages.</p>
             </div>
         </div>
     </aside>
@@ -176,6 +173,5 @@
         <div><b>WORKS:</b> 2023–2026</div>
         <div><b>EMAIL:</b> LUCIAAORTIIZ5@GMAIL.COM</div>
     </footer>
-
 </body>
 </html>

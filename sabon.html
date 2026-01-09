@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sabon – Lucía Ortiz</title>
+    
+    <link rel="icon" href="assets/images/android-chrome-192x192.png" type="image/png">
+
     <style>
         :root {
             --negro: #000000;
@@ -17,7 +20,7 @@
             font-family: Helvetica, Arial, sans-serif;
             background-color: var(--blanco);
             color: var(--negro);
-            overflow: hidden; 
+            overflow-x: hidden; 
             -webkit-font-smoothing: antialiased;
         }
 
@@ -46,7 +49,7 @@
             display: block;
             text-decoration: none;
             color: var(--gris-claro);
-            font-size: 18px;
+            font-size: clamp(14px, 1.5vw, 18px);
             text-transform: uppercase;
             margin-bottom: 5px;
             transition: color 0.3s;
@@ -95,17 +98,22 @@
             width: 100%;
             display: flex;
             justify-content: space-between;
-            padding: 30px 60px;
-            font-size: 11px;
-            background: transparent;
+            padding: 20px 60px;
+            font-size: 10px;
+            background: rgba(255,255,255,0.8);
             z-index: 2000;
-            pointer-events: none;
         }
-        footer div { pointer-events: auto; }
+
+        @media (max-width: 900px) {
+            body { overflow-y: auto; }
+            .sidebar { position: relative; width: 100%; height: auto; padding: 40px 20px; }
+            .carousel-vertical { width: 100%; margin-left: 0; height: auto; overflow-y: visible; }
+            .carousel-item { height: auto; min-height: 60vh; padding: 20px; scroll-snap-align: none; }
+            footer { position: relative; flex-direction: column; align-items: center; gap: 10px; padding: 40px 20px; }
+        }
     </style>
 </head>
 <body>
-
     <aside class="sidebar">
         <a href="works.html" class="back-arrow">←</a>
         <nav class="works-nav">
@@ -132,6 +140,5 @@
         <div><b>WORKS:</b> 2023–2026</div>
         <div><b>EMAIL:</b> LUCIAAORTIIZ5@GMAIL.COM</div>
     </footer>
-
 </body>
 </html>
