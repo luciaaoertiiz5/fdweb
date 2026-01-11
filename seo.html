@@ -44,7 +44,9 @@
             font-size: 35px;
             margin-bottom: 40px;
             display: inline-block;
+            transition: opacity 0.3s;
         }
+        .back-arrow:hover { opacity: 0.5; }
 
         .works-nav {
             margin-bottom: 40px;
@@ -78,10 +80,9 @@
 
         /* ---------- BOTÓN PDF ---------- */
         .pdf-button {
-            position: fixed;
-            top: 60px;
-            right: 60px;
-            z-index: 100;
+            margin-top: 30px;
+            display: inline-block;
+            width: fit-content;
             padding: 10px 20px;
             border: 1px solid var(--negro);
             color: var(--negro);
@@ -91,8 +92,6 @@
             text-transform: uppercase;
             transition: all 0.3s ease;
             font-weight: 100;
-            background-color: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(5px);
         }
 
         .pdf-button:hover {
@@ -109,7 +108,6 @@
             scroll-snap-type: y mandatory;
             scrollbar-width: none; 
         }
-
         .carousel-vertical::-webkit-scrollbar { display: none; } 
 
         .carousel-item {
@@ -124,11 +122,11 @@
 
         .carousel-item img {
             max-width: 100%;
-            max-height: 80vh;
+            max-height: 75vh; /* Ajustado para dejar espacio al footer */
             object-fit: contain;
         }
 
-        /* ---------- FOOTER ---------- */
+        /* ---------- FOOTER (ARREGLADO) ---------- */
         footer {
             position: fixed;
             bottom: 0;
@@ -138,54 +136,27 @@
             justify-content: space-between;
             padding: 20px 60px;
             font-size: 10px;
-            background: rgba(255,255,255,0.9);
-            z-index: 5;
+            background: rgba(255,255,255,0.95); /* Más opaco para asegurar visibilidad */
+            z-index: 2000; /* Z-INDEX ALTO para que esté por encima de todo */
+            letter-spacing: 0.5px;
         }
 
         /* ---------- RESPONSIVE ---------- */
         @media (max-width: 900px) {
             body { overflow-y: auto; }
-            
-            .sidebar {
-                position: relative;
-                width: 100%;
-                height: auto;
-                padding: 40px 20px;
-            }
-
-            .pdf-button {
-                position: relative;
-                top: 0;
-                right: 0;
-                display: inline-block;
-                margin-top: 20px;
+            .sidebar { position: relative; width: 100%; height: auto; padding: 40px 20px; }
+            .carousel-vertical { width: 100%; margin-left: 0; height: auto; overflow-y: visible; }
+            .carousel-item { height: auto; min-height: 60vh; padding: 40px 20px; scroll-snap-align: none; }
+            footer { 
+                position: relative; 
+                flex-direction: column; 
+                align-items: center; 
+                gap: 10px; 
+                padding: 40px 20px; 
                 text-align: center;
-                width: 100%;
-                background-color: var(--blanco);
+                background: var(--blanco);
             }
-
-            .carousel-vertical {
-                width: 100%;
-                margin-left: 0;
-                height: auto;
-                overflow-y: visible;
-            }
-
-            .carousel-item {
-                height: auto;
-                min-height: 60vh;
-                padding: 20px;
-                scroll-snap-align: none;
-            }
-
-            footer {
-                position: relative;
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-                padding: 40px 20px;
-                text-align: center;
-            }
+            .pdf-button { width: 100%; text-align: center; }
         }
     </style>
 </head>
@@ -195,6 +166,7 @@
         <a href="works.html" class="back-arrow">←</a>
         
         <nav class="works-nav">
+            <a href="luz.html">LUZ</a>
             <a href="zipprevolution.html">ZIPP REVOLUTION</a>
             <a href="fourseasons.html">4 SEASONS</a>
             <a href="unseen.html">UNSEEN</a>
@@ -225,6 +197,7 @@
     <footer>
         <div><b>PRESENTED BY:</b> LUCÍA ORTIZ</div>
         <div><b>WORKS:</b> 2023–2026</div>
+        <div><b>PROJECT:</b> SEO BIRDLIFE</div>
         <div><b>EMAIL:</b> LUCIAAORTIIZ5@GMAIL.COM</div>
     </footer>
 

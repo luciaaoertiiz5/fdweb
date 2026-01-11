@@ -46,7 +46,6 @@
             display: inline-block;
             transition: opacity 0.3s;
         }
-
         .back-arrow:hover { opacity: 0.5; }
 
         .works-nav {
@@ -88,7 +87,6 @@
             scroll-snap-type: y mandatory;
             scrollbar-width: none; 
         }
-
         .carousel-vertical::-webkit-scrollbar { display: none; } 
 
         .carousel-item {
@@ -107,7 +105,7 @@
             object-fit: contain;
         }
 
-        /* ---------- FOOTER ---------- */
+        /* ---------- FOOTER (Unificado) ---------- */
         footer {
             position: fixed;
             bottom: 0;
@@ -115,45 +113,20 @@
             width: 100%;
             display: flex;
             justify-content: space-between;
-            padding: 30px 60px;
-            font-size: 11px;
-            background: rgba(255,255,255,0.8);
+            padding: 20px 60px;
+            font-size: 10px;
+            background: rgba(255,255,255,0.9);
             z-index: 2000;
+            letter-spacing: 0.5px;
         }
 
         /* ---------- RESPONSIVE ---------- */
         @media (max-width: 900px) {
             body { overflow-y: auto; }
-            
-            .sidebar {
-                position: relative;
-                width: 100%;
-                height: auto;
-                padding: 40px 20px;
-            }
-
-            .carousel-vertical {
-                width: 100%;
-                margin-left: 0;
-                height: auto;
-                overflow-y: visible;
-            }
-
-            .carousel-item {
-                height: auto;
-                min-height: 60vh;
-                padding: 20px;
-                scroll-snap-align: none;
-            }
-
-            footer {
-                position: relative;
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-                padding: 40px 20px;
-                text-align: center;
-            }
+            .sidebar { position: relative; width: 100%; height: auto; padding: 40px 20px; }
+            .carousel-vertical { width: 100%; margin-left: 0; height: auto; overflow-y: visible; }
+            .carousel-item { height: auto; min-height: 60vh; padding: 40px 20px; scroll-snap-align: none; }
+            footer { position: relative; flex-direction: column; align-items: center; gap: 10px; padding: 40px 20px; text-align: center; }
         }
 
     </style>
@@ -164,6 +137,7 @@
         <a href="works.html" class="back-arrow">←</a>
         
         <nav class="works-nav">
+            <a href="luz.html">LUZ</a>
             <a href="zipprevolution.html">ZIPP REVOLUTION</a>
             <a href="fourseasons.html" class="active">4 SEASONS</a>
             <a href="unseen.html">UNSEEN</a>
@@ -193,6 +167,7 @@
     <footer>
         <div><b>PRESENTED BY:</b> LUCÍA ORTIZ</div>
         <div><b>WORKS:</b> 2023–2026</div>
+        <div><b>PROJECT:</b> 4 SEASONS</div>
         <div><b>EMAIL:</b> LUCIAAORTIIZ5@GMAIL.COM</div>
     </footer>
 
