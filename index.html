@@ -2,7 +2,7 @@
 <html lang="es"> 
 <head> 
 <meta charset="UTF-8"> 
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
 <title>Lucía Ortiz – Portfolio</title> 
 
 <link rel="icon" href="assets/images/android-chrome-192x192.png" type="image/png">
@@ -14,26 +14,35 @@
     --crema: #FFF9F4; 
 } 
 
+/* 1. RESET PARA EVITAR DIFERENCIAS ENTRE NAVEGADORES */
 * { margin: 0; padding: 0; box-sizing: border-box; } 
+
+html, body {
+    width: 100%;
+    height: 100%; /* Importante para que el footer no se escape */
+    background-color: white; 
+    color: var(--granate); 
+    overflow: hidden; /* Evita el scroll doble en Windows */
+}
 
 body { 
     font-family: Helvetica, Arial, sans-serif; 
-    background-color: white; 
-    color: var(--granate); 
-    min-height: 100vh; 
     display: flex; 
     flex-direction: column; 
-    overflow-x: hidden; 
-    -webkit-font-smoothing: antialiased; 
+    justify-content: space-between; 
+    -webkit-font-smoothing: antialiased; /* Suavizado para Mac */
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility; /* Mejora la fuente en Windows */
 } 
 
+/* 2. NAVEGACIÓN (RESPONSIVE) */
 nav { 
+    flex-shrink: 0;
     display: flex; 
     justify-content: center; 
-    gap: 15px; 
-    padding: 40px 20px; 
-    z-index: 10; 
-    flex-wrap: wrap; 
+    gap: clamp(10px, 2vw, 20px); 
+    padding: 30px 15px; 
+    flex-wrap: wrap;
 } 
 
 nav a { 
@@ -41,20 +50,20 @@ nav a {
     color: var(--granate); 
     border: 1px solid var(--granate); 
     background-color: var(--crema); 
-    padding: 8px 20px; 
+    padding: 6px 16px; 
     border-radius: 50px; 
-    font-size: 13px; 
-    transition: all 0.3s ease; 
-} 
+    font-size: 11px; 
+    text-transform: uppercase;
+    transition: 0.3s;
+}
 
-nav a:hover { background-color: var(--granate); color: var(--crema); } 
-
+/* 3. HERO (Ajuste de la P para Windows) */
 .hero { 
-    flex: 1; 
+    flex-grow: 1; 
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    padding: 60px 20px; /* Más espacio para que no se achate */
+    padding: 10px;
 } 
 
 .hero-container { 
@@ -65,79 +74,80 @@ nav a:hover { background-color: var(--granate); color: var(--crema); }
 } 
 
 .graphic-designer-tag { 
-    font-size: clamp(14px, 3vw, 18px); 
-    align-self: flex-end; /* Lo mueve a la derecha sin pisar el título */
-    margin-bottom: -10px; 
-    margin-right: 10px;
+    font-size: clamp(12px, 2vw, 16px);
+    position: absolute;
+    top: -15px;
+    right: 5px;
+    font-weight: 300; 
 } 
 
 .portfolio-title { 
     display: flex; 
     align-items: baseline; 
-    line-height: 0.8; 
 } 
 
 .portfolio-title span { 
     font-family: 'Ballet', cursive; 
-    font-size: clamp(80px, 18vw, 160px); 
+    font-size: clamp(80px, 16vw, 140px); 
+    line-height: 0.75; 
+    font-weight: normal; /* Para que no se engorde en Windows */
 } 
 
 .portfolio-text { 
-    font-size: clamp(40px, 10vw, 90px); 
+    font-size: clamp(40px, 9vw, 85px); 
     margin-left: 10px; 
     letter-spacing: -2px; 
-    text-transform: lowercase;
 } 
 
+/* 4. CARRUSEL (Optimizado para que quepa en Windows) */
 .carousel-container { 
+    flex-shrink: 0;
     width: 100%; 
     overflow: hidden; 
-    padding-bottom: 50px;
+    padding-bottom: clamp(20px, 5vh, 40px);
 } 
 
 .carousel-track { 
     display: flex; 
-    gap: 30px; 
+    gap: 20px; 
     width: max-content; 
     animation: scroll 40s linear infinite; 
 } 
 
 .instax { 
-    width: 220px; 
-    height: 280px; 
+    width: clamp(150px, 20vw, 180px); /* Tamaño flexible */
+    aspect-ratio: 3/4;
     background-color: #fff; 
-    padding: 15px 15px 45px 15px; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+    padding: 10px 10px 30px 10px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
     border: 1px solid #eee;
 } 
 
-.instax .photo { 
-    width: 100%; 
-    height: 100%; 
-    overflow: hidden; 
-} 
-
-.instax .photo img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-} 
+.instax .photo { width: 100%; height: 100%; overflow: hidden; }
+.instax .photo img { width: 100%; height: 100%; object-fit: cover; } 
 
 @keyframes scroll { 
     0% { transform: translateX(0); } 
-    100% { transform: translateX(calc(-220px * 6 - 30px * 6)); } 
+    100% { transform: translateX(calc(-180px * 6 - 20px * 6)); } 
 } 
 
+/* 5. FOOTER (Siempre visible) */
 footer { 
+    flex-shrink: 0;
     display: flex; 
     justify-content: space-between; 
-    padding: 20px 40px; 
-    font-size: 10px; 
-    letter-spacing: 1px;
+    padding: 15px 40px; 
+    font-size: clamp(8px, 1vw, 10px); 
+    font-weight: bold;
+    border-top: 1px solid rgba(95, 6, 15, 0.1);
 } 
 
-@media (max-width: 600px) {
-    footer { flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+/* RESPONSIVE MÓVIL Y TABLET */
+@media (max-width: 768px) {
+    body { overflow-y: auto; height: auto; }
+    .hero { padding: 60px 0; }
+    footer { flex-direction: column; align-items: center; gap: 10px; padding-bottom: 30px; }
+    .carousel-container { padding-bottom: 40px; }
 }
 </style> 
 </head> 
@@ -163,25 +173,25 @@ footer {
 
 <div class="carousel-container"> 
     <div class="carousel-track"> 
-        <div class="instax"><div class="photo"><img src="assets/images/lee.JPG" alt="Work 1"></div></div> 
-        <div class="instax"><div class="photo"><img src="assets/images/luz.JPG" alt="Work 2"></div></div> 
-        <div class="instax"><div class="photo"><img src="assets/images/perfil.JPG" alt="Work 3"></div></div> 
-        <div class="instax"><div class="photo"><img src="assets/images/teatro.JPG" alt="Work 4"></div></div> 
-        <div class="instax"><div class="photo"><img src="assets/images/puerta.JPG" alt="Work 5"></div></div> 
-        <div class="instax"><div class="photo"><img src="assets/images/flor.JPG" alt="Work 6"></div></div> 
-        <div class="instax"><div class="photo"><img src="assets/images/lee.JPG" alt="Work 1"></div></div> 
-        <div class="instax"><div class="photo"><img src="assets/images/luz.JPG" alt="Work 2"></div></div> 
-        <div class="instax"><div class="photo"><img src="assets/images/perfil.JPG" alt="Work 3"></div></div> 
-        <div class="instax"><div class="photo"><img src="assets/images/teatro.JPG" alt="Work 4"></div></div> 
-        <div class="instax"><div class="photo"><img src="assets/images/puerta.JPG" alt="Work 5"></div></div> 
-        <div class="instax"><div class="photo"><img src="assets/images/flor.JPG" alt="Work 6"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/lee.JPG" alt="Work 1"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/luz.JPG" alt="Work 2"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/perfil.JPG" alt="Work 3"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/teatro.JPG" alt="Work 4"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/puerta.JPG" alt="Work 5"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/flor.JPG" alt="Work 6"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/lee.JPG" alt="Work 1"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/luz.JPG" alt="Work 2"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/perfil.JPG" alt="Work 3"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/teatro.JPG" alt="Work 4"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/puerta.JPG" alt="Work 5"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/flor.JPG" alt="Work 6"></div></div> 
     </div> 
 </div> 
 
 <footer> 
-    <div><strong>PRESENTED BY:</strong> LUCÍA ORTIZ</div> 
-    <div><strong>WORKS:</strong> 2023–2026</div> 
-    <div><strong>EMAIL:</strong> LUCIAAORTIIZ5@GMAIL.COM</div> 
+    <div>PRESENTED BY: LUCÍA ORTIZ</div> 
+    <div>WORKS: 2023–2026</div> 
+    <div>EMAIL: LUCIAAORTIIZ5@GMAIL.COM</div> 
 </footer> 
 
 </body> 
