@@ -14,15 +14,14 @@
     --crema: #FFF9F4; 
 } 
 
-/* 1. RESET PARA EVITAR DIFERENCIAS ENTRE NAVEGADORES */
 * { margin: 0; padding: 0; box-sizing: border-box; } 
 
 html, body {
     width: 100%;
-    height: 100%; /* Importante para que el footer no se escape */
+    height: 100%;
     background-color: white; 
     color: var(--granate); 
-    overflow: hidden; /* Evita el scroll doble en Windows */
+    overflow: hidden; 
 }
 
 body { 
@@ -30,12 +29,12 @@ body {
     display: flex; 
     flex-direction: column; 
     justify-content: space-between; 
-    -webkit-font-smoothing: antialiased; /* Suavizado para Mac */
+    -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility; /* Mejora la fuente en Windows */
+    text-rendering: optimizeLegibility;
 } 
 
-/* 2. NAVEGACIÓN (RESPONSIVE) */
+/* 1. NAVEGACIÓN (Corregido: No forzar mayúsculas) */
 nav { 
     flex-shrink: 0;
     display: flex; 
@@ -52,12 +51,12 @@ nav a {
     background-color: var(--crema); 
     padding: 6px 16px; 
     border-radius: 50px; 
-    font-size: 11px; 
-    text-transform: uppercase;
+    font-size: 13px; 
+    /* Quitamos el uppercase para que respete tu texto */
     transition: 0.3s;
 }
 
-/* 3. HERO (Ajuste de la P para Windows) */
+/* 2. HERO (Ajuste de la P para Windows) */
 .hero { 
     flex-grow: 1; 
     display: flex; 
@@ -90,7 +89,7 @@ nav a {
     font-family: 'Ballet', cursive; 
     font-size: clamp(80px, 16vw, 140px); 
     line-height: 0.75; 
-    font-weight: normal; /* Para que no se engorde en Windows */
+    font-weight: normal; 
 } 
 
 .portfolio-text { 
@@ -99,7 +98,7 @@ nav a {
     letter-spacing: -2px; 
 } 
 
-/* 4. CARRUSEL (Optimizado para que quepa en Windows) */
+/* 3. CARRUSEL */
 .carousel-container { 
     flex-shrink: 0;
     width: 100%; 
@@ -115,7 +114,7 @@ nav a {
 } 
 
 .instax { 
-    width: clamp(150px, 20vw, 180px); /* Tamaño flexible */
+    width: clamp(150px, 20vw, 180px); 
     aspect-ratio: 3/4;
     background-color: #fff; 
     padding: 10px 10px 30px 10px; 
@@ -131,23 +130,23 @@ nav a {
     100% { transform: translateX(calc(-180px * 6 - 20px * 6)); } 
 } 
 
-/* 5. FOOTER (Siempre visible) */
+/* 4. FOOTER (Corregido: Negritas y Normal según tu petición) */
 footer { 
     flex-shrink: 0;
     display: flex; 
     justify-content: space-between; 
     padding: 15px 40px; 
-    font-size: clamp(8px, 1vw, 10px); 
-    font-weight: bold;
+    font-size: clamp(9px, 1vw, 11px); 
     border-top: 1px solid rgba(95, 6, 15, 0.1);
 } 
 
-/* RESPONSIVE MÓVIL Y TABLET */
+footer div { font-weight: normal; } /* Por defecto normal */
+footer strong { font-weight: bold; text-transform: uppercase; } /* Solo etiquetas en negrita */
+
 @media (max-width: 768px) {
     body { overflow-y: auto; height: auto; }
     .hero { padding: 60px 0; }
     footer { flex-direction: column; align-items: center; gap: 10px; padding-bottom: 30px; }
-    .carousel-container { padding-bottom: 40px; }
 }
 </style> 
 </head> 
@@ -163,7 +162,7 @@ footer {
 
 <section class="hero"> 
     <div class="hero-container"> 
-        <p class="graphic-designer-tag">Graphic designer</p> 
+        <p class="graphic-designer-tag">graphic designer</p> 
         <h1 class="portfolio-title"> 
             <span>P</span> 
             <div class="portfolio-text">ortfolio</div> 
@@ -189,9 +188,9 @@ footer {
 </div> 
 
 <footer> 
-    <div>PRESENTED BY: LUCÍA ORTIZ</div> 
-    <div>WORKS: 2023–2026</div> 
-    <div>EMAIL: LUCIAAORTIIZ5@GMAIL.COM</div> 
+    <div><strong>PRESENTED BY:</strong> Lucía Ortiz</div> 
+    <div><strong>WORKS:</strong> 2023–2026</div> 
+    <div><strong>EMAIL:</strong> luciaaortiiz5@gmail.com</div> 
 </footer> 
 
 </body> 
