@@ -1,230 +1,187 @@
 <!DOCTYPE html> 
-<html lang="en"> 
+<html lang="es"> 
 <head> 
 <meta charset="UTF-8"> 
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 <title>Lucía Ortiz – Portfolio</title> 
 
 <link rel="icon" href="assets/images/android-chrome-192x192.png" type="image/png">
-
 <link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap" rel="stylesheet"> 
 
 <style> 
 :root { 
---granate: #5F060F; 
---crema: #FFF9F4; 
+    --granate: #5F060F; 
+    --crema: #FFF9F4; 
 } 
 
-/* ---------- RESET ---------- */ 
-* { 
-margin: 0; 
-padding: 0; 
-box-sizing: border-box; 
-} 
+* { margin: 0; padding: 0; box-sizing: border-box; } 
 
 body { 
-font-family: Helvetica, Arial, sans-serif; 
-background-color: white; 
-color: var(--granate); 
-min-height: 100vh; /* Cambiado a min-height para que no se corte en móvil */
-display: flex; 
-flex-direction: column; 
-justify-content: space-between; 
-overflow-x: hidden; /* Evita que el carrusel ensanche la pantalla */
--webkit-font-smoothing: antialiased; 
+    font-family: Helvetica, Arial, sans-serif; 
+    background-color: white; 
+    color: var(--granate); 
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    overflow-x: hidden; 
+    -webkit-font-smoothing: antialiased; 
 } 
 
-/* ---------- NAV (Adaptado para que no se amontone) ---------- */ 
 nav { 
-display: flex; 
-justify-content: center; 
-gap: 20px; 
-padding: 50px 10px 10px 10px; 
-z-index: 10; 
-flex-wrap: wrap; /* Permite que los botones bajen si no caben */
+    display: flex; 
+    justify-content: center; 
+    gap: 15px; 
+    padding: 40px 20px; 
+    z-index: 10; 
+    flex-wrap: wrap; 
 } 
 
 nav a { 
-text-decoration: none; 
-color: var(--granate); 
-border: 1px solid var(--granate); 
-background-color: var(--crema); 
-padding: 8px 20px; 
-border-radius: 50px; 
-font-size: 13px; 
-transition: all 0.3s ease; 
+    text-decoration: none; 
+    color: var(--granate); 
+    border: 1px solid var(--granate); 
+    background-color: var(--crema); 
+    padding: 8px 20px; 
+    border-radius: 50px; 
+    font-size: 13px; 
+    transition: all 0.3s ease; 
 } 
 
-nav a:hover { 
-background-color: var(--granate); 
-color: var(--crema); 
-} 
+nav a:hover { background-color: var(--granate); color: var(--crema); } 
 
-/* ---------- HERO (Con tamaños que se ajustan solos) ---------- */ 
 .hero { 
-flex: 1; 
-display: flex; 
-justify-content: center; 
-align-items: center; 
-z-index: 5; 
-padding: 20px;
+    flex: 1; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 60px 20px; /* Más espacio para que no se achate */
 } 
 
 .hero-container { 
-position: relative; 
-display: inline-block; 
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 } 
 
 .graphic-designer-tag { 
-font-size: clamp(14px, 4vw, 20px); /* Tamaño fluido: se hace pequeño en móvil */
-position: absolute; 
-top: 5px; 
-right: 0; 
-font-weight: normal; 
+    font-size: clamp(14px, 3vw, 18px); 
+    align-self: flex-end; /* Lo mueve a la derecha sin pisar el título */
+    margin-bottom: -10px; 
+    margin-right: 10px;
 } 
 
 .portfolio-title { 
-display: flex; 
-align-items: baseline; 
-line-height: 1; 
+    display: flex; 
+    align-items: baseline; 
+    line-height: 0.8; 
 } 
 
 .portfolio-title span { 
-font-family: 'Ballet', cursive; 
-font-size: clamp(60px, 15vw, 130px); /* Tamaño fluido */
-font-weight: normal; 
+    font-family: 'Ballet', cursive; 
+    font-size: clamp(80px, 18vw, 160px); 
 } 
 
 .portfolio-text { 
-font-size: clamp(40px, 10vw, 80px); /* Tamaño fluido */
-margin-left: 20px; 
-letter-spacing: -1px; 
+    font-size: clamp(40px, 10vw, 90px); 
+    margin-left: 10px; 
+    letter-spacing: -2px; 
+    text-transform: lowercase;
 } 
 
-/* ---------- CARRUSEL (Tus medidas originales) ---------- */ 
 .carousel-container { 
-width: 100%; 
-overflow: hidden; 
-position: relative; 
-top: -60px; 
-z-index: 1; 
+    width: 100%; 
+    overflow: hidden; 
+    padding-bottom: 50px;
 } 
 
 .carousel-track { 
-display: flex; 
-gap: 30px; 
-width: max-content; 
-animation: scroll 40s linear infinite; 
-} 
-
-.carousel-track:hover { 
-animation-play-state: paused; 
+    display: flex; 
+    gap: 30px; 
+    width: max-content; 
+    animation: scroll 40s linear infinite; 
 } 
 
 .instax { 
-width: 220px; /* TUS MEDIDAS ORIGINALES */
-height: 280px; /* TUS MEDIDAS ORIGINALES */
-border: 1px solid #e0e0e0; 
-border-radius: 2px; 
-background-color: #fff; 
-padding: 15px 15px 45px 15px; 
-flex-shrink: 0; 
-box-shadow: 0 4px 12px rgba(0,0,0,0.06); 
-transition: transform 0.3s ease; 
-} 
-
-.instax:hover { 
-transform: translateY(-10px) rotate(2deg); 
+    width: 220px; 
+    height: 280px; 
+    background-color: #fff; 
+    padding: 15px 15px 45px 15px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+    border: 1px solid #eee;
 } 
 
 .instax .photo { 
-width: 100%; 
-height: 100%; 
-background-color: #f9f9f9; 
-border: 1px solid #eee; 
-overflow: hidden; 
-display: flex; 
-justify-content: center; 
-align-items: center; 
+    width: 100%; 
+    height: 100%; 
+    overflow: hidden; 
 } 
 
 .instax .photo img { 
-width: 100%; 
-height: 100%; 
-object-fit: cover; 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
 } 
 
 @keyframes scroll { 
-0% { transform: translateX(0); } 
-100% { transform: translateX(calc(-220px * 6 - 30px * 6)); } 
+    0% { transform: translateX(0); } 
+    100% { transform: translateX(calc(-220px * 6 - 30px * 6)); } 
 } 
 
-/* ---------- FOOTER (Adaptado para móvil) ---------- */ 
 footer { 
-display: flex; 
-justify-content: space-between; 
-padding: 10px 40px 40px 40px; 
-font-size: 11px; 
-flex-wrap: wrap; /* Para que no se corte en el móvil */
-gap: 10px;
+    display: flex; 
+    justify-content: space-between; 
+    padding: 20px 40px; 
+    font-size: 10px; 
+    letter-spacing: 1px;
 } 
 
-.bold-text { font-weight: bold; text-transform: uppercase; } 
-.regular-text { font-weight: normal; } 
-
-/* REGLA FINAL: Si la pantalla es muy pequeña, el footer se centra */
 @media (max-width: 600px) {
-  footer {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+    footer { flex-direction: column; align-items: center; gap: 10px; text-align: center; }
 }
-
 </style> 
 </head> 
 <body> 
 
 <nav> 
-<a href="index.html">Home</a> 
-<a href="aboutme.html">About me</a> 
-<a href="works.html">Works</a> 
-<a href="contact.html">Contact</a> 
-<a href="cv.html">CV</a> 
+    <a href="index.html">Home</a> 
+    <a href="aboutme.html">About me</a> 
+    <a href="works.html">Works</a> 
+    <a href="contact.html">Contact</a> 
+    <a href="cv.html">CV</a> 
 </nav> 
 
 <section class="hero"> 
-<div class="hero-container"> 
-<p class="graphic-designer-tag">Graphic designer</p> 
-<h1 class="portfolio-title"> 
-<span>P</span> 
-<div class="portfolio-text">ortfolio</div> 
-</h1> 
-</div> 
+    <div class="hero-container"> 
+        <p class="graphic-designer-tag">Graphic designer</p> 
+        <h1 class="portfolio-title"> 
+            <span>P</span> 
+            <div class="portfolio-text">ortfolio</div> 
+        </h1> 
+    </div> 
 </section> 
 
 <div class="carousel-container"> 
-<div class="carousel-track"> 
-<div class="instax"><div class="photo"><img src="assets/images/lee.jpg" alt="Work 1"></div></div> 
-<div class="instax"><div class="photo"><img src="assets/images/luz.jpg" alt="Work 2"></div></div> 
-<div class="instax"><div class="photo"><img src="assets/images/perfil.jpg" alt="Work 3"></div></div> 
-<div class="instax"><div class="photo"><img src="assets/images/teatro.jpg" alt="Work 4"></div></div> 
-<div class="instax"><div class="photo"><img src="assets/images/puerta.JPG" alt="Work 5"></div></div> 
-<div class="instax"><div class="photo"><img src="assets/images/flor.jpg" alt="Work 6"></div></div> 
-
-<div class="instax"><div class="photo"><img src="assets/images/lee.jpg" alt="Work 1"></div></div> 
-<div class="instax"><div class="photo"><img src="assets/images/luz.jpg" alt="Work 2"></div></div> 
-<div class="instax"><div class="photo"><img src="assets/images/perfil.jpg" alt="Work 3"></div></div> 
-<div class="instax"><div class="photo"><img src="assets/images/teatro.jpg" alt="Work 4"></div></div> 
-<div class="instax"><div class="photo"><img src="assets/images/puerta.JPG" alt="Work 5"></div></div> 
-<div class="instax"><div class="photo"><img src="assets/images/flor.jpg" alt="Work 6"></div></div> 
-</div> 
+    <div class="carousel-track"> 
+        <div class="instax"><div class="photo"><img src="assets/images/lee.JPG" alt="Work 1"></div></div> 
+        <div class="instax"><div class="photo"><img src="assets/images/luz.JPG" alt="Work 2"></div></div> 
+        <div class="instax"><div class="photo"><img src="assets/images/perfil.JPG" alt="Work 3"></div></div> 
+        <div class="instax"><div class="photo"><img src="assets/images/teatro.JPG" alt="Work 4"></div></div> 
+        <div class="instax"><div class="photo"><img src="assets/images/puerta.JPG" alt="Work 5"></div></div> 
+        <div class="instax"><div class="photo"><img src="assets/images/flor.JPG" alt="Work 6"></div></div> 
+        <div class="instax"><div class="photo"><img src="assets/images/lee.JPG" alt="Work 1"></div></div> 
+        <div class="instax"><div class="photo"><img src="assets/images/luz.JPG" alt="Work 2"></div></div> 
+        <div class="instax"><div class="photo"><img src="assets/images/perfil.JPG" alt="Work 3"></div></div> 
+        <div class="instax"><div class="photo"><img src="assets/images/teatro.JPG" alt="Work 4"></div></div> 
+        <div class="instax"><div class="photo"><img src="assets/images/puerta.JPG" alt="Work 5"></div></div> 
+        <div class="instax"><div class="photo"><img src="assets/images/flor.JPG" alt="Work 6"></div></div> 
+    </div> 
 </div> 
 
 <footer> 
-<div><span class="bold-text">PRESENTED BY:</span> <span class="regular-text">LUCÍA ORTIZ</span></div> 
-<div><span class="bold-text">WORKS:</span> <span class="regular-text">2023–2026</span></div> 
-<div><span class="bold-text">EMAIL:</span> <span class="regular-text">LUCIAAORTIIZ5@GMAIL.COM</span></div> 
+    <div><strong>PRESENTED BY:</strong> LUCÍA ORTIZ</div> 
+    <div><strong>WORKS:</strong> 2023–2026</div> 
+    <div><strong>EMAIL:</strong> LUCIAAORTIIZ5@GMAIL.COM</div> 
 </footer> 
 
 </body> 
