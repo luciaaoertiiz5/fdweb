@@ -67,6 +67,7 @@
       min-height: 500px;
       overflow: hidden;
       background-color: #f0f0f0;
+      position: relative;
     }
 
     .bio-left-img {
@@ -75,7 +76,25 @@
       background-image: url('https://ik.imagekit.io/h7eo6ofoi/lejos.JPG'); 
       background-size: cover;
       background-position: center;
-      transition: background-image 0.4s ease, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* Capa Superior (Cerca) - Carga inmediata pero oculta */
+    .bio-left-img::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://ik.imagekit.io/h7eo6ofoi/cerca.JPG');
+      background-size: cover;
+      background-position: center;
+      opacity: 0; /* Empieza invisible */
+      transition: opacity 0.5s ease;
     }
 
     .bio-left-frame:hover .bio-left-img {
@@ -91,17 +110,7 @@
       position: relative;
       background-color: white;
     }
-
-    .back-arrow {
-      text-decoration: none;
-      color: var(--azul);
-      font-size: 35px;
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      transition: opacity 0.3s;
-    }
-
+    
     .who-am-i-title {
       font-size: clamp(40px, 8vw, 80px); /* Tamaño fluido */
       line-height: 0.85;
