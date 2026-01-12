@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucía Ortiz | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        @font-face {
+            font-family: 'Bodoni';
+            src: url('fonts/Bodoni-Bold.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'HelveticaLight';
+            src: url('fonts/Helvetica-Light.woff2') format('woff2');
+        }
+
+        :root {
+            --azul-electrico: #0047FF;
+            --blanco: #FFFFFF;
+            --negro: #000000;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'HelveticaLight', sans-serif;
+            background-color: var(--azul-electrico);
+            overflow-x: hidden;
+        }
+
+        section {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* FOOTERS */
+        .section-footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            z-index: 10;
+        }
+        .f-item b { text-transform: uppercase; margin-right: 5px; }
+        .footer-white { color: var(--blanco); }
+        .footer-black { color: var(--negro); }
+
+        /* FLECHAS */
+        .arrow {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 25px;
+            stroke-width: 1.5;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+            z-index: 5;
+        }
+        .arrow-1 { bottom: 80px; stroke: var(--blanco); }
+        .arrow-2 { bottom: 120px; stroke: var(--blanco); }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* CARRUSEL SUPERIOR (PANTALLAS 1 Y 2) */
+        .marquee-capsule {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 92%;
+            border: 1px solid var(--blanco);
+            border-radius: 100px;
+            padding: 15px 0;
+            overflow: hidden;
+            z-index: 6;
+        }
+        .marquee-content {
+            display: flex;
+            white-space: nowrap;
+            animation: scroll 30s linear infinite;
+        }
+        .marquee-content span {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            padding: 0 10px;
+            color: var(--blanco);
+            display: flex;
+            align-items: center;
+        }
+        .marquee-content span::after {
+            content: "·";
+            margin-left: 20px;
+        }
+
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* --- PANTALLA 1 --- */
+        .screen-1 { justify-content: center; align-items: center; }
+        .screen-1 h1 {
+            font-family: 'Bodoni', serif;
+            font-size: clamp(3rem, 12vw, 8rem);
+            text-transform: uppercase;
+            color: var(--blanco);
+        }
+        .screen-1 p.sub {
+            letter-spacing: 5px;
+            font-size: 0.8rem;
+            color: var(--blanco);
+            text-transform: uppercase;
+        }
+
+        /* --- PANTALLA 2 --- */
+        .screen-2 { justify-content: center; align-items: center; }
+        .welcome-text {
+            font-family: 'Bodoni', serif;
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            color: var(--blanco);
+            margin-top: 60px; /* Bajado para no chocar con el carrusel */
+        }
+
+        /* --- PANTALLA 3 --- */
+        .screen-3 {
+            background-color: var(--blanco);
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .bg-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://ik.imagekit.io/h7eo6ofoi/Disen%CC%83o%20sin%20ti%CC%81tulo-2.png'); 
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 1;
+            background-position: right center; 
+            right: -3%; /* Movido más a la derecha para centrar la carpeta */
+        }
+
+        .folder-link {
+            text-decoration: none;
+            text-align: center;
+            z-index: 5;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .folder-img {
+            width: 140px;
+            transition: transform 0.3s ease;
+            /* QUITA EL FONDO BLANCO DEL JPG */
+            mix-blend-mode: multiply; 
+        }
+
+        .folder-link:hover .folder-img { 
+            transform: scale(1.1); 
+        }
+
+        .folder-link p {
+            color: var(--negro);
+            font-family: 'Bodoni', serif;
+            font-weight: bold;
+            margin-top: -15px; /* Súper pegado a la carpeta */
+            text-transform: lowercase;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 6;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="screen-1">
+        <div class="marquee-capsule">
+            <div class="marquee-content">
+                <span>BRANDING</span> <span>PHOTOGRAPHY</span> <span>EDITORIAL</span> <span>DIGITAL DESIGN</span> <span>PACKAGING</span> <span>ILLUSTRATION</span> <span>TYPOGRAPHY</span>
+                <span>BRANDING</span> <span>PHOTOGRAPHY</span> <span>EDITORIAL</span> <span>DIGITAL DESIGN</span> <span>PACKAGING</span> <span>ILLUSTRATION</span> <span>TYPOGRAPHY</span>
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <h1>Portfolio</h1>
+            <p class="sub">Graphic Designer</p>
+        </div>
+        <svg class="arrow arrow-1" viewBox="0 0 24 24" fill="none" onclick="window.scrollTo(0, window.innerHeight)">
+            <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+        </svg>
+        <div class="section-footer footer-white">
+            <div class="f-item"><b>PRESENTED BY:</b> <span>Lucía Ortiz</span></div>
+            <div class="f-item"><b>WORKS:</b> <span>2023-2026</span></div>
+            <div class="f-item"><b>EMAIL:</b> <span>luciaaortiiz5@gmail.com</span></div>
+        </div>
+    </section>
+
+    <section class="screen-2">
+        <div class="marquee-capsule">
+            <div class="marquee-content">
+                <span>BRANDING</span> <span>PHOTOGRAPHY</span> <span>EDITORIAL</span> <span>DIGITAL DESIGN</span> <span>PACKAGING</span> <span>ILLUSTRATION</span> <span>TYPOGRAPHY</span>
+                <span>BRANDING</span> <span>PHOTOGRAPHY</span> <span>EDITORIAL</span> <span>DIGITAL DESIGN</span> <span>PACKAGING</span> <span>ILLUSTRATION</span> <span>TYPOGRAPHY</span>
+            </div>
+        </div>
+        <div class="welcome-text">Welcome.</div>
+        <svg class="arrow arrow-2" viewBox="0 0 24 24" fill="none" onclick="window.scrollTo(0, window.innerHeight * 2)">
+            <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+        </svg>
+        <div class="section-footer footer-white">
+            <div class="f-item"><b>PRESENTED BY:</b> <span>Lucía Ortiz</span></div>
+            <div class="f-item"><b>WORKS:</b> <span>2023-2026</span></div>
+            <div class="f-item"><b>EMAIL:</b> <span>luciaaortiiz5@gmail.com</span></div>
+        </div>
+    </section>
+
+    <section class="screen-3">
+        <div class="bg-container"></div>
+        <a href="menu.html" class="folder-link">
+            <img src="https://ik.imagekit.io/h7eo6ofoi/No%20File.jpg" alt="menu" class="folder-img">
+            <p>menu</p>
+        </a>
+        <div class="section-footer footer-black">
+            <div class="f-item"><b>PRESENTED BY:</b> <span>Lucía Ortiz</span></div>
+            <div class="f-item"><b>WORKS:</b> <span>2023-2026</span></div>
+            <div class="f-item"><b>EMAIL:</b> <span>luciaaortiiz5@gmail.com</span></div>
+        </div>
+    </section>
+
+</body>
+</html>

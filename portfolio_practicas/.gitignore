@@ -1,0 +1,6 @@
+# Ignorar carpetas pesadas de otros trabajos
+portfolio_final/
+# Ignorar todas las imágenes pesadas
+*.png
+*.jpg
+*.jpeg
