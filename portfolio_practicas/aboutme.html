@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucía Ortiz | About Me</title>
+    <style>
+        @font-face {
+            font-family: 'Bodoni';
+            src: url('fonts/Bodoni-Bold.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'HelveticaLight';
+            src: url('fonts/Helvetica-Light.woff2') format('woff2');
+        }
+
+        :root {
+            --azul-petroleo: #2B3D52;
+            --azul-electrico: #0047FF;
+            --negro: #000000;
+            --blanco: #FFFFFF;
+            --amarillo-pastel: #FFF4BD;
+            --rosa-pastel: #FFD1DC;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'HelveticaLight', sans-serif; background-color: var(--blanco); overflow-x: hidden; }
+
+        .paper-texture {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://ik.imagekit.io/h7eo6ofoi/%20-9.jpg');
+            background-size: 600px;
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 50;
+            mix-blend-mode: multiply;
+        }
+
+        /* --- MENÚ DE PESTAÑAS EVOLUCIONADO --- */
+        .side-tabs-nav {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            z-index: 1000;
+        }
+
+        .tab-item {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            width: 45px;
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateX(5px); /* Un poco escondidas por defecto */
+        }
+
+        /* Efecto de "salir" un poco al poner el ratón */
+        .tab-item:hover {
+            transform: translateX(-10px);
+        }
+
+        .tab-label {
+            width: 100%;
+            padding: 30px 0;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: lowercase;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            /* Esquinas: Superior izquierda y Superior derecha curvas (al estar rotado) */
+            /* En coordenadas normales de la caja: top-left y bottom-left */
+            border-radius: 15px 0 0 15px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        /* Colores y Contraste */
+        .tab-home .tab-label { background-color: var(--azul-electrico); color: var(--blanco); }
+        .tab-about .tab-label { background-color: var(--azul-petroleo); color: var(--blanco); font-weight: bold; }
+        .tab-works .tab-label { background-color: var(--negro); color: var(--blanco); }
+        .tab-contact .tab-label { background-color: var(--amarillo-pastel); color: var(--negro); }
+        .tab-cv .tab-label { background-color: var(--rosa-pastel); color: var(--negro); }
+
+        /* --- ESTRUCTURA --- */
+        section { width: 100%; height: 100vh; display: flex; position: relative; overflow: hidden; padding-right: 45px; }
+
+        /* PANTALLA 1 */
+        .bio-left-frame { width: 50%; height: 100%; position: relative; }
+        .img-base, .img-hover {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center; transition: opacity 0.6s ease;
+        }
+        .img-base { background-image: url('https://ik.imagekit.io/h7eo6ofoi/lejos.JPG'); z-index: 1; }
+        .img-hover { background-image: url('https://ik.imagekit.io/h7eo6ofoi/cerca.JPG'); z-index: 2; opacity: 0; }
+        .bio-left-frame:hover .img-hover { opacity: 1; }
+
+        .bio-right-content {
+            width: 50%; height: 100%;
+            display: flex; flex-direction: column;
+            justify-content: space-between;
+            padding: 80px 8%;
+        }
+
+        .who-am-i-title {
+            font-family: 'Bodoni', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            color: var(--azul-petroleo);
+            text-transform: uppercase;
+            line-height: 0.85;
+            text-align: right;
+        }
+
+        .bio-text-wrapper { max-width: 500px; margin-right: auto; text-align: justify; }
+        .bio-details { font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: var(--azul-petroleo); margin-bottom: 25px; }
+        .bio-text { font-size: 16px; line-height: 1.7; color: var(--negro); }
+
+        /* --- PANTALLA 2 --- */
+        .screen-skills { display: flex; justify-content: center; align-items: center; }
+        
+        .skills-box {
+            width: 90%; height: 82vh;
+            border: 1px solid var(--azul-petroleo);
+            border-radius: 60px;
+            padding: 80px 100px;
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 100px;
+        }
+
+        .skills-left { display: flex; flex-direction: column; justify-content: flex-start; }
+        .skills-title {
+            font-family: 'Bodoni', serif;
+            font-size: 4.5rem;
+            color: var(--azul-petroleo);
+            margin-bottom: 60px;
+            margin-top: -20px;
+        }
+
+        .software-list { display: flex; flex-direction: column; gap: 20px; }
+        .software-item { display: flex; align-items: center; gap: 15px; font-size: 13px; text-transform: uppercase; letter-spacing: 1.2px; }
+        .software-item img { width: 24px; height: 24px; object-fit: contain; }
+
+        .skills-right-info { display: flex; flex-direction: column; justify-content: center; }
+        .skills-right-info h3 {
+            font-family: 'HelveticaLight', sans-serif;
+            font-weight: bold;
+            color: var(--azul-petroleo);
+            text-transform: uppercase;
+            font-size: 16px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+
+        .skills-right-info p { font-size: 16px; line-height: 1.8; margin-bottom: 45px; text-align: justify; }
+
+        .footer-fixed {
+            position: absolute; bottom: 30px; width: 100%; padding: 0 5%;
+            display: flex; justify-content: space-between; font-size: 11px;
+            text-transform: uppercase; letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="paper-texture"></div>
+
+    <nav class="side-tabs-nav">
+        <a href="index.html" class="tab-item tab-home"><div class="tab-label">home</div></a>
+        <a href="aboutme.html" class="tab-item tab-about"><div class="tab-label">about me</div></a>
+        <a href="works.html" class="tab-item tab-works"><div class="tab-label">works</div></a>
+        <a href="contact.html" class="tab-item tab-contact"><div class="tab-label">contact</div></a>
+        <a href="cv.html" class="tab-item tab-cv"><div class="tab-label">cv</div></a>
+    </nav>
+
+    <section id="bio">
+        <div class="bio-left-frame">
+            <div class="img-base"></div>
+            <div class="img-hover"></div>
+        </div>
+        <div class="bio-right-content">
+            <h2 class="who-am-i-title">WHO<br>AM I?</h2>
+            <div class="bio-text-wrapper">
+                <div class="bio-details">
+                    <p><b>Age:</b> 21 years old</p>
+                    <p><b>Specialization:</b> Graphic Designer</p>
+                </div>
+                <p class="bio-text">
+                    Hi! I’m Lucía Ortiz, a graphic designer currently continuing my studies, always eager to learn and grow. I enjoy experimenting with new ideas, exploring different styles, and bringing a creative approach to every project while staying focused on goals and details. 
+                    <br><br>
+                    I’m responsible, hardworking, and highly organized. I consider myself a perfectionist and I like having everything under control to ensure each result is thoughtful, consistent, and well-crafted. My goal is to keep evolving as a designer and turn ideas into meaningful visual solutions.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="screen-skills">
+        <div class="skills-box">
+            <div class="skills-left">
+                <h2 class="skills-title">Skills</h2>
+                <div class="software-list">
+                    <div class="software-item"><img src="https://ik.imagekit.io/h7eo6ofoi/ps.png"> Photoshop</div>
+                    <div class="software-item"><img src="https://ik.imagekit.io/h7eo6ofoi/ai.png"> Illustrator</div>
+                    <div class="software-item"><img src="https://ik.imagekit.io/h7eo6ofoi/id.png"> InDesign</div>
+                    <div class="software-item"><img src="https://ik.imagekit.io/h7eo6ofoi/figma.png"> Figma</div>
+                    <div class="software-item"><img src="https://ik.imagekit.io/h7eo6ofoi/lr.png"> Lightroom</div>
+                    <div class="software-item"><img src="https://ik.imagekit.io/h7eo6ofoi/procreate.png"> Procreate</div>
+                    <div class="software-item"><img src="https://ik.imagekit.io/h7eo6ofoi/canva.png"> Canva</div>
+                </div>
+            </div>
+            
+            <div class="skills-right-info">
+                <div>
+                    <h3>Creative Skills</h3>
+                    <p>
+                        Specialized in branding and visual identity, I design and redesign brands, creating coherent manuals and packaging systems. My expertise extends to editorial design, where I craft layouts for magazines and stationery.
+                        <br><br>
+                        Additionally, I develop functional web interfaces using HTML and CSS, ensuring that aesthetics and usability work in perfect harmony to deliver a complete brand experience.
+                    </p>
+                </div>
+                <div>
+                    <h3>Interests & Evolution</h3>
+                    <p>I am deeply interested in the intersection of traditional graphic design and new digital technologies. Currently, I am expanding my creative toolkit by exploring 3D design and motion graphics to add depth and movement to my visual storytelling.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-fixed">
+            <div><b>Presented by:</b> Lucía Ortiz</div>
+            <div><b>Works:</b> 2023–2026</div>
+            <div><b>Email:</b> luciaaortiiz5@gmail.com</div>
+        </div>
+    </section>
+
+</body>
+</html>
