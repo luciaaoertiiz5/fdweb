@@ -1,243 +1,261 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucía Ortiz | About Me</title>
-    <style>
-        @font-face {
-            font-family: 'Bodoni';
-            src: url('fonts/Bodoni-Bold.woff2') format('woff2');
-        }
-        @font-face {
-            font-family: 'HelveticaLight';
-            src: url('fonts/Helvetica-Light.woff2') format('woff2');
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucía Ortiz – About Me</title>
+  
+  <link rel="icon" href="assets/images/android-chrome-192x192.png" type="image/jpeg">
 
-        :root {
-            --azul-petroleo: #2B3D52;
-            --azul-electrico: #0047FF;
-            --negro: #000000;
-            --blanco: #FFFFFF;
-            --amarillo-pastel: #FFF4BD;
-            --rosa-pastel: #FFD1DC;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap" rel="stylesheet">
 
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'HelveticaLight', sans-serif; background-color: var(--blanco); overflow-x: hidden; }
+  <style>
+    :root {
+      --azul: #2B3D52;
+      --crema: #FFF9F4;
+      --negro: #1a1a1a;
+    }
 
-        .paper-texture {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('https://ik.imagekit.io/h7eo6ofoi/%20-9.jpg');
-            background-size: 600px;
-            opacity: 0.12;
-            pointer-events: none;
-            z-index: 50;
-            mix-blend-mode: multiply;
-        }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* --- MENÚ DE PESTAÑAS EVOLUCIONADO --- */
-        .side-tabs-nav {
-            position: fixed;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            z-index: 1000;
-        }
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: white;
+      color: var(--azul);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        .tab-item {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            width: 45px;
-            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            transform: translateX(5px); /* Un poco escondidas por defecto */
-        }
+    /* ---------- NAV (Adaptado) ---------- */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 50px 10px 30px 10px;
+      z-index: 100;
+      position: relative;
+      flex-wrap: wrap; /* Para que en móvil bajen los botones */
+    }
 
-        /* Efecto de "salir" un poco al poner el ratón */
-        .tab-item:hover {
-            transform: translateX(-10px);
-        }
+    nav a {
+      text-decoration: none;
+      color: var(--azul);
+      border: 1px solid var(--azul);
+      background-color: var(--blanco);
+      padding: 8px 22px;
+      border-radius: 50px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
 
-        .tab-label {
-            width: 100%;
-            padding: 30px 0;
-            font-size: 14px;
-            letter-spacing: 1px;
-            text-transform: lowercase;
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
-            /* Esquinas: Superior izquierda y Superior derecha curvas (al estar rotado) */
-            /* En coordenadas normales de la caja: top-left y bottom-left */
-            border-radius: 15px 0 0 15px; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
+    nav a:hover {
+      background-color: var(--azul) !important;
+      color: var(--crema) !important;
+    }
 
-        /* Colores y Contraste */
-        .tab-home .tab-label { background-color: var(--azul-electrico); color: var(--blanco); }
-        .tab-about .tab-label { background-color: var(--azul-petroleo); color: var(--blanco); font-weight: bold; }
-        .tab-works .tab-label { background-color: var(--negro); color: var(--blanco); }
-        .tab-contact .tab-label { background-color: var(--amarillo-pastel); color: var(--negro); }
-        .tab-cv .tab-label { background-color: var(--rosa-pastel); color: var(--negro); }
+    /* ---------- SECCIÓN BIOGRAFÍA (Adaptada) ---------- */
+    .bio-container {
+      display: flex;
+      width: 100%;
+      min-height: 85vh; 
+      margin-top: 20px;
+      flex-wrap: wrap; /* En móvil, la foto irá arriba y el texto abajo */
+    }
 
-        /* --- ESTRUCTURA --- */
-        section { width: 100%; height: 100vh; display: flex; position: relative; overflow: hidden; padding-right: 45px; }
+    .bio-left-frame {
+      width: 50%;
+      min-height: 500px;
+      overflow: hidden;
+      background-color: #f0f0f0;
+    }
 
-        /* PANTALLA 1 */
-        .bio-left-frame { width: 50%; height: 100%; position: relative; }
-        .img-base, .img-hover {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-size: cover; background-position: center; transition: opacity 0.6s ease;
-        }
-        .img-base { background-image: url('https://ik.imagekit.io/h7eo6ofoi/lejos.JPG'); z-index: 1; }
-        .img-hover { background-image: url('https://ik.imagekit.io/h7eo6ofoi/cerca.JPG'); z-index: 2; opacity: 0; }
-        .bio-left-frame:hover .img-hover { opacity: 1; }
+    .bio-left-img {
+      width: 100%;
+      height: 100%;
+      background-image: url('https://ik.imagekit.io/h7eo6ofoi/lejos.JPG'); 
+      background-size: cover;
+      background-position: center;
+      transition: background-image 0.4s ease, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
 
-        .bio-right-content {
-            width: 50%; height: 100%;
-            display: flex; flex-direction: column;
-            justify-content: space-between;
-            padding: 80px 8%;
-        }
+    .bio-left-frame:hover .bio-left-img {
+      background-image: url('https://ik.imagekit.io/h7eo6ofoi/cerca.JPG');
+      transform: scale(1.1);
+    }
 
-        .who-am-i-title {
-            font-family: 'Bodoni', serif;
-            font-size: clamp(3rem, 8vw, 6rem);
-            color: var(--azul-petroleo);
-            text-transform: uppercase;
-            line-height: 0.85;
-            text-align: right;
-        }
+    .bio-right-content {
+      width: 50%;
+      padding: 40px clamp(20px, 5vw, 60px);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      background-color: white;
+    }
 
-        .bio-text-wrapper { max-width: 500px; margin-right: auto; text-align: justify; }
-        .bio-details { font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: var(--azul-petroleo); margin-bottom: 25px; }
-        .bio-text { font-size: 16px; line-height: 1.7; color: var(--negro); }
+    .back-arrow {
+      text-decoration: none;
+      color: var(--azul);
+      font-size: 35px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      transition: opacity 0.3s;
+    }
 
-        /* --- PANTALLA 2 --- */
-        .screen-skills { display: flex; justify-content: center; align-items: center; }
-        
-        .skills-box {
-            width: 90%; height: 82vh;
-            border: 1px solid var(--azul-petroleo);
-            border-radius: 60px;
-            padding: 80px 100px;
-            display: grid;
-            grid-template-columns: 0.8fr 1.2fr;
-            gap: 100px;
-        }
+    .who-am-i-title {
+      font-size: clamp(40px, 8vw, 80px); /* Tamaño fluido */
+      line-height: 0.85;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: right;
+      align-self: flex-end;
+      margin-bottom: 40px;
+    }
 
-        .skills-left { display: flex; flex-direction: column; justify-content: flex-start; }
-        .skills-title {
-            font-family: 'Bodoni', serif;
-            font-size: 4.5rem;
-            color: var(--azul-petroleo);
-            margin-bottom: 60px;
-            margin-top: -20px;
-        }
+    .bio-text-wrapper {
+      margin-top: auto;
+      margin-left: auto; 
+      width: 100%;
+      max-width: 557px;      
+    }
 
-        .software-list { display: flex; flex-direction: column; gap: 20px; }
-        .software-item { display: flex; align-items: center; gap: 15px; font-size: 13px; text-transform: uppercase; letter-spacing: 1.2px; }
-        .software-item img { width: 24px; height: 24px; object-fit: contain; }
+    .bio-header-details {
+      font-size: 15px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
 
-        .skills-right-info { display: flex; flex-direction: column; justify-content: center; }
-        .skills-right-info h3 {
-            font-family: 'HelveticaLight', sans-serif;
-            font-weight: bold;
-            color: var(--azul-petroleo);
-            text-transform: uppercase;
-            font-size: 16px;
-            margin-bottom: 25px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 15px;
-        }
+    .bio-text {
+      font-size: 16px;
+      line-height: 1.4;
+      color: var(--azul);
+      text-align: justify;
+      font-weight: 300;
+    }
 
-        .skills-right-info p { font-size: 16px; line-height: 1.8; margin-bottom: 45px; text-align: justify; }
+    /* ---------- SECCIÓN SKILLS (Adaptada) ---------- */
+    .skills-box {
+      max-width: 1200px;
+      margin: 100px auto;
+      border: 1px solid var(--azul);
+      border-radius: 15px;
+      padding: clamp(20px, 5vw, 60px);
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: clamp(30px, 5vw, 100px); 
+    }
 
-        .footer-fixed {
-            position: absolute; bottom: 30px; width: 100%; padding: 0 5%;
-            display: flex; justify-content: space-between; font-size: 11px;
-            text-transform: uppercase; letter-spacing: 2px;
-        }
-    </style>
+    /* Responsive para la caja de skills */
+    @media (max-width: 900px) {
+      .skills-box { grid-template-columns: 1fr; }
+      .bio-left-frame, .bio-right-content { width: 100%; }
+      .who-am-i-title { text-align: center; align-self: center; }
+    }
+
+    .skills-header { display: flex; align-items: baseline; margin-bottom: 40px; flex-wrap: wrap; }
+    .skills-header span.letra-s { font-family: 'Ballet', cursive; font-size: clamp(80px, 12vw, 120px); line-height: 0.8; }
+    .skills-header span.resto-kills { font-size: clamp(50px, 8vw, 80px); margin-left: 20px; }
+
+    .software-section h4 { color: black; font-weight: bold; margin-bottom: 35px; font-size: 18px; }
+    .software-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; }
+    .skill-icon-item { display: flex; align-items: center; gap: 15px; font-size: 14px; color: black; margin-bottom: 20px; }
+    .skill-icon-item img { width: 28px; height: 28px; object-fit: contain; }
+
+    .skills-right-info section { border-top: 1px solid #ccc; padding-top: 35px; margin-bottom: 40px; }
+    .skills-right-info h3 { color: black; text-transform: uppercase; font-size: 16px; margin-bottom: 20px; font-weight: bold; }
+    .skills-right-info p { font-size: 15px; line-height: 1.6; color: black; }
+
+    footer { 
+      display: flex; 
+      justify-content: space-between; 
+      padding: 40px 20px; 
+      font-size: 11px; 
+      flex-wrap: wrap; 
+      gap: 15px;
+    }
+
+    @media (max-width: 600px) {
+      footer { flex-direction: column; align-items: center; text-align: center; }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="paper-texture"></div>
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="aboutme.html">ABOUT ME</a>
+    <a href="works.html">WORKS</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="cv.html">CV</a>
+  </nav>
 
-    <nav class="side-tabs-nav">
-        <a href="index.html" class="tab-item tab-home"><div class="tab-label">home</div></a>
-        <a href="aboutme.html" class="tab-item tab-about"><div class="tab-label">about me</div></a>
-        <a href="works.html" class="tab-item tab-works"><div class="tab-label">works</div></a>
-        <a href="contact.html" class="tab-item tab-contact"><div class="tab-label">contact</div></a>
-        <a href="cv.html" class="tab-item tab-cv"><div class="tab-label">cv</div></a>
-    </nav>
+  <section class="bio-container">
+    <div class="bio-left-frame">
+      <div class="bio-left-img"></div>
+    </div>
+    
+    <div class="bio-right-content">
+      
+      <h2 class="who-am-i-title">WHO<br>AM I?</h2>
+      
+      <div class="bio-text-wrapper">
+        <div class="bio-header-details">
+          <p><b>AGE:</b> 21 years old</p>
+          <p><b>SPECIALIZATION:</b> Graphic Designer</p>
+        </div>
+        <p class="bio-text">
+          Hi! I’m Lucía Ortiz, I’m a graphic designer currently continuing my studies, always eager to learn and grow. I enjoy experimenting with new ideas, exploring different styles, and bringing a creative approach to every project while staying focused on goals and details. 
+          I’m responsible, hardworking, and highly organized. I consider myself a perfectionist and I like having everything under control to ensure each result is thoughtful, consistent, and well-crafted. My goal is to build a future doing what I love, keep evolving as a designer, and turn ideas into meaningful visual solutions.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <section id="bio">
-        <div class="bio-left-frame">
-            <div class="img-base"></div>
-            <div class="img-hover"></div>
-        </div>
-        <div class="bio-right-content">
-            <h2 class="who-am-i-title">WHO<br>AM I?</h2>
-            <div class="bio-text-wrapper">
-                <div class="bio-details">
-                    <p><b>Age:</b> 21 years old</p>
-                    <p><b>Specialization:</b> Graphic Designer</p>
-                </div>
-                <p class="bio-text">
-                    Hi! I’m Lucía Ortiz, a graphic designer currently continuing my studies, always eager to learn and grow. I enjoy experimenting with new ideas, exploring different styles, and bringing a creative approach to every project while staying focused on goals and details. 
-                    <br><br>
-                    I’m responsible, hardworking, and highly organized. I consider myself a perfectionist and I like having everything under control to ensure each result is thoughtful, consistent, and well-crafted. My goal is to keep evolving as a designer and turn ideas into meaningful visual solutions.
-                </p>
-            </div>
-        </div>
-    </section>
 
-    <section id="skills" class="screen-skills">
-        <div class="skills-box">
-            <div class="skills-left">
-                <h2 class="skills-title">Skills</h2>
-                <div class="software-list">
-                    <div class="software-item"><img src="https://ik.imagekit.io/h7eo6ofoi/ps.png"> Photoshop</div>
-                    <div class="software-item"><img src="https://ik.imagekit.io/h7eo6ofoi/ai.png"> Illustrator</div>
-                    <div class="software-item"><img src="https://ik.imagekit.io/h7eo6ofoi/id.png"> InDesign</div>
-                    <div class="software-item"><img src="https://ik.imagekit.io/h7eo6ofoi/figma.png"> Figma</div>
-                    <div class="software-item"><img src="https://ik.imagekit.io/h7eo6ofoi/lr.png"> Lightroom</div>
-                    <div class="software-item"><img src="https://ik.imagekit.io/h7eo6ofoi/procreate.png"> Procreate</div>
-                    <div class="software-item"><img src="https://ik.imagekit.io/h7eo6ofoi/canva.png"> Canva</div>
-                </div>
-            </div>
-            
-            <div class="skills-right-info">
-                <div>
-                    <h3>Creative Skills</h3>
-                    <p>
-                        Specialized in branding and visual identity, I design and redesign brands, creating coherent manuals and packaging systems. My expertise extends to editorial design, where I craft layouts for magazines and stationery.
-                        <br><br>
-                        Additionally, I develop functional web interfaces using HTML and CSS, ensuring that aesthetics and usability work in perfect harmony to deliver a complete brand experience.
-                    </p>
-                </div>
-                <div>
-                    <h3>Interests & Evolution</h3>
-                    <p>I am deeply interested in the intersection of traditional graphic design and new digital technologies. Currently, I am expanding my creative toolkit by exploring 3D design and motion graphics to add depth and movement to my visual storytelling.</p>
-                </div>
-            </div>
+  <div class="skills-box">
+    <div class="skills-left-side">
+      <div class="skills-header">
+        <span class="letra-s">S</span><span class="resto-kills">kills</span>
+      </div>
+      <div class="software-section">
+        <h4>SOFTWARE SKILLS</h4>
+        <div class="software-grid">
+          <div>
+            <div class="skill-icon-item"><img src="https://ik.imagekit.io/h7eo6ofoi/lr.png" alt=""> Adobe Lightroom</div>
+            <div class="skill-icon-item"><img src="https://ik.imagekit.io/h7eo6ofoi/ps.png" alt=""> Adobe Photoshop</div>
+            <div class="skill-icon-item"><img src="https://ik.imagekit.io/h7eo6ofoi/id.png" alt=""> Adobe InDesign</div>
+            <div class="skill-icon-item"><img src="https://ik.imagekit.io/h7eo6ofoi/ai.png" alt=""> Adobe Illustrator</div>
+          </div>
+          <div>
+            <div class="skill-icon-item"><img src="https://ik.imagekit.io/h7eo6ofoi/procreate.png" alt=""> Procreate</div>
+            <div class="skill-icon-item"><img src="https://ik.imagekit.io/h7eo6ofoi/canva.png" alt=""> Canva</div>
+            <div class="skill-icon-item"><img src="https://ik.imagekit.io/h7eo6ofoi/figma.png" alt=""> Figma</div>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <div class="footer-fixed">
-            <div><b>Presented by:</b> Lucía Ortiz</div>
-            <div><b>Works:</b> 2023–2026</div>
-            <div><b>Email:</b> luciaaortiiz5@gmail.com</div>
-        </div>
-    </section>
+    <div class="skills-right-info">
+      <section>
+        <h3>Creative Skills</h3>
+        <p>
+          I design and redesign <b>brands, manuals, and packaging</b>, creating coherent and visually appealing systems. I also design <b>magazines, stationery, and notebooks</b>, and create <b>illustrations, posters, and visual art</b>. Additionally, I develop <b>web pages</b> with Visual Studio Code, combining creativity and functionality.
+        </p>
+      </section>
+      <section>
+        <h3>Interests</h3>
+        <p>
+          I’m interested in <b>continuously learning and growing</b> in all areas of design, exploring new techniques and styles. This semester, I’m diving into <b>3D design</b>, expanding my creative and digital horizons.
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <footer>
+    <div><b>PRESENTED BY:</b> LUCÍA ORTIZ</div>
+    <div><b>WORKS:</b> 2023–2026</div>
+    <div><b>EMAIL:</b> LUCIAAORTIIZ5@GMAIL.COM</div>
+  </footer>
 
 </body>
 </html>

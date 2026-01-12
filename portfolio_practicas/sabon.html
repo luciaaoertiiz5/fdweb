@@ -24,6 +24,41 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* ---------- COPIAR ESTO DENTRO DE <style> ---------- */
+nav.top-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 30px 15px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--blanco); /* Fondo blanco para que no se vea transparente */
+}
+
+nav.top-nav a {
+    text-decoration: none;
+    color: var(--negro); 
+    border: 1px solid var(--negro);
+    padding: 8px 25px;
+    border-radius: 50px;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    background-color: transparent;
+}
+
+nav.top-nav a:hover {
+    background-color: var(--negro);
+    color: var(--blanco);
+}
+
+/* Ajuste para que el cuerpo del trabajo empiece debajo del menú */
+.sidebar, .carousel-vertical {
+    margin-top: 80px; 
+    height: calc(100vh - 80px) !important;
+}
+
         /* ---------- COLUMNA IZQUIERDA (FIJA) ---------- */
         .sidebar {
             width: 40%;
@@ -131,6 +166,14 @@
     </style>
 </head>
 <body>
+
+    <nav class="top-nav">
+        <a href="index.html">HOME</a>
+        <a href="aboutme.html">ABOUT ME</a>
+        <a href="works.html">WORKS</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="cv.html">CV</a>
+    </nav>
 
     <aside class="sidebar">
         

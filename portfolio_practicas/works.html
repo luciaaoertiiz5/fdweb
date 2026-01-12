@@ -17,8 +17,8 @@
         :root {
             --azul-petroleo: #2B3D52;
             --azul-electrico: #0047FF;
-            --negro-puro: #0a0a0a; /* Fondo base */
-            --gris-works: #1a1a1a; /* Color para la pestaña */
+            --negro-puro: #0a0a0a;
+            --gris-works: #1a1a1a;
             --blanco: #FFFFFF;
             --amarillo-pastel: #FFF4BD;
             --rosa-pastel: #FFD1DC;
@@ -26,33 +26,34 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
         
+        /* Evita el scroll global */
         body {
             font-family: Helvetica, Arial, sans-serif;
             color: var(--blanco);
-            min-height: 100vh;
+            height: 100vh;
             width: 100vw;
-            overflow-x: hidden;
+            overflow: hidden; 
             background-image: url('assets/fondo-works.jpg'); 
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-color: var(--negro); 
-            -webkit-font-smoothing: antialiased;
+            background-color: var(--negro-puro); 
         }
- /* ---------- NAV ---------- */
+
+        /* ---------- NAV (Tu navegación original) ---------- */
         nav {
             display: flex;
             justify-content: center;
             gap: 15px;
             padding: 40px 15px 10px 15px;
             position: relative;
-            z-index: 10;
+            z-index: 100;
             flex-wrap: wrap; 
         }
 
         nav a {
             text-decoration: none;
-            color: var(--negro);
+            color: var(--blanco); /* Cambiado a blanco para visibilidad */
             border: 1px solid var(--blanco);
             padding: 8px 25px;
             border-radius: 50px;
@@ -63,12 +64,13 @@
 
         nav a:hover {
             background-color: var(--blanco);
-            color: var(--negro);
+            color: var(--negro-puro);
         }
 
+        
         /* --- CONTENIDO PRINCIPAL --- */
         .main-content {
-            height: 100vh;
+            height: calc(100vh - 100px); /* Ajustado para que quepa con el NAV superior */
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -77,13 +79,12 @@
             position: relative;
         }
 
-        /* TÍTULO CORREGIDO: Works (Primera mayúscula) */
         .works-title {
             font-family: 'Bodoni', serif;
             font-size: clamp(4rem, 10vw, 7rem);
             color: var(--blanco);
-            text-transform: none; /* Permite "Works" */
-            margin-bottom: 60px; /* Más espacio respecto a la lista */
+            text-transform: none;
+            margin-bottom: 40px;
             line-height: 1;
         }
 
@@ -97,13 +98,14 @@
         .works-list a {
             text-decoration: none;
             color: var(--blanco);
-            font-size: 14px; /* Un poco más pequeños */
+            font-size: 14px;
             text-transform: uppercase;
             font-family: 'HelveticaLight', sans-serif;
             letter-spacing: 3px;
             opacity: 0.4;
             transition: all 0.4s ease;
-            display: table;
+            /* display: table hace que el link mida solo lo que mide el texto */
+            display: table; 
         }
 
         .works-list a:hover {
@@ -113,6 +115,7 @@
         }
 
         .footer-info {
+            color: var(--blanco);
             position: absolute;
             bottom: 40px;
             right: 80px;
@@ -125,15 +128,14 @@
 </head>
 <body>
 
-    <div class="background-image"></div>
-
-    <nav class="side-tabs-nav">
-        <a href="index.html" class="tab-item tab-home"><div class="tab-label">home</div></a>
-        <a href="aboutme.html" class="tab-item tab-about"><div class="tab-label">about me</div></a>
-        <a href="works.html" class="tab-item tab-works"><div class="tab-label">works</div></a>
-        <a href="contact.html" class="tab-item tab-contact"><div class="tab-label">contact</div></a>
-        <a href="cv.html" class="tab-item tab-cv"><div class="tab-label">cv</div></a>
+    <nav class="top-nav">
+        <a href="index.html">HOME</a>
+        <a href="aboutme.html">ABOUT ME</a>
+        <a href="works.html">WORKS</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="cv.html">CV</a>
     </nav>
+
 
     <main class="main-content">
         <h1 class="works-title">Works</h1>
