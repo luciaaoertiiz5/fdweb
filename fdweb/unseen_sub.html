@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unseen Detail – Lucía Ortiz</title>
+    
+    <link rel="icon" href="assets/images/android-chrome-192x192.png" type="image/png">
+
+    <style>
+        :root {
+            --negro: #000000;
+            --blanco: #ffffff;
+            --gris-suave: #f4f4f4;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: var(--blanco);
+            color: var(--negro);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            padding: 20px 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .back-arrow {
+            text-decoration: none;
+            color: var(--negro);
+            font-size: 30px;
+        }
+
+        .editorial-layout {
+            max-width: 1000px;
+            margin: 100px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(60px, 10vw, 120px); 
+        }
+
+        .img-block {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+        }
+
+        .overlay-quote {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--blanco);
+            font-weight: 100;
+            font-style: italic;
+            font-size: clamp(16px, 4vw, 24px);
+            text-align: center;
+            width: 80%;
+            pointer-events: none;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.6);
+        }
+
+        .inter-text {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: clamp(15px, 3vw, 18px);
+            line-height: 1.7;
+            text-align: center;
+            font-weight: 100;
+        }
+
+        .grande { width: 100%; }
+        .mediana { width: 80%; margin: 0 auto; }
+        .pequeña { width: 60%; margin: 0 auto; }
+
+        img { width: 100%; height: auto; display: block; object-fit: contain; }
+
+        .parallel-row {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .parallel-row { flex-direction: column; }
+            .mediana, .pequeña { width: 100%; }
+        }
+
+        footer {
+            padding: 40px 20px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            border-top: 1px solid var(--gris-suave);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header><a href="unseen.html" class="back-arrow">←</a></header>
+    <main class="editorial-layout">
+        <div class="img-block grande">
+            <img src="assets/images/1.jpg" alt="Photo 1">
+            <div class="overlay-quote">"The biggest problem with having a mental illness isn't that, it's that people expect you to act as if you don't have it."</div>
+        </div>
+
+        <div class="parallel-row">
+            <div class="img-block"><img src="assets/images/2.jpg"></div>
+            <div class="img-block"><img src="assets/images/3.jpg"></div>
+        </div>
+
+        <div class="img-block grande"><img src="assets/images/4.jpg"></div>
+        <div class="inter-text">Capturing the silence that follows a panic attack, where the world feels distant and the fog begins to settle.</div>
+        <div class="img-block mediana"><img src="assets/images/5.jpg"></div>
+        <div class="img-block grande"><img src="assets/images/6.jpg"></div>
+        <div class="img-block mediana"><img src="assets/images/7.jpg"></div>
+        <div class="img-block mediana"><img src="assets/images/8.jpg"></div>
+        <div class="img-block grande"><img src="assets/images/9.jpg"></div>
+        <div class="img-block pequeña"><img src="assets/images/10.jpg"></div>
+        <div class="inter-text">In the absence of color, emotions speak louder. Each shadow represents a weight carried in silence.</div>
+        <div class="img-block mediana"><img src="assets/images/11.jpg"></div>
+
+        <div class="parallel-row">
+            <div class="img-block"><img src="assets/images/12.jpg"></div>
+            <div class="img-block"><img src="assets/images/13.jpg"></div>
+        </div>
+
+        <div class="inter-text">Acceptance is not a destination, but a slow walk through the dark.</div>
+        <div class="img-block mediana"><img src="assets/images/14.jpg"></div>
+        <div class="img-block grande"><img src="assets/images/15.jpg"></div>
+
+        <div class="parallel-row">
+            <div class="img-block"><img src="assets/images/16.jpg"></div>
+            <div class="img-block"><img src="assets/images/17.jpg"></div>
+        </div>
+
+        <div class="img-block mediana"><img src="assets/images/18.jpg"></div>
+        <div class="img-block grande"><img src="assets/images/19.jpg"></div>
+        <div class="img-block pequeña"><img src="assets/images/20.jpg"></div>
+        <div class="inter-text" style="font-style: italic;">"Sometimes, the bravest thing we can do is to acknowledge the shadows."</div>
+    </main>
+
+    <footer>
+        <div><b>PRESENTED BY:</b> LUCÍA ORTIZ</div>
+        <div><b>WORKS:</b> 2023–2026</div>
+        <div><b>EMAIL:</b> LUCIAAORTIIZ5@GMAIL.COM</div>
+    </footer>
+</body>
+</html>

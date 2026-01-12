@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucía Ortiz – Contacto</title>
+  
+  <link rel="icon" type="image/png" href="assets/images/android-chrome-192x192.png">
+  <link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --granate: #5F060F;
+      --crema: #FFF9F4;
+      --negro: #1a1a1a;
+      --verde-status: #28a745;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: white;
+      color: var(--granate);
+      overflow: hidden; 
+    }
+
+    /* ---------- PANTALLA CARGA (INTRO) ---------- */
+    .intro-screen {
+      width: 100%;
+      height: 100vh;
+      background-color: var(--granate);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .intro-screen.fade-up {
+      transform: translateY(-100%);
+    }
+
+    .sunflower-icon {
+      width: 100px;
+      height: auto;
+      filter: brightness(0) invert(1);
+    }
+
+    /* ---------- PÁGINA DE CONTACTO (CENTRADO AJUSTADO) ---------- */
+    .contact-page {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; /* Centra todo el bloque verticalmente */
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .back-arrow {
+      text-decoration: none;
+      color: var(--granate);
+      font-size: 30px;
+      position: absolute;
+      top: 40px; /* Un poco más de aire arriba */
+      left: 40px;
+      transition: opacity 0.3s;
+      z-index: 10;
+    }
+    .back-arrow:hover { opacity: 0.5; }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      position: absolute; /* El menú se queda arriba fijo */
+      top: 40px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--granate);
+      border: 1px solid var(--granate);
+      background-color: var(--crema);
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-size: 13px;
+      transition: 0.3s;
+    }
+    nav a:hover { background-color: var(--granate); color: var(--crema); }
+
+    /* Contenedor del contenido central para bajarlo en bloque */
+    .main-content-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px; /* Empuja el título y cuadro hacia abajo */
+    }
+
+    .title-section {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 20px;
+    }
+    .title-c { font-family: 'Ballet', cursive; font-size: 90px; }
+    .title-rest { font-size: 55px; margin-left: 10px; }
+
+    .contact-box {
+      width: 100%;
+      max-width: 700px;
+      border: 1px solid var(--granate);
+      border-radius: 12px;
+      padding: 35px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: white;
+    }
+
+    .contact-item {
+      text-decoration: none;
+      color: var(--negro);
+      font-size: 18px;
+      font-weight: 300;
+      transition: opacity 0.3s;
+    }
+    .contact-item:hover { opacity: 0.5; }
+
+    .social-links {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .social-links a {
+      text-decoration: none;
+      color: var(--negro);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1px solid var(--negro);
+      padding-bottom: 2px;
+      transition: 0.3s;
+    }
+
+    .capabilities-grid {
+      width: 100%;
+      max-width: 700px;
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      border-top: 1px solid #eee;
+      padding-top: 30px;
+    }
+
+    .cap-item h4 {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--granate);
+      margin-bottom: 8px;
+    }
+
+    .cap-item p {
+      font-size: 12px;
+      color: var(--negro);
+      line-height: 1.4;
+      font-weight: 300;
+    }
+
+    /* ---------- STUDIO INFO BAR ---------- */
+    .studio-info-bar {
+      position: absolute;
+      bottom: 40px;
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      font-size: 10px;
+      color: var(--granate);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+
+    .status-container { display: flex; align-items: center; gap: 8px; }
+    .status-dot {
+      width: 6px; height: 6px;
+      background-color: var(--verde-status);
+      border-radius: 50%;
+      position: relative;
+    }
+    .status-dot::after {
+      content: ''; position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-color: var(--verde-status);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      100% { transform: scale(3); opacity: 0; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="intro-screen" id="intro">
+    <img src="assets/images/android-chrome-192x192.png" alt="Icono" class="sunflower-icon">
+  </div>
+
+  <main class="contact-page">
+    <a href="index.html" class="back-arrow">←</a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="aboutme.html">About me</a>
+      <a href="works.html">Works</a>
+      <a href="contact.html">Contact</a>
+      <a href="cv.html">CV</a>
+    </nav>
+
+    <div class="main-content-wrapper">
+      <div class="title-section">
+        <span class="title-c">C</span>
+        <span class="title-rest">ontact</span>
+      </div>
+
+      <div class="contact-box">
+        <a href="mailto:luciaaortiiz5@gmail.com" class="contact-item">luciaaortiiz5@gmail.com</a>
+        <p class="contact-item">+34 636 13 14 99</p>
+        
+        <div class="social-links">
+          <a href="#" target="_blank">Infojobs</a>
+          <a href="#" target="_blank">LinkedIn</a>
+          <a href="#" target="_blank">Instagram</a>
+        </div>
+      </div>
+
+      <div class="capabilities-grid">
+        <div class="cap-item">
+          <h4>Branding</h4>
+          <p>Identidad visual, logotipos y manual de marca.</p>
+        </div>
+        <div class="cap-item">
+          <h4>Editorial</h4>
+          <p>Diseño de revistas, libros y papelería corporativa.</p>
+        </div>
+        <div class="cap-item">
+          <h4>Digital</h4>
+          <p>Social media design, banners y activos web.</p>
+        </div>
+        <div class="cap-item">
+          <h4>Art Direction</h4>
+          <p>Conceptos visuales y dirección de proyectos.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="studio-info-bar">
+      <div id="local-time">MADRID, ES — 00:00:00</div>
+      <div class="status-container">
+        <div class="status-dot"></div>
+        <span>Open for freelance</span>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('intro').classList.add('fade-up');
+      }, 1200); 
+    });
+
+    function updateTime() {
+      const now = new Date();
+      const options = { timeZone: 'Europe/Madrid', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+      const timeString = now.toLocaleTimeString('en-GB', options);
+      document.getElementById('local-time').innerText = `MADRID, ES — ${timeString}`;
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+  </script>
+
+</body>
+</html>

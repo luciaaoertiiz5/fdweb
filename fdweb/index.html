@@ -1,93 +1,197 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página Web Mejorada</title>
-    <meta name="description" content="Página web completa, organizada y con un diseño coherente.">
-    <meta name="keywords" content="HTML, CSS, desarrollo web, diseño">
-    <meta name="author" content="Tu Nombre">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="./assets/icons/favicon/favicon.ico" type="image/x-icon">
-</head>
-<input type="checkbox" id="theme-toggle" hidden />
-<body>
-    <!-- Encabezado -->
-    <header>
-        <h1>Mi Página Web Mejorada</h1>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-                <li><a href="https://es.search.yahoo.com/" target="_blank">Buscar</a></li>
-            </ul>
-        </nav>
-    </header>
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+<title>Lucía Ortiz – Portfolio</title> 
 
-    <!-- Sección de Inicio -->
-    <main>
-    </div>
-    <input type="checkbox" id="theme-toggle" class="theme-toggle" />
-    <input class="nav-menu-btn" type="checkbox" id="nav-menu-btn" />
-    <label class="nav-menu" for="nav-menu-btn">
-      <span class="nav-menu-icon"></span>
-      <label for="theme-toggle" class="theme-toggle-button"
-      >Toggle Theme</label
-    >
-        <section id="inicio">
-            <h2>Bienvenido a Nuestra Página</h2>
-            <p>Descubre nuestros productos y conoce más sobre nosotros.</p>
-            <img src="./assets/images/fondo-circulos-tonos-oscuros_60389-166.avif" alt="Imagen decorativa" width="1000" height="500">
-            <video width="500" height="300" controls>
-                <source src="./assets/videos/Ambiente_es_todo.mp4" type="video/mp4">
-                Tu navegador no soporta el video.
-            </video>
-        </section>
+<link rel="icon" href="assets/images/android-chrome-192x192.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap" rel="stylesheet"> 
 
-        <!-- Sección de Productos -->
-        <section id="productos">
-            <h2>Nuestros Productos</h2>
-            <div class="contenedor">
-                <div class="item">Producto 1</div>
-                <div class="item">Producto 2</div>
-                <div class="item">Producto 3</div>
-            </div>
-            <div class="grid-container">
-                <div class="grid-item">Detalle 1</div>
-                <div class="grid-item">Detalle 2</div>
-                <div class="grid-item">Detalle 3</div>
-            </div>
-            <label for="opciones">Selecciona una opción:</label>
-            <select id="opciones" name="opciones">
-                <option value="opcion1">Opción 1</option>
-                <option value="opcion2">Opción 2</option>
-                <option value="opcion3">Opción 3</option>
-            </select>
-        </section>
+<style> 
+:root { 
+    --granate: #5F060F; 
+    --crema: #FFF9F4; 
+} 
 
-        <!-- Sección de Contacto -->
-        <section id="contacto">
-            <h2>Contacto</h2>
-            <p>Escríbenos a <a href="mailto:luciaaortiiz5@gmail.com">luciaaortiiz5@gmail.com</a> o llámanos al <a href="tel:91 642 57 43">91 642 57 43</a>.</p>
-            <form action="#" method="post">
-                <input type="text" placeholder="Tu nombre" required>
-                <input type="email" placeholder="Tu correo" required>
-                <textarea placeholder="Escribe tu mensaje aquí..." required></textarea>
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
-    </main>
+* { margin: 0; padding: 0; box-sizing: border-box; } 
 
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: white; 
+    color: var(--granate); 
+    overflow: hidden; 
+}
 
-    <!-- Pie de página -->
-    <footer>
-        <p>&copy; 2025 Mi Web - Todos los derechos reservados</p>
-    </footer>
-</body>
+body { 
+    font-family: Helvetica, Arial, sans-serif; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+} 
+
+/* 1. NAVEGACIÓN (Corregido: No forzar mayúsculas) */
+nav { 
+    flex-shrink: 0;
+    display: flex; 
+    justify-content: center; 
+    gap: clamp(10px, 2vw, 20px); 
+    padding: 30px 15px; 
+    flex-wrap: wrap;
+} 
+
+nav a { 
+    text-decoration: none; 
+    color: var(--granate); 
+    border: 1px solid var(--granate); 
+    background-color: var(--crema); 
+    padding: 6px 16px; 
+    border-radius: 50px; 
+    font-size: 13px; 
+    /* Quitamos el uppercase para que respete tu texto */
+    transition: 0.3s;
+}
+
+/* 2. HERO (Ajuste de la P para Windows) */
+.hero { 
+    flex-grow: 1; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 10px;
+} 
+
+.hero-container { 
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
+
+.graphic-designer-tag { 
+    font-size: clamp(12px, 2vw, 16px);
+    position: absolute;
+    top: -15px;
+    right: 5px;
+    font-weight: 300; 
+} 
+
+.portfolio-title { 
+    display: flex; 
+    align-items: baseline; 
+} 
+
+.portfolio-title span { 
+    font-family: 'Ballet', cursive; 
+    font-size: clamp(80px, 16vw, 140px); 
+    line-height: 0.75; 
+    font-weight: normal; 
+} 
+
+.portfolio-text { 
+    font-size: clamp(40px, 9vw, 85px); 
+    margin-left: 10px; 
+    letter-spacing: -2px; 
+} 
+
+/* 3. CARRUSEL */
+.carousel-container { 
+    flex-shrink: 0;
+    width: 100%; 
+    overflow: hidden; 
+    padding-bottom: clamp(20px, 5vh, 40px);
+} 
+
+.carousel-track { 
+    display: flex; 
+    gap: 20px; 
+    width: max-content; 
+    animation: scroll 40s linear infinite; 
+} 
+
+.instax { 
+    width: clamp(150px, 20vw, 180px); 
+    aspect-ratio: 3/4;
+    background-color: #fff; 
+    padding: 10px 10px 30px 10px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+    border: 1px solid #eee;
+} 
+
+.instax .photo { width: 100%; height: 100%; overflow: hidden; }
+.instax .photo img { width: 100%; height: 100%; object-fit: cover; } 
+
+@keyframes scroll { 
+    0% { transform: translateX(0); } 
+    100% { transform: translateX(calc(-180px * 6 - 20px * 6)); } 
+} 
+
+/* 4. FOOTER (Corregido: Negritas y Normal según tu petición) */
+footer { 
+    flex-shrink: 0;
+    display: flex; 
+    justify-content: space-between; 
+    padding: 15px 40px; 
+    font-size: clamp(9px, 1vw, 11px); 
+    border-top: 1px solid rgba(95, 6, 15, 0.1);
+} 
+
+footer div { font-weight: normal; } /* Por defecto normal */
+footer strong { font-weight: bold; text-transform: uppercase; } /* Solo etiquetas en negrita */
+
+@media (max-width: 768px) {
+    body { overflow-y: auto; height: auto; }
+    .hero { padding: 60px 0; }
+    footer { flex-direction: column; align-items: center; gap: 10px; padding-bottom: 30px; }
+}
+</style> 
+</head> 
+<body> 
+
+<nav> 
+    <a href="index.html">Home</a> 
+    <a href="aboutme.html">About me</a> 
+    <a href="works.html">Works</a> 
+    <a href="contact.html">Contact</a> 
+    <a href="cv.html">CV</a> 
+</nav> 
+
+<section class="hero"> 
+    <div class="hero-container"> 
+        <p class="graphic-designer-tag">Graphic Designer</p> 
+        <h1 class="portfolio-title"> 
+            <span>P</span> 
+            <div class="portfolio-text">ortfolio</div> 
+        </h1> 
+    </div> 
+</section> 
+
+<div class="carousel-container"> 
+    <div class="carousel-track"> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/lee.JPG" alt="Work 1"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/luz.JPG" alt="Work 2"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/perfil.JPG" alt="Work 3"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/teatro.JPG" alt="Work 4"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/puerta.JPG" alt="Work 5"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/flor.JPG" alt="Work 6"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/lee.JPG" alt="Work 1"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/luz.JPG" alt="Work 2"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/perfil.JPG" alt="Work 3"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/teatro.JPG" alt="Work 4"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/puerta.JPG" alt="Work 5"></div></div> 
+        <div class="instax"><div class="photo"><img src="https://ik.imagekit.io/h7eo6ofoi/flor.JPG" alt="Work 6"></div></div> 
+    </div> 
+</div> 
+
+<footer> 
+    <div><strong>PRESENTED BY:</strong> Lucía Ortiz</div> 
+    <div><strong>WORKS:</strong> 2023–2026</div> 
+    <div><strong>EMAIL:</strong> luciaaortiiz5@gmail.com</div> 
+</footer> 
+
+</body> 
 </html>
-
-
