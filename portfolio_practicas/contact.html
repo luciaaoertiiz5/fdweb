@@ -1,268 +1,259 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lucía Ortiz – Contact</title>
-  
-  <link rel="icon" type="image/png" href="assets/images/android-chrome-192x192.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucía Ortiz | Contact</title>
+    <link rel="icon" type="image/png" href="https://ik.imagekit.io/h7eo6ofoi/android-chrome-192x192.png">
 
-  <style>
-    @font-face {
-      font-family: 'Bodoni';
-      src: url('fonts/Bodoni-Bold.woff2') format('woff2');
-    }
-    @font-face {
-      font-family: 'HelveticaLight';
-      src: url('fonts/Helvetica-Light.woff2') format('woff2');
-    }
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
 
-    :root {
-      --azul: #2B3D52;
-      --crema: #FFF9F4;
-      --negro: #1a1a1a;
-      --verde-status: #28a745;
-      --blanco: #ffffff;
-    }
+        @font-face { font-family: 'Bodoni'; src: url('fonts/Bodoni-Bold.woff2') format('woff2'); }
+        @font-face { font-family: 'HelveticaLight'; src: url('fonts/Helvetica-Light.woff2') format('woff2'); }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --azul: #2B3D52;
+            --blanco: #ffffff;
+            --negro: #1a1a1a;
+            --verde-status: #28a745;
+        }
 
-    /* Evitamos el scroll a menos que sea estrictamente necesario por falta de espacio */
-    body, html {
-      height: 100%;
-      width: 100%;
-      font-family: 'HelveticaLight', Helvetica, Arial, sans-serif;
-      background-color: var(--blanco);
-      color: var(--azul);
-      -webkit-font-smoothing: antialiased;
-      overflow: hidden; 
-    }
+        body {
+            font-family: 'HelveticaLight', sans-serif;
+            background-color: var(--blanco);
+            color: var(--azul);
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-    /* ---------- INTRO ---------- */
-    .intro-screen {
-      width: 100%; height: 100vh;
-      background-color: var(--azul);
-      display: flex; justify-content: center; align-items: center;
-      position: fixed; top: 0; left: 0; z-index: 2000;
-      transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
-    }
-    .intro-screen.fade-up { transform: translateY(-100%); }
-    .sunflower-icon { width: 80px; filter: brightness(0) invert(1); }
+        /* NAVEGACIÓN */
+        nav.top-nav {
+            position: fixed; top: 0; width: 100%;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 5%; z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
 
-    /* ---------- NAV ---------- */
-    nav {
-      display: flex; justify-content: center; gap: 15px;
-      padding: 30px 10px;
-      position: fixed; top: 0; width: 100%; z-index: 1000;
-      background-color: rgba(255,255,255,0.9); /* Un poco de transparencia por seguridad */
-    }
-    nav a {
-      text-decoration: none; color: var(--azul);
-      border: 1px solid var(--azul);
-      padding: 8px 22px; border-radius: 50px;
-      font-size: 13px; transition: all 0.3s ease; text-transform: uppercase;
-    }
-    nav a:hover { background-color: var(--azul); color: var(--crema); }
+        .nav-logo {
+            width: 35px;
+            mix-blend-mode: difference;
+            filter: invert(1);
+        }
 
-    /* ---------- CONTENEDOR DE SEGUURIDAD ---------- */
-    /* Este contenedor permite scroll si la pantalla es muy pequeña verticalmente */
-    .viewport-wrapper {
-      height: 100vh;
-      width: 100%;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 100px 20px; /* Margen para nav y footer */
-    }
+        .nav-links { display: flex; gap: clamp(10px, 3vw, 25px); }
 
-    .main-content-wrapper {
-      flex: 1; /* Empuja el contenido para que se centre si hay espacio */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      max-width: 900px;
-      margin: auto;
-    }
+        nav.top-nav a {
+            text-decoration: none;
+            color: var(--negro);
+            font-size: 12px;
+            text-transform: lowercase;
+            letter-spacing: 1.5px;
+            transition: opacity 0.3s;
+        }
 
-    .contact-title {
-      font-family: 'Bodoni', serif;
-      font-size: clamp(3rem, 12vh, 7rem); /* Se adapta según la altura de la pantalla */
-      color: var(--azul);
-      margin-bottom: 30px;
-      line-height: 1;
-      text-align: center;
-    }
+        nav.top-nav a:hover { opacity: 0.5; }
 
-    .contact-box {
-      width: 100%;
-      max-width: 600px;
-      border: 1px solid var(--azul);
-      border-radius: 15px;
-      padding: clamp(20px, 4vh, 40px) 20px;
-      text-align: center;
-      background: var(--blanco);
-      margin-bottom: 40px;
-    }
+        /* CONTENIDO PRINCIPAL */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 10%;
+            text-align: center;
+        }
 
-    .contact-item {
-      display: block;
-      text-decoration: none; color: var(--negro);
-      font-size: clamp(16px, 2.5vh, 20px);
-      margin-bottom: 10px;
-      transition: opacity 0.3s;
-    }
-    .contact-item:hover { opacity: 0.5; }
+        .contact-title {
+            font-family: 'Bodoni', serif;
+            font-size: clamp(3.5rem, 10vw, 4rem);
+            line-height: 0.9;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
 
-    .social-links {
-      display: flex; gap: 20px; justify-content: center; margin-top: 20px;
-    }
-    .social-links a {
-      text-decoration: none; color: var(--azul);
-      font-size: 11px; text-transform: uppercase;
-      letter-spacing: 2px; border-bottom: 1px solid var(--azul);
-      padding-bottom: 3px; font-weight: bold;
-    }
+        .contact-info {
+            margin-bottom: 60px;
+        }
 
-    .capabilities-grid {
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      border-top: 1px solid #eee;
-      padding-top: 30px;
-    }
+        .email-link {
+            font-size: clamp(18px, 3vw, 18px);
+            color: var(--azul);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 15px;
+            transition: opacity 0.3s;
+        }
 
-    .cap-item h4 {
-      font-size: 10px; text-transform: uppercase;
-      color: var(--azul); margin-bottom: 8px; font-weight: bold;
-    }
-    .cap-item p { font-size: 11px; color: var(--negro); line-height: 1.4; }
+        .email-link:hover { opacity: 0.5; }
 
-    /* ---------- INFO BAR (FIJA ABAJO) ---------- */
-    .studio-info-bar {
-      position: fixed; bottom: 0; left: 0;
-      width: 100%;
-      display: flex; justify-content: space-between;
-      padding: 20px 40px;
-      font-size: 10px; color: var(--azul);
-      background: var(--blanco);
-      text-transform: uppercase; letter-spacing: 1px; font-weight: bold;
-      z-index: 1000;
-    }
+        .phone-text {
+            font-size: 14px;
+            letter-spacing: 2px;
+            opacity: 0.6;
+        }
 
-    .status-container { display: flex; align-items: center; gap: 8px; }
-    .status-dot {
-      width: 7px; height: 7px; background-color: var(--verde-status);
-      border-radius: 50%; position: relative;
-    }
-    .status-dot::after {
-      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background-color: var(--verde-status); border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 0.8; }
-      100% { transform: scale(3); opacity: 0; }
-    }
+        .social-links {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+        }
 
-    /* ---------- RESPONSIVE / WINDOWS FIX ---------- */
-    @media (max-height: 700px) {
-      /* Si la ventana de Windows es muy bajita */
-      .viewport-wrapper { overflow-y: scroll; }
-      .studio-info-bar { position: relative; margin-top: 40px; }
-    }
+        .social-links a {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--azul);
+            text-decoration: none;
+            border-bottom: 1px solid var(--azul);
+            padding-bottom: 4px;
+            transition: all 0.3s;
+        }
 
-    @media (max-width: 800px) {
-      .capabilities-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
-      .contact-title { font-size: 4rem; }
-      .studio-info-bar { padding: 20px; font-size: 9px; }
-    }
+        .social-links a:hover { opacity: 0.5; border-color: transparent; }
 
-    @media (max-width: 500px) {
-      .capabilities-grid { grid-template-columns: 1fr; text-align: center; }
-      nav { gap: 8px; padding: 20px 5px; }
-      nav a { padding: 6px 12px; font-size: 11px; }
-      .studio-info-bar { flex-direction: column; gap: 10px; align-items: center; }
-    }
-  </style>
+        /* GRID DE CAPACIDADES */
+        .capabilities-grid {
+            width: 100%;
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(43, 61, 82, 0.1);
+        }
+
+        .cap-item h4 {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .cap-item p {
+            font-size: 11px;
+            line-height: 1.6;
+            opacity: 0.7;
+        }
+
+        /* BARRA INFERIOR */
+        footer.info-bar {
+            padding: 30px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 9px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--verde-status);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--verde-status);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            body { overflow-y: auto; height: auto; }
+            main { padding: 140px 8% 60px 8%; }
+            .capabilities-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+            .contact-title { font-size: 4rem; }
+            footer.info-bar { flex-direction: column; gap: 15px; text-align: center; }
+        }
+
+        @media (max-width: 500px) {
+            .capabilities-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
-  <div class="intro-screen" id="intro">
-    <img src="assets/images/android-chrome-192x192.png" alt="Icon" class="sunflower-icon">
-  </div>
+    <nav class="top-nav">
+        <img src="https://ik.imagekit.io/h7eo6ofoi/android-chrome-192x192.png" alt="logo" class="nav-logo">
+        <div class="nav-links">
+            <a href="index.html">home</a>
+            <a href="aboutme.html">about me</a>
+            <a href="works.html">works</a>
+            <a href="contact.html">contact</a>
+            <a href="cv.html">cv</a>
+        </div>
+    </nav>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="aboutme.html">About me</a>
-    <a href="works.html">Works</a>
-    <a href="contact.html">Contact</a>
-    <a href="cv.html">CV</a>
-  </nav>
+    <main>
+        <h1 class="contact-title">Let's work<br>together</h1>
 
-  <div class="viewport-wrapper">
-    <main class="main-content-wrapper">
-      <h1 class="contact-title">Contact</h1>
+        <div class="contact-info">
+            <a href="mailto:luciaaortiiz5@gmail.com" class="email-link">luciaaortiiz5@gmail.com</a>
+            <p class="phone-text">+34 636 13 14 99</p>
+            
+            <center>
+                <div class="social-links">
+                    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                    <a href="https://instagram.com" target="_blank">Instagram</a>
+                    <a href="https://behance.net" target="_blank">Behance</a>
+                </div>
+            </center>
+        </div>
 
-      <div class="contact-box">
-        <a href="mailto:luciaaortiiz5@gmail.com" class="contact-item">luciaaortiiz5@gmail.com</a>
-        <p class="contact-item">+34 636 13 14 99</p>
-        
-        <div class="social-links">
-          <a href="#" target="_blank">LinkedIn</a>
-          <a href="#" target="_blank">Instagram</a>
-          <a href="#" target="_blank">Behance</a>
+        <div class="capabilities-grid">
+            <div class="cap-item">
+                <h4>Branding</h4>
+                <p>Visual identity, logo design, and brand guidelines.</p>
+            </div>
+            <div class="cap-item">
+                <h4>Editorial</h4>
+                <p>Magazines, books, and complex layout design.</p>
+            </div>
+            <div class="cap-item">
+                <h4>Digital</h4>
+                <p>Social media content and basic UI design.</p>
+            </div>
+            <div class="cap-item">
+                <h4>Creative</h4>
+                <p>Art direction and concept development.</p>
+            </div>
         </div>
-      </div>
-
-      <div class="capabilities-grid">
-        <div class="cap-item">
-          <h4>Branding</h4>
-          <p>Identidad visual, logotipos y manual de marca corporativa.</p>
-        </div>
-        <div class="cap-item">
-          <h4>Editorial</h4>
-          <p>Diseño de revistas, libros, papelería y maquetación.</p>
-        </div>
-        <div class="cap-item">
-          <h4>Digital</h4>
-          <p>Social media design, activos web y diseño UI básico.</p>
-        </div>
-        <div class="cap-item">
-          <h4>Art Direction</h4>
-          <p>Dirección creativa, conceptos visuales y diseño de arte.</p>
-        </div>
-      </div>
     </main>
-  </div>
 
-  <div class="studio-info-bar">
-    <div id="local-time">MADRID, ES — 00:00:00</div>
-    <div class="status-container">
-      <div class="status-dot"></div>
-      <span>Open for freelance projects</span>
-    </div>
-  </div>
+    <footer class="info-bar">
+        <div id="local-time">Madrid, ES — 00:00:00</div>
+        <div class="status">
+            <div class="dot"></div>
+            <span>Open for freelance projects</span>
+        </div>
+    </footer>
 
-  <script>
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById('intro').classList.add('fade-up');
-      }, 1000); 
-    });
-
-    function updateTime() {
-      const now = new Date();
-      const options = { timeZone: 'Europe/Madrid', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' };
-      const timeString = now.toLocaleTimeString('en-GB', options);
-      document.getElementById('local-time').innerText = `MADRID, ES — ${timeString}`;
-    }
-    setInterval(updateTime, 1000);
-    updateTime();
-  </script>
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const options = { timeZone: 'Europe/Madrid', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            const timeString = now.toLocaleTimeString('en-GB', options);
+            document.getElementById('local-time').innerText = `Madrid, ES — ${timeString}`;
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
 
 </body>
 </html>

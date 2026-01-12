@@ -3,109 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucía Ortiz – Works</title>
+    <title>Lucía Ortiz | Works</title>
+    <link rel="icon" type="image/png" href="https://ik.imagekit.io/h7eo6ofoi/android-chrome-192x192.png">
+    
     <style>
-        @font-face {
-            font-family: 'Bodoni';
-            src: url('fonts/Bodoni-Bold.woff2') format('woff2');
-        }
-        @font-face {
-            font-family: 'HelveticaLight';
-            src: url('fonts/Helvetica-Light.woff2') format('woff2');
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+
+        @font-face { font-family: 'Bodoni'; src: url('fonts/Bodoni-Bold.woff2') format('woff2'); }
+        @font-face { font-family: 'HelveticaLight'; src: url('fonts/Helvetica-Light.woff2') format('woff2'); }
 
         :root {
-            --azul-petroleo: #2B3D52;
-            --azul-electrico: #0047FF;
-            --negro-puro: #0a0a0a;
-            --gris-works: #1a1a1a;
+            --azul-original: #2B3D52;
             --blanco: #FFFFFF;
-            --amarillo-pastel: #FFF4BD;
-            --rosa-pastel: #FFD1DC;
+            --negro: #000000;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
-        
-        /* Evita el scroll global */
         body {
-            font-family: Helvetica, Arial, sans-serif;
+            font-family: 'HelveticaLight', sans-serif;
+            background-color: var(--negro);
             color: var(--blanco);
             height: 100vh;
             width: 100vw;
-            overflow: hidden; 
-            background-image: url('assets/fondo-works.jpg'); 
+            overflow: hidden;
+            /* TU IMAGEN DE FONDO ORIGINAL */
+            background-image: url('assets/fondo-works.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
 
-        /* ---------- NAV (Tu navegación original) ---------- */
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            padding: 40px 15px 10px 15px;
-            position: relative;
-            z-index: 100;
-            flex-wrap: wrap; 
+        /* CAPA SUTIL PARA LEGUIBILIDAD */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 1;
         }
+
+        /* NAVEGACIÓN UNIFICADA */
+        nav {
+            position: fixed; top: 0; width: 100%;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 5%; z-index: 100;
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-logo {
+            width: 35px;
+            mix-blend-mode: difference;
+            filter: invert(1);
+        }
+
+        .nav-links { display: flex; gap: clamp(15px, 3vw, 25px); }
 
         nav a {
             text-decoration: none;
-            color: var(--blanco); /* Cambiado a blanco para visibilidad */
-            border: 1px solid var(--blanco);
-            padding: 8px 25px;
-            border-radius: 50px;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            background-color: transparent;
+            color: var(--blanco);
+            font-size: 12px;
+            text-transform: lowercase;
+            letter-spacing: 1.5px;
+            transition: opacity 0.3s;
         }
 
-        nav a:hover {
-            background-color: var(--blanco);
-            color: var(--negro-puro);
-        }
+        nav a:hover { opacity: 0.5; }
 
-        
-        /* --- CONTENIDO PRINCIPAL --- */
+        /* CONTENIDO PRINCIPAL */
         .main-content {
-            height: calc(100vh - 100px); /* Ajustado para que quepa con el NAV superior */
+            height: 100vh;
             width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 0 10%;
+            padding: 0 8%;
             position: relative;
+            z-index: 10;
         }
 
+        /* TÍTULO IGUAL AL ABOUT ME (WHO AM I) */
         .works-title {
             font-family: 'Bodoni', serif;
-            font-size: clamp(4rem, 10vw, 7rem);
-            color: var(--blanco);
-            text-transform: none;
+            font-size: clamp(2.5rem, 5vw, 3.5rem); /* Mismo tamaño que Who am i */
+            line-height: 1; 
+            text-transform: uppercase;
             margin-bottom: 40px;
-            line-height: 1;
+            color: var(--blanco);
         }
 
         .works-list {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            z-index: 20;
         }
 
         .works-list a {
-            text-decoration: none;
-            color: var(--blanco);
-            font-size: 14px;
-            text-transform: uppercase;
-            font-family: 'HelveticaLight', sans-serif;
-            letter-spacing: 3px;
-            opacity: 0.4;
-            transition: all 0.4s ease;
-            /* display: table hace que el link mida solo lo que mide el texto */
-            display: table; 
-        }
+    text-decoration: none;
+    color: var(--blanco);
+    font-size: 14px;
+    text-transform: lowercase;
+    letter-spacing: 3px;
+    opacity: 0.5;
+    transition: all 0.5s ease;
+    display: block;      /* Cambiado de table a block */
+    width: max-content;  /* Esto hace que el área clicable sea solo el texto */
+}
 
         .works-list a:hover {
             opacity: 1;
@@ -114,39 +116,50 @@
         }
 
         .footer-info {
-            color: var(--blanco);
             position: absolute;
             bottom: 40px;
-            right: 80px;
-            font-size: 10px;
+            right: 5%;
+            font-size: 9px;
             text-transform: uppercase;
             letter-spacing: 2px;
             opacity: 0.5;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 850px) {
+            .works-title { font-size: 3rem; text-align: center; }
+            .works-list { align-items: center; }
+            .works-list a { font-size: 11px; }
+            .nav-links { gap: 12px; }
+            footer { text-align: center; width: 100%; right: 0; }
+            .footer-info { width: 100%; text-align: center; right: 0; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="top-nav">
-        <a href="index.html">HOME</a>
-        <a href="aboutme.html">ABOUT ME</a>
-        <a href="works.html">WORKS</a>
-        <a href="contact.html">CONTACT</a>
-        <a href="cv.html">CV</a>
+    <nav>
+        <img src="https://ik.imagekit.io/h7eo6ofoi/android-chrome-192x192.png" alt="logo" class="nav-logo">
+        <div class="nav-links">
+            <a href="index.html">home</a>
+            <a href="aboutme.html">about me</a>
+            <a href="works.html">works</a>
+            <a href="contact.html">contact</a>
+            <a href="cv.html">cv</a>
+        </div>
     </nav>
-
 
     <main class="main-content">
         <h1 class="works-title">Works</h1>
 
         <div class="works-list">
-            <a href="luz.html">LUZ</a>
-            <a href="zipprevolution.html">ZIPP REVOLUTION</a>
-            <a href="fourseasons.html">4 SEASONS</a>
-            <a href="unseen.html">UNSEEN</a>
-            <a href="seo.html">SEO BIRDLIFE</a>
-            <a href="sabon.html">SABON</a>
-            <a href="principito.html">THE LITTLE PRINCE</a>
+            <a href="luz.html">luz</a>
+            <a href="zipprevolution.html">zipp revolution</a>
+            <a href="fourseasons.html">4 seasons</a>
+            <a href="unseen.html">unseen</a>
+            <a href="seo.html">seo birdlife</a>
+            <a href="sabon.html">sabon</a>
+            <a href="principito.html">the little prince</a>
         </div>
 
         <div class="footer-info">
