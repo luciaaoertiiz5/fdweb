@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucía Ortiz | About Me</title>
+    <title>Lucía Ortiz | Portfolio</title>
     <style>
-        /* TIPOGRAFÍAS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
         @font-face {
             font-family: 'Bodoni';
             src: url('fonts/Bodoni-Bold.woff2') format('woff2');
@@ -16,243 +22,328 @@
         }
 
         :root {
-            --azul-petroleo: #2B3D52;
+            --azul-electrico: #0047FF;
             --blanco: #FFFFFF;
             --negro: #000000;
-            
-            /* COLORES PARA TUS PESTAÑAS (Edítalos aquí) */
-            --color-home: #D1D1D1;
-            --color-about: #2B3D52;
-            --color-works: #A5A5A5;
-            --color-contact: #888888;
-            --color-cv: #555555;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'HelveticaLight', sans-serif; background-color: var(--blanco); overflow-x: hidden; }
 
-        .paper-texture {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('https://ik.imagekit.io/h7eo6ofoi/%20-9.jpg');
-            background-size: 600px;
-            opacity: 0.12;
-            pointer-events: none;
-            z-index: 50;
-            mix-blend-mode: multiply;
+        body {
+            font-family: 'HelveticaLight', sans-serif;
+            background-color: var(--azul-electrico);
+            overflow-x: hidden;
         }
 
-        /* --- MENÚ DE 5 PESTAÑAS (TABS) --- */
-        .side-tabs-nav {
-            position: fixed;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
+        section {
+            height: 100vh;
+            width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 5px;
-            z-index: 1000;
+            position: relative;
+            overflow: hidden;
         }
 
-        .tab-item {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            transform: translateX(calc(100% - 35px)); /* Solo sobresale un poco */
-        }
-
-        .tab-item:hover {
-            transform: translateX(0); /* Sale al pasar el ratón */
-        }
-
-        .tab-label {
-            padding: 15px 10px;
-            color: var(--blanco);
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
-            border-radius: 12px 0 0 12px;
-            min-height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        .tab-text {
-            background-color: inherit;
-            color: var(--blanco);
-            padding: 0 25px;
+        /* TEXTURA DE PAPEL */
+        /* TEXTURA DE PAPEL POTENCIADA */
+        .paper-texture {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 100%;
+            background-image: url('https://ik.imagekit.io/h7eo6ofoi/%20-9.jpg');
+            background-size: 800px; /* Grano más grande para que se note */
+            opacity: 0.50; /* Subido de 0.08 a 0.25 */
+            pointer-events: none;
+            z-index: 1;
+            mix-blend-mode: multiply; /* En la pantalla blanca usa multiply */
+        }
+
+        /* FOOTERS */
+        .section-footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            font-size: clamp(0.5rem, 1.5vw, 0.7rem);
+            letter-spacing: 1px;
+            z-index: 10;
+        }
+        .f-item b { text-transform: uppercase; margin-right: 5px; }
+        .footer-white { color: var(--blanco); }
+        .footer-black { color: var(--negro); }
+
+        /* FLECHAS */
+        .arrow {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 25px;
+            stroke-width: 1.5;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+            z-index: 5;
+        }
+        .arrow-1 { bottom: 80px; stroke: var(--blanco); }
+        .arrow-2 { bottom: 120px; stroke: var(--blanco); }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* CARRUSEL */
+        .marquee-capsule {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 92%;
+            height: 55px;
+            border: 1px solid var(--blanco);
+            border-radius: 100px;
             display: flex;
             align-items: center;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
+            overflow: hidden;
+            z-index: 6;
+        }
+        .marquee-content {
+            display: flex;
             white-space: nowrap;
-            border-radius: 0; /* Se une con la pestaña */
+            animation: scroll 30s linear infinite;
         }
-
-        /* Colores individuales y Bold para About Me */
-        .tab-home .tab-label, .tab-home .tab-text { background-color: var(--color-home); }
-        .tab-about .tab-label, .tab-about .tab-text { background-color: var(--color-about); font-weight: bold; }
-        .tab-works .tab-label, .tab-works .tab-text { background-color: var(--color-works); }
-        .tab-contact .tab-label, .tab-contact .tab-text { background-color: var(--color-contact); }
-        .tab-cv .tab-label, .tab-cv .tab-text { background-color: var(--color-cv); }
-
-        /* --- ESTRUCTURA --- */
-        section { 
-            width: 100%; 
-            height: 100vh; 
-            display: flex; 
-            position: relative; 
-            overflow: hidden; 
-            padding-right: 40px; /* Margen para que no choquen con las pestañas */
-        }
-
-        /* --- PANTALLA 1: BIO --- */
-        .bio-left-frame { width: 50%; height: 100%; position: relative; overflow: hidden; }
-        .img-base, .img-hover {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-size: cover; background-position: center; transition: opacity 0.6s ease;
-        }
-        .img-base { background-image: url('https://ik.imagekit.io/h7eo6ofoi/lejos.JPG'); z-index: 1; }
-        .img-hover { background-image: url('https://ik.imagekit.io/h7eo6ofoi/cerca.JPG'); z-index: 2; opacity: 0; }
-        .bio-left-frame:hover .img-hover { opacity: 1; }
-
-        .bio-right-content {
-            width: 50%; height: 100%;
-            display: flex; flex-direction: column;
-            justify-content: space-between;
-            padding: 80px 8%;
-        }
-
-        .who-am-i-title {
-            font-family: 'Bodoni', serif;
-            font-size: clamp(3rem, 8vw, 6rem);
-            color: var(--azul-petroleo);
+        .marquee-content span {
+            font-size: 1.1rem;
             text-transform: uppercase;
-            line-height: 0.85;
-            text-align: right;
+            padding: 0 15px;
+            color: var(--blanco);
+            display: flex;
+            align-items: center;
+        }
+        .marquee-content span::after {
+            content: "·";
+            margin-left: 25px;
         }
 
-        .bio-text-wrapper { max-width: 500px; margin-right: auto; text-align: justify; }
-        .bio-details { font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: var(--azul-petroleo); margin-bottom: 25px; }
-        .bio-text { font-size: 16px; line-height: 1.7; color: var(--negro); }
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
 
-        /* --- PANTALLA 2: SKILLS --- */
-        .screen-skills { display: flex; justify-content: center; align-items: center; }
-        .skills-box {
-            width: 90%; height: 82vh;
-            border: 1px solid var(--azul-petroleo);
-            border-radius: 60px;
-            padding: 80px;
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 80px;
+        /* PANTALLA 1 */
+        .screen-1 { justify-content: center; align-items: center; }
+        .screen-1 h1 {
+            font-family: 'Bodoni', serif;
+            font-size: clamp(3rem, 12vw, 8rem);
+            text-transform: uppercase;
+            color: var(--blanco);
+            position: relative;
+            z-index: 2;
+        }
+        .screen-1 p.sub {
+            letter-spacing: 5px;
+            font-size: 0.8rem;
+            color: var(--blanco);
+            text-transform: uppercase;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* PANTALLA 2 */
+        .screen-2 { justify-content: center; align-items: center; }
+        .welcome-text {
+            font-family: 'Bodoni', serif;
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            color: var(--blanco);
+            margin-top: 20px;
+        }
+
+        /* PANTALLA 3 */
+        .screen-3 {
+            background-color: var(--blanco);
+            justify-content: center;
             align-items: center;
         }
 
-        .skills-title { font-family: 'Bodoni', serif; font-size: 4.5rem; color: var(--azul-petroleo); margin-bottom: 50px; }
-        .software-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .software-item { display: flex; align-items: center; gap: 15px; font-size: 13px; text-transform: uppercase; }
-        .software-item img { width: 26px; height: 26px; object-fit: contain; }
-
-        .skills-right-info h3 {
-            font-family: 'HelveticaLight', sans-serif; font-weight: bold;
-            color: var(--azul-petroleo); text-transform: uppercase;
-            font-size: 16px; margin-bottom: 25px; border-bottom: 1px solid #ddd; padding-bottom: 15px;
+        .center-text {
+            text-align: center;
+            z-index: 5;
+            font-family: 'Bodoni', serif;
+            pointer-events: none;
+            margin-top: -100px; /* Elevamos el texto */
         }
-        .skills-right-info p { font-size: 16px; line-height: 1.8; margin-bottom: 45px; }
 
-        .footer-fixed {
-            position: absolute; bottom: 30px; width: 100%; padding: 0 5%;
-            display: flex; justify-content: space-between; font-size: 11px;
-            text-transform: uppercase; letter-spacing: 2px;
+        .center-text h2 {
+            font-size: clamp(1.8rem, 5vw, 3.2rem); 
+            line-height: 1.4;                     
+            text-transform: uppercase;
+            color: var(--negro);
+            letter-spacing: 1px;
         }
+
+        .separate {
+            display: block;      
+            margin-top: 40px;    
+            font-style: italic;  
+        }
+
+        /* SELLO CENTRADO ABAJO */
+        .stamp {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 150px;
+            z-index: 2;
+            opacity: 0.15;
+            animation: rotateStamp 25s linear infinite;
+        }
+        .stamp text {
+            font-family: 'HelveticaLight';
+            font-size: 7.5px;
+            letter-spacing: 2.5px;
+            fill: var(--negro);
+            text-transform: uppercase;
+        }
+        @keyframes rotateStamp {
+            from { transform: translateX(-50%) rotate(0deg); }
+            to { transform: translateX(-50%) rotate(360deg); }
+        }
+
+        /* CARPETAS */
+        .folder-wrapper {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 4;
+        }
+
+        .floating-folder {
+            position: absolute;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .floating-folder img {
+            width: clamp(80px, 12vw, 130px);
+            height: auto;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.05));
+        }
+
+        .floating-folder p {
+            font-family: 'HelveticaLight', sans-serif;
+            font-size: 0.7rem;
+            color: var(--negro);
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .floating-folder:hover {
+            transform: scale(1.08); 
+        }
+
+        /* POSICIONES CARPETAS */
+        .f-1 { top: 18%; left: 12%; }
+        .f-2 { top: 12%; right: 18%; }
+        .f-3 { top: 50%; left: 10%; }
+        .f-6 { top: 45%; right: 12%; }
+
     </style>
 </head>
 <body>
 
-    <div class="paper-texture"></div>
-
-    <nav class="side-tabs-nav">
-        <a href="index.html" class="tab-item tab-home">
-            <div class="tab-label">HOME</div>
-            <div class="tab-text">Home</div>
-        </a>
-        <a href="aboutme.html" class="tab-item tab-about">
-            <div class="tab-label">ABOUT</div>
-            <div class="tab-text">About me</div>
-        </a>
-        <a href="works.html" class="tab-item tab-works">
-            <div class="tab-label">WORKS</div>
-            <div class="tab-text">Works</div>
-        </a>
-        <a href="contact.html" class="tab-item tab-contact">
-            <div class="tab-label">CONTACT</div>
-            <div class="tab-text">Contact</div>
-        </a>
-        <a href="cv.html" class="tab-item tab-cv">
-            <div class="tab-label">CV</div>
-            <div class="tab-text">CV</div>
-        </a>
-    </nav>
-
-    <section id="bio">
-        <div class="bio-left-frame">
-            <div class="img-base"></div>
-            <div class="img-hover"></div>
-        </div>
-        <div class="bio-right-content">
-            <h2 class="who-am-i-title">WHO<br>AM I?</h2>
-            <div class="bio-text-wrapper">
-                <div class="bio-details">
-                    <p><b>Age:</b> 21 years old</p>
-                    <p><b>Specialization:</b> Graphic Designer</p>
-                </div>
-                <p class="bio-text">
-                    Hi! I’m Lucía Ortiz, I’m a graphic designer currently continuing my studies, always eager to learn and grow. I enjoy experimenting with new ideas, exploring different styles, and bringing a creative approach to every project while staying focused on goals and details. 
-                    <br><br>
-                    I’m responsible, hardworking, and highly organized. I consider myself a perfectionist and I like having everything under control to ensure each result is thoughtful, consistent, and well-crafted.
-                </p>
+    <section class="screen-1">
+        <div class="paper-texture"></div>
+        <div class="marquee-capsule">
+            <div class="marquee-content">
+                <span>BRANDING</span> <span>PHOTOGRAPHY</span> <span>EDITORIAL</span> <span>DIGITAL DESIGN</span> <span>PACKAGING</span> <span>ILLUSTRATION</span> <span>TYPOGRAPHY</span>
+                <span>BRANDING</span> <span>PHOTOGRAPHY</span> <span>EDITORIAL</span> <span>DIGITAL DESIGN</span> <span>PACKAGING</span> <span>ILLUSTRATION</span> <span>TYPOGRAPHY</span>
             </div>
+        </div>
+        <div style="text-align: center;">
+            <h1>Portfolio</h1>
+            <p class="sub">Graphic Designer</p>
+        </div>
+        <svg class="arrow arrow-1" viewBox="0 0 24 24" fill="none" onclick="window.scrollTo(0, window.innerHeight)">
+            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" stroke="white"/>
+        </svg>
+        <div class="section-footer footer-white">
+            <div class="f-item"><b>PRESENTED BY:</b> <span>Lucía Ortiz</span></div>
+            <div class="f-item"><b>WORKS:</b> <span>2023-2026</span></div>
+            <div class="f-item"><b>EMAIL:</b> <span>luciaaortiiz5@gmail.com</span></div>
         </div>
     </section>
 
-    <section id="skills" class="screen-skills">
-        <div class="skills-box">
-            <div class="skills-left">
-                <h2 class="skills-title">Skills</h2>
-                <div class="software-grid">
-                    <div class="software-item"><img src="assets/images/ps.png"> Photoshop</div>
-                    <div class="software-item"><img src="assets/images/ai.png"> Illustrator</div>
-                    <div class="software-item"><img src="assets/images/id.png"> InDesign</div>
-                    <div class="software-item"><img src="assets/images/figma.png"> Figma</div>
-                    <div class="software-item"><img src="assets/images/lr.png"> Lightroom</div>
-                    <div class="software-item"><img src="assets/images/procreate.png"> Procreate</div>
-                </div>
-            </div>
-            <div class="skills-right-info">
-                <div>
-                    <h3>Creative Skills</h3>
-                    <p>I design and redesign brands, manuals, and packaging, creating coherent systems. I also focus on editorial design, stationery, and visual solutions with HTML/CSS.</p>
-                </div>
-                <div>
-                    <h3>Interests</h3>
-                    <p>Continuously learning and exploring new techniques. Currently diving into 3D design to expand my creative and digital horizons.</p>
-                </div>
+    <section class="screen-2">
+        <div class="paper-texture"></div>
+        <div class="marquee-capsule">
+            <div class="marquee-content">
+                <span>BRANDING</span> <span>PHOTOGRAPHY</span> <span>EDITORIAL</span> <span>DIGITAL DESIGN</span> <span>PACKAGING</span> <span>ILLUSTRATION</span> <span>TYPOGRAPHY</span>
+                <span>BRANDING</span> <span>PHOTOGRAPHY</span> <span>EDITORIAL</span> <span>DIGITAL DESIGN</span> <span>PACKAGING</span> <span>ILLUSTRATION</span> <span>TYPOGRAPHY</span>
             </div>
         </div>
+        <div class="welcome-text">Welcome.</div>
+        <svg class="arrow arrow-2" viewBox="0 0 24 24" fill="none" onclick="window.scrollTo(0, window.innerHeight * 2)">
+            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" stroke="white"/>
+        </svg>
+        <div class="section-footer footer-white">
+            <div class="f-item"><b>PRESENTED BY:</b> <span>Lucía Ortiz</span></div>
+            <div class="f-item"><b>WORKS:</b> <span>2023-2026</span></div>
+            <div class="f-item"><b>EMAIL:</b> <span>luciaaortiiz5@gmail.com</span></div>
+        </div>
+    </section>
 
-        <div class="footer-fixed">
-            <div><b>Presented by:</b> Lucía Ortiz</div>
-            <div><b>Works:</b> 2023–2026</div>
-            <div><b>Email:</b> luciaaortiiz5@gmail.com</div>
+    <section class="screen-3">
+        <div class="paper-texture"></div>
+        
+        <div class="stamp">
+            <svg viewBox="0 0 100 100">
+                <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent"/>
+                <text>
+                    <textPath xlink:href="#circlePath">
+                        LUCÍA ORTIZ · GRAPHIC DESIGNER · PORTFOLIO 2026 · 
+                    </textPath>
+                </text>
+            </svg>
+        </div>
+
+        <div class="center-text">
+            <h2>WHERE DO<br>WE START?<br><span class="separate">CREATE!</span></h2>
+        </div>
+
+        <div class="folder-wrapper">
+            <a href="aboutme.html" class="floating-folder f-1">
+                <img src="https://ik.imagekit.io/h7eo6ofoi/6.png" alt="branding">
+                <p>about me</p>
+            </a>
+            <a href="works.html" class="floating-folder f-2">
+                <img src="https://ik.imagekit.io/h7eo6ofoi/1.png" alt="photography">
+                <p>works</p>
+            </a>
+            <a href="contact.html" class="floating-folder f-3">
+                <img src="https://ik.imagekit.io/h7eo6ofoi/4.png" alt="editorial">
+                <p>contact</p>
+            </a>
+            <a href="cv.html" class="floating-folder f-6">
+                <img src="https://ik.imagekit.io/h7eo6ofoi/2.png" alt="typography">
+                <p>CV</p>
+            </a>
+        </div>
+
+        <div class="section-footer footer-black">
+            <div class="f-item"><b>PRESENTED BY:</b> <span>Lucía Ortiz</span></div>
+            <div class="f-item"><b>WORKS:</b> <span>2023-2026</span></div>
+            <div class="f-item"><b>EMAIL:</b> <span>luciaaortiiz5@gmail.com</span></div>
         </div>
     </section>
 
