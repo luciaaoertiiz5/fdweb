@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUZ – Lucía Ortiz</title>
+    
+    <link rel="icon" href="assets/images/android-chrome-192x192.png" type="image/png">
+
+    <style>
+        :root {
+            --negro: #000000;
+            --gris-claro: #cccccc;
+            --blanco: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: Helvetica, sans-serif;
+            background-color: var(--blanco);
+            color: var(--negro);
+            overflow-x: hidden; 
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ---------- COLUMNA IZQUIERDA (FIJA) ---------- */
+        .sidebar {
+            width: 40%;
+            height: 100vh;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 10;
+            background-color: var(--blanco);
+        }
+
+        .works-nav {
+            margin-bottom: 40px;
+        }
+
+        .works-nav a {
+            display: block;
+            text-decoration: none;
+            color: var(--gris-claro);
+            font-size: clamp(14px, 1.5vw, 18px);
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            transition: color 0.3s;
+        }
+
+        .works-nav a:hover { color: var(--negro); }
+        .works-nav a.active { color: var(--negro); font-weight: bold; }
+
+        .description-text {
+            font-size: 15px;
+            line-height: 1.6;
+            text-align: justify;
+            color: var(--negro);
+            font-weight: 100;
+            letter-spacing: 0.3px;
+            max-height: 40vh;
+            overflow-y: auto;
+            scrollbar-width: none;
+        }
+        .description-text::-webkit-scrollbar { display: none; }
+
+        /* ---------- BOTÓN PDF (Dentro del Sidebar para mejor control) ---------- */
+        .pdf-button {
+            margin-top: 30px;
+            display: inline-block;
+            width: fit-content;
+            padding: 10px 20px;
+            border: 1px solid var(--negro);
+            color: var(--negro);
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            font-weight: 100;
+        }
+
+        .pdf-button:hover {
+            background-color: var(--negro);
+            color: var(--blanco);
+        }
+
+        /* ---------- COLUMNA DERECHA (CARRUSEL) ---------- */
+        .carousel-vertical {
+            width: 60%;
+            margin-left: 40%;
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scrollbar-width: none; 
+        }
+
+        .carousel-vertical::-webkit-scrollbar { display: none; } 
+
+        .carousel-item {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: start;
+            padding: 40px 60px;
+        }
+
+        .carousel-item img {
+            max-width: 100%;
+            max-height: 75vh;
+            object-fit: contain;
+        }
+
+        /* ---------- FOOTER (Unificado con Unseen) ---------- */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 60px;
+            font-size: 10px;
+            background: rgba(255,255,255,0.9);
+            z-index: 2000;
+            letter-spacing: 0.5px;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 900px) {
+            body { overflow-y: auto; }
+            .sidebar { position: relative; width: 100%; height: auto; padding: 40px 20px; }
+            .carousel-vertical { width: 100%; margin-left: 0; height: auto; overflow-y: visible; }
+            .carousel-item { height: auto; min-height: 60vh; padding: 40px 20px; scroll-snap-align: none; }
+            footer { position: relative; flex-direction: column; align-items: center; gap: 10px; padding: 40px 20px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        
+        <nav class="works-nav">
+            <a href="luz.html" class="active">LUZ</a>
+            <a href="zipprevolution.html">ZIPP REVOLUTION</a>
+            <a href="fourseasons.html">4 SEASONS</a>
+            <a href="unseen.html">UNSEEN</a>
+            <a href="seo.html">SEO BIRDLIFE</a>
+            <a href="sabon.html">SABON</a>
+            <a href="principito.html">THE LITTLE PRINCE</a>
+        </nav>
+
+        <div class="description-text">
+            <p><strong>LUZ</strong> is a premium editorial brand identity that explores the intersection of movement and luminance. This project features the inaugural <em>Issue Nº1</em> of a photography-focused magazine, alongside a complete stationery system including special edition notebooks, planners, and bookmarks.</p>
+            <br>
+            <p>The visual language is built upon a rhythmic stripe system and a minimalist typographic approach, capturing the energy of long-exposure photography. From its vivid color palettes to its "Vogue-inspired" editorial layout, LUZ represents a commitment to clarity, technical sophistication, and high-end design.</p>
+        </div>
+
+        <a href="magazine.html" class="pdf-button">View Full Magazine</a>
+    </aside>
+
+    <main class="carousel-vertical">
+        <div class="carousel-item"><img src="https://ik.imagekit.io/h7eo6ofoi/r1.png" alt="LUZ Magazine Cover"></div>
+        <div class="carousel-item"><img src="https://ik.imagekit.io/h7eo6ofoi/r2.png" alt="LUZ Editorial Interior"></div>
+        <div class="carousel-item"><img src="https://ik.imagekit.io/h7eo6ofoi/r3.png" alt="Special Edition Notebooks"></div>
+        <div class="carousel-item"><img src="https://ik.imagekit.io/h7eo6ofoi/l1.png" alt="Chromatic Planners"></div>
+        <div class="carousel-item"><img src="https://ik.imagekit.io/h7eo6ofoi/l2.png" alt="Photography Collection"></div>
+        <div class="carousel-item"><img src="https://ik.imagekit.io/h7eo6ofoi/l3.png" alt="LUZ Bookmarks"></div>
+        <div class="carousel-item"><img src="https://ik.imagekit.io/h7eo6ofoi/l4.png" alt="Business Cards Detail"></div>
+        <div class="carousel-item"><img src="https://ik.imagekit.io/h7eo6ofoi/l5.png" alt="Typographic Logo Design"></div>
+        <div class="carousel-item"><img src="https://ik.imagekit.io/h7eo6ofoi/a1.png" alt="LUZ Bookmarks"></div>
+        <div class="carousel-item"><img src="https://ik.imagekit.io/h7eo6ofoi/a2.png" alt="Business Cards Detail"></div>
+        <div class="carousel-item"><img src="https://ik.imagekit.io/h7eo6ofoi/a3.png" alt="Typographic Logo Design"></div>
+        <div class="carousel-item"><img src="https://ik.imagekit.io/h7eo6ofoi/M1.png" alt="Stationery Set"></div>
+        <div class="carousel-item"><img src="https://ik.imagekit.io/h7eo6ofoi/M2.png" alt="Movement & Light Study"></div>
+        <div class="carousel-item"><img src="https://ik.imagekit.io/h7eo6ofoi/t4.png" alt="Stationery Set"></div>
+        <div class="carousel-item"><img src="https://ik.imagekit.io/h7eo6ofoi/t5.png" alt="Movement & Light Study"></div>
+    </main>
+
+    <footer>
+        <div><b>PRESENTED BY:</b> LUCÍA ORTIZ</div>
+        <div><b>WORKS:</b> 2023–2026</div>
+        <div><b>PROJECT:</b> LUZ</div>
+        <div><b>EMAIL:</b> LUCIAAORTIIZ5@GMAIL.COM</div>
+    </footer>
+
+</body>
+</html>

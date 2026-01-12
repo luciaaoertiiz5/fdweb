@@ -39,50 +39,32 @@
             background-color: var(--negro); 
             -webkit-font-smoothing: antialiased;
         }
-
-        /* --- NAVEGACIÓN PESTAÑAS --- */
-        .side-tabs-nav {
-            position: fixed;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
+ /* ---------- NAV ---------- */
+        nav {
             display: flex;
-            flex-direction: column;
-            gap: 4px;
-            z-index: 1000;
-        }
-
-        .tab-item {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            width: 45px;
-            transition: transform 0.3s ease;
-            transform: translateX(5px);
-        }
-
-        .tab-item:hover { transform: translateX(-10px); }
-
-        .tab-label {
-            width: 100%;
-            padding: 30px 0;
-            font-size: 14px;
-            text-transform: lowercase;
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
-            border-radius: 15px 0 0 15px; 
-            display: flex;
-            align-items: center;
             justify-content: center;
-            cursor: pointer;
+            gap: 15px;
+            padding: 40px 15px 10px 15px;
+            position: relative;
+            z-index: 10;
+            flex-wrap: wrap; 
         }
 
-        .tab-home .tab-label { background-color: var(--azul-electrico); color: var(--blanco); }
-        .tab-about .tab-label { background-color: var(--azul-petroleo); color: var(--blanco); }
-        /* Pestaña Works sin borde, usando un gris muy oscuro para destacar */
-        .tab-works .tab-label { background-color: var(--gris-works); color: var(--blanco); font-weight: bold; }
-        .tab-contact .tab-label { background-color: var(--amarillo-pastel); color: var(--negro-puro); }
-        .tab-cv .tab-label { background-color: var(--rosa-pastel); color: var(--negro-puro); }
+        nav a {
+            text-decoration: none;
+            color: var(--negro);
+            border: 1px solid var(--blanco);
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background-color: transparent;
+        }
+
+        nav a:hover {
+            background-color: var(--blanco);
+            color: var(--negro);
+        }
 
         /* --- CONTENIDO PRINCIPAL --- */
         .main-content {
