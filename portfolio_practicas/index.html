@@ -4,105 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucía Ortiz | Portfolio</title>
+    <link rel="icon" type="image/png" href="https://ik.imagekit.io/h7eo6ofoi/android-chrome-192x192.png">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
 
-        @font-face {
-            font-family: 'Bodoni';
-            src: url('fonts/Bodoni-Bold.woff2') format('woff2');
-        }
-        @font-face {
-            font-family: 'HelveticaLight';
-            src: url('fonts/Helvetica-Light.woff2') format('woff2');
-        }
+        @font-face { font-family: 'Bodoni'; src: url('fonts/Bodoni-Bold.woff2') format('woff2'); }
+        @font-face { font-family: 'HelveticaLight'; src: url('fonts/Helvetica-Light.woff2') format('woff2'); }
 
-        :root {
-            --azul-electrico: #0047FF;
-            --blanco: #FFFFFF;
-            --negro: #000000;
-        }
+        :root { --azul-electrico: #0047FF; --blanco: #FFFFFF; --negro: #000000; }
 
         html { scroll-behavior: smooth; }
+        body { font-family: 'HelveticaLight', sans-serif; background-color: var(--azul-electrico); overflow-x: hidden; color: var(--blanco); }
 
-        body {
-            font-family: 'HelveticaLight', sans-serif;
-            background-color: var(--azul-electrico);
-            overflow-x: hidden;
-        }
+        section { height: 100vh; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden; }
 
-        section {
-            height: 100vh;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-        }
+        .paper-texture { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://ik.imagekit.io/h7eo6ofoi/%20-9.jpg'); background-size: 600px; opacity: 0.35; pointer-events: none; z-index: 1; mix-blend-mode: multiply; }
 
-        /* TEXTURA DE PAPEL */
-        /* TEXTURA DE PAPEL POTENCIADA */
-        .paper-texture {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://ik.imagekit.io/h7eo6ofoi/%20-9.jpg');
-            background-size: 800px; /* Grano más grande para que se note */
-            opacity: 0.50; /* Subido de 0.08 a 0.25 */
-            pointer-events: none;
-            z-index: 1;
-            mix-blend-mode: multiply; /* En la pantalla blanca usa multiply */
-        }
-
-        /* FOOTERS */
-        .section-footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            font-size: clamp(0.5rem, 1.5vw, 0.7rem);
-            letter-spacing: 1px;
-            z-index: 10;
-        }
-        .f-item b { text-transform: uppercase; margin-right: 5px; }
-        .footer-white { color: var(--blanco); }
-        .footer-black { color: var(--negro); }
-
-        /* FLECHAS */
-        .arrow {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 25px;
-            stroke-width: 1.5;
-            cursor: pointer;
-            animation: bounce 2s infinite;
-            z-index: 5;
-        }
-        .arrow-1 { bottom: 80px; stroke: var(--blanco); }
-        .arrow-2 { bottom: 120px; stroke: var(--blanco); }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-10px); }
-        }
-
-        /* CARRUSEL */
+        /* CARRUSEL RECUPERADO */
         .marquee-capsule {
             position: absolute;
             top: 40px;
             left: 50%;
             transform: translateX(-50%);
             width: 92%;
-            height: 55px;
+            height: 45px;
             border: 1px solid var(--blanco);
             border-radius: 100px;
             display: flex;
@@ -110,159 +36,72 @@
             overflow: hidden;
             z-index: 6;
         }
-        .marquee-content {
-            display: flex;
-            white-space: nowrap;
-            animation: scroll 30s linear infinite;
-        }
-        .marquee-content span {
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            padding: 0 15px;
-            color: var(--blanco);
-            display: flex;
-            align-items: center;
-        }
-        .marquee-content span::after {
-            content: "·";
-            margin-left: 25px;
-        }
+        .marquee-content { display: flex; white-space: nowrap; animation: scroll 30s linear infinite; }
+        .marquee-content span { font-size: 0.9rem; text-transform: uppercase; padding: 0 15px; color: var(--blanco); display: flex; align-items: center; }
+        .marquee-content span::after { content: "·"; margin-left: 25px; }
+        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-        @keyframes scroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
+        /* TIPOGRAFÍA */
+        .screen-1 h1 { font-family: 'Bodoni', serif; font-size: clamp(3rem, 12vw, 7rem); text-transform: uppercase; z-index: 2; }
+        .screen-1 p.sub { letter-spacing: 5px; font-size: 11px; text-transform: uppercase; margin-top: 10px; z-index: 2; }
+        .welcome-text { font-family: 'Bodoni', serif; font-size: clamp(2.5rem, 10vw, 6rem); z-index: 2; }
 
-        /* PANTALLA 1 */
-        .screen-1 { justify-content: center; align-items: center; }
-        .screen-1 h1 {
-            font-family: 'Bodoni', serif;
-            font-size: clamp(3rem, 12vw, 8rem);
-            text-transform: uppercase;
-            color: var(--blanco);
-            position: relative;
-            z-index: 2;
-        }
-        .screen-1 p.sub {
-            letter-spacing: 5px;
-            font-size: 0.8rem;
-            color: var(--blanco);
-            text-transform: uppercase;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* PANTALLA 2 */
-        .screen-2 { justify-content: center; align-items: center; }
-        .welcome-text {
-            font-family: 'Bodoni', serif;
-            font-size: clamp(2.5rem, 8vw, 6rem);
-            color: var(--blanco);
-            margin-top: 20px;
-        }
-
-        /* PANTALLA 3 */
-        .screen-3 {
-            background-color: var(--blanco);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .center-text {
-            text-align: center;
+        
+        .center-text h2 { 
+            font-family: 'Bodoni', serif; 
+            font-size: clamp(2rem, 6vw, 3.5rem); 
+            line-height: 1.2; 
+            text-transform: uppercase; 
+            color: var(--negro); 
+            letter-spacing: 1px;
             z-index: 5;
-            font-family: 'Bodoni', serif;
-            pointer-events: none;
-            margin-top: -100px; /* Elevamos el texto */
+            text-align: center;
         }
+        .separate { display: block; margin-top: 20px; font-style: italic; font-size: 0.9em; }
 
-        .center-text h2 {
-            font-size: clamp(1.8rem, 5vw, 3.2rem); 
-            line-height: 1.4;                     
-            text-transform: uppercase;
-            color: var(--negro);
-            letter-spacing: 1px;
-        }
+        /* CARPETAS PANTALLA 3 */
+        .folder-wrapper { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 4; }
+        .floating-folder { position: absolute; text-decoration: none; display: flex; flex-direction: column; align-items: center; transition: transform 0.3s ease; }
+        .floating-folder img { width: clamp(85px, 12vw, 120px); } 
+        .floating-folder p { font-size: 10px; color: var(--negro); margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
+        .floating-folder:hover { transform: scale(1.08); }
 
-        .separate {
-            display: block;      
-            margin-top: 40px;    
-            font-style: italic;  
-        }
+        /* POSICIONES PRINCIPALES CORREGIDAS */
+        .f-1 { top: 20%; left: 10%; }
+        .f-2 { top: 15%; right: 14%; }
+        .f-3 { bottom: 28%; left: 10%; } /* SUBIDA PARA ALINEAR CON CV */
+        .f-6 { bottom: 33%; right: 19%; }
 
-        /* SELLO CENTRADO ABAJO */
-        .stamp {
-            position: absolute;
-            bottom: 60px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 150px;
-            z-index: 2;
-            opacity: 0.15;
-            animation: rotateStamp 25s linear infinite;
-        }
-        .stamp text {
-            font-family: 'HelveticaLight';
-            font-size: 7.5px;
-            letter-spacing: 2.5px;
-            fill: var(--negro);
-            text-transform: uppercase;
-        }
-        @keyframes rotateStamp {
-            from { transform: translateX(-50%) rotate(0deg); }
-            to { transform: translateX(-50%) rotate(360deg); }
-        }
+        /* POSICIONES EXTRAS (MÁS SEPARADAS) */
+        .folder-extra { pointer-events: none; }
+        .folder-extra img { width: clamp(55px, 7vw, 80px); opacity: 0.6; }
+        .fe-1 { top: 35%; left: 25%; }
+        .fe-2 { bottom: 75%; right: 40%; }
+        .fe-3 { top: 75%; left: 35%; }
 
-        /* CARPETAS */
-        .folder-wrapper {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 4;
+        /* FOOTER Y SELLO */
+        .section-footer { position: absolute; bottom: 30px; width: 90%; display: flex; justify-content: space-between; align-items: flex-end; font-size: 10px; letter-spacing: 1px; z-index: 10; }
+        .footer-black { color: var(--negro); }
+        .footer-center-group { display: flex; flex-direction: column; align-items: center; gap: 10px; position: absolute; left: 50%; transform: translateX(-50%); bottom: 0; }
+        .stamp { width: 130px; height: 130px; opacity: 0.25; animation: rotateStamp 25s linear infinite; }
+        @keyframes rotateStamp { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        /* FLECHAS */
+        .arrow { position: absolute; bottom: 80px; width: 25px; cursor: pointer; z-index: 5; }
+
+        @media (max-width: 600px) {
+            .folder-wrapper { display: grid; grid-template-columns: 1fr 1fr; padding: 140px 20px; gap: 20px; position: relative; height: auto; }
+            .f-1, .f-2, .f-3, .f-6, .fe-1, .fe-2, .fe-3 { position: static; }
+            .folder-extra { display: none; }
+            .section-footer { flex-direction: column; align-items: center; gap: 30px; text-align: center; position: relative; margin-top: 40px; }
+            .footer-center-group { position: relative; left: 0; transform: none; }
+            .marquee-capsule { top: 20px; height: 35px; }
         }
-
-        .floating-folder {
-            position: absolute;
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: transform 0.3s ease;
-        }
-
-        .floating-folder img {
-            width: clamp(80px, 12vw, 130px);
-            height: auto;
-            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.05));
-        }
-
-        .floating-folder p {
-            font-family: 'HelveticaLight', sans-serif;
-            font-size: 0.7rem;
-            color: var(--negro);
-            margin-top: 5px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .floating-folder:hover {
-            transform: scale(1.08); 
-        }
-
-        /* POSICIONES CARPETAS */
-        .f-1 { top: 18%; left: 12%; }
-        .f-2 { top: 12%; right: 18%; }
-        .f-3 { top: 50%; left: 10%; }
-        .f-6 { top: 45%; right: 12%; }
-
     </style>
 </head>
 <body>
 
-    <section class="screen-1">
+    <section class="screen-1" id="s1">
         <div class="paper-texture"></div>
         <div class="marquee-capsule">
             <div class="marquee-content">
@@ -270,21 +109,17 @@
                 <span>BRANDING</span> <span>PHOTOGRAPHY</span> <span>EDITORIAL</span> <span>DIGITAL DESIGN</span> <span>PACKAGING</span> <span>ILLUSTRATION</span> <span>TYPOGRAPHY</span>
             </div>
         </div>
-        <div style="text-align: center;">
-            <h1>Portfolio</h1>
-            <p class="sub">Graphic Designer</p>
-        </div>
-        <svg class="arrow arrow-1" viewBox="0 0 24 24" fill="none" onclick="window.scrollTo(0, window.innerHeight)">
-            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" stroke="white"/>
-        </svg>
-        <div class="section-footer footer-white">
-            <div class="f-item"><b>PRESENTED BY:</b> <span>Lucía Ortiz</span></div>
-            <div class="f-item"><b>WORKS:</b> <span>2023-2026</span></div>
-            <div class="f-item"><b>EMAIL:</b> <span>luciaaortiiz5@gmail.com</span></div>
+        <h1>Portfolio</h1>
+        <p class="sub">Graphic Designer</p>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" onclick="document.getElementById('s2').scrollIntoView()"><path d="M7 13l5 5 5-5M7 6l5 5 5-5" stroke="white" stroke-width="1.5"/></svg>
+        <div class="section-footer">
+            <div><b>PRESENTED BY:</b> <span>Lucía Ortiz</span></div>
+            <div><b>WORKS:</b> <span>2023-2026</span></div>
+            <div><b>EMAIL:</b> <span>luciaaortiiz5@gmail.com</span></div>
         </div>
     </section>
 
-    <section class="screen-2">
+    <section class="screen-2" id="s2">
         <div class="paper-texture"></div>
         <div class="marquee-capsule">
             <div class="marquee-content">
@@ -293,59 +128,46 @@
             </div>
         </div>
         <div class="welcome-text">Welcome.</div>
-        <svg class="arrow arrow-2" viewBox="0 0 24 24" fill="none" onclick="window.scrollTo(0, window.innerHeight * 2)">
-            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" stroke="white"/>
-        </svg>
-        <div class="section-footer footer-white">
-            <div class="f-item"><b>PRESENTED BY:</b> <span>Lucía Ortiz</span></div>
-            <div class="f-item"><b>WORKS:</b> <span>2023-2026</span></div>
-            <div class="f-item"><b>EMAIL:</b> <span>luciaaortiiz5@gmail.com</span></div>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" onclick="document.getElementById('s3').scrollIntoView()"><path d="M7 13l5 5 5-5M7 6l5 5 5-5" stroke="white" stroke-width="1.5"/></svg>
+        <div class="section-footer">
+            <div><b>PRESENTED BY:</b> <span>Lucía Ortiz</span></div>
+            <div><b>WORKS:</b> <span>2023-2026</span></div>
+            <div><b>EMAIL:</b> <span>luciaaortiiz5@gmail.com</span></div>
         </div>
     </section>
 
-    <section class="screen-3">
+    <section class="screen-3" id="s3" style="background-color: var(--blanco);">
         <div class="paper-texture"></div>
+       
         
-        <div class="stamp">
-            <svg viewBox="0 0 100 100">
-                <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent"/>
-                <text>
-                    <textPath xlink:href="#circlePath">
-                        LUCÍA ORTIZ · GRAPHIC DESIGNER · PORTFOLIO 2026 · 
-                    </textPath>
-                </text>
-            </svg>
-        </div>
-
         <div class="center-text">
             <h2>WHERE DO<br>WE START?<br><span class="separate">CREATE!</span></h2>
         </div>
 
         <div class="folder-wrapper">
-            <a href="aboutme.html" class="floating-folder f-1">
-                <img src="https://ik.imagekit.io/h7eo6ofoi/6.png" alt="branding">
-                <p>about me</p>
-            </a>
-            <a href="works.html" class="floating-folder f-2">
-                <img src="https://ik.imagekit.io/h7eo6ofoi/1.png" alt="photography">
-                <p>works</p>
-            </a>
-            <a href="contact.html" class="floating-folder f-3">
-                <img src="https://ik.imagekit.io/h7eo6ofoi/4.png" alt="editorial">
-                <p>contact</p>
-            </a>
-            <a href="cv.html" class="floating-folder f-6">
-                <img src="https://ik.imagekit.io/h7eo6ofoi/2.png" alt="typography">
-                <p>CV</p>
-            </a>
+            <a href="aboutme.html" class="floating-folder f-1"><img src="https://ik.imagekit.io/h7eo6ofoi/6.png" alt="about"><p>about me</p></a>
+            <a href="works.html" class="floating-folder f-2"><img src="https://ik.imagekit.io/h7eo6ofoi/1.png" alt="works"><p>works</p></a>
+            <a href="contact.html" class="floating-folder f-3"><img src="https://ik.imagekit.io/h7eo6ofoi/4.png" alt="contact"><p>contact</p></a>
+            <a href="cv.html" class="floating-folder f-6"><img src="https://ik.imagekit.io/h7eo6ofoi/2.png" alt="cv"><p>CV</p></a>
+
+            <div class="floating-folder folder-extra fe-1"><img src="https://ik.imagekit.io/h7eo6ofoi/3.png" alt=""></div>
+            <div class="floating-folder folder-extra fe-2"><img src="https://ik.imagekit.io/h7eo6ofoi/5.png" alt=""></div>
+            <div class="floating-folder folder-extra fe-3"><img src="https://ik.imagekit.io/h7eo6ofoi/macbook%20file%20icon.png" alt=""></div>
         </div>
 
         <div class="section-footer footer-black">
-            <div class="f-item"><b>PRESENTED BY:</b> <span>Lucía Ortiz</span></div>
-            <div class="f-item"><b>WORKS:</b> <span>2023-2026</span></div>
-            <div class="f-item"><b>EMAIL:</b> <span>luciaaortiiz5@gmail.com</span></div>
+            <div><b>PRESENTED BY:</b> <span>Lucía Ortiz</span></div>
+            <div class="footer-center-group">
+                <div class="stamp">
+                    <svg viewBox="0 0 100 100">
+                        <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent"/>
+                        <text style="font-family:'HelveticaLight'; font-size:7px; letter-spacing:2px; fill:var(--negro); text-transform:uppercase;"><textPath xlink:href="#circlePath">LUCÍA ORTIZ · GRAPHIC DESIGNER · PORTFOLIO 2026 · </textPath></text>
+                    </svg>
+                </div>
+                <div><b>WORKS:</b> <span>2023-2026</span></div>
+            </div>
+            <div><b>EMAIL:</b> <span>luciaaortiiz5@gmail.com</span></div>
         </div>
     </section>
-
 </body>
 </html>
