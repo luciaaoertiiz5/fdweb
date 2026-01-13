@@ -23,8 +23,10 @@
             font-family: 'HelveticaLight', sans-serif;
             background-color: var(--blanco);
             color: var(--azul);
-            overflow: hidden;
-            height: 100vh;
+            /* CORRECCIÓN: Permitir scroll si el contenido es más alto que la pantalla */
+            overflow-x: hidden;
+            overflow-y: auto; 
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
@@ -57,15 +59,17 @@
 
         nav.top-nav a:hover { opacity: 0.5; }
 
-        /* CONTENIDO PRINCIPAL */
+        /* CONTENIDO PRINCIPAL CORREGIDO */
         main {
             flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 0 10%;
+            /* CORRECCIÓN: Padding superior de 120px para que el título no quede detrás del nav */
+            padding: 120px 10% 60px 10%; 
             text-align: center;
+            width: 100%;
         }
 
         .contact-title {
@@ -74,6 +78,8 @@
             line-height: 0.9;
             margin-bottom: 40px;
             text-transform: uppercase;
+            /* CORRECCIÓN: Evitar que el título se pegue al techo en pantallas pequeñas */
+            margin-top: 20px; 
         }
 
         .contact-info {
@@ -91,7 +97,6 @@
 
         .email-link:hover { opacity: 0.5; }
 
-        /* Estilo para el enlace del teléfono */
         .phone-link {
             text-decoration: none;
             color: inherit;
@@ -111,7 +116,7 @@
             display: flex;
             gap: 30px;
             margin-top: 30px;
-            justify-content: center; /* Reemplaza el <center> obsoleto */
+            justify-content: center;
         }
 
         .social-links a {
@@ -134,7 +139,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 40px;
-            margin-top: 80px;
+            margin-top: 60px;
             padding-top: 40px;
             border-top: 1px solid rgba(43, 61, 82, 0.1);
         }
@@ -161,6 +166,8 @@
             font-size: 9px;
             letter-spacing: 1px;
             text-transform: uppercase;
+            /* CORRECCIÓN: Asegurar que el footer se quede al final si hay scroll */
+            margin-top: auto; 
         }
 
         .status {
@@ -186,10 +193,8 @@
 
         /* RESPONSIVE */
         @media (max-width: 900px) {
-            body { overflow-y: auto; height: auto; }
-            main { padding: 140px 8% 60px 8%; }
+            main { padding: 120px 8% 60px 8%; }
             .capabilities-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
-            .contact-title { font-size: 4rem; }
             footer.info-bar { flex-direction: column; gap: 15px; text-align: center; }
         }
 

@@ -22,7 +22,9 @@
             font-family: 'HelveticaLight', sans-serif;
             background-color: var(--blanco);
             color: var(--azul);
+            /* CORRECCIÓN: Permitir scroll natural */
             overflow-x: hidden;
+            overflow-y: auto;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -43,7 +45,7 @@
             filter: invert(1);
         }
 
-        .nav-links { display: flex; gap: clamp(10px, 3vw, 25px); }
+        .nav-links { display: flex; gap: clamp(10px, 3vw, 25px); align-items: center; }
 
         nav.top-nav a {
             text-decoration: none;
@@ -56,16 +58,28 @@
 
         nav.top-nav a:hover { opacity: 0.5; }
 
+        /* NUEVO ESTILO: Botón de descarga en el Nav */
+        .nav-download {
+            background-color: var(--azul);
+            color: var(--blanco) !important;
+            padding: 8px 15px !important;
+            border-radius: 2px;
+            margin-left: 10px;
+            font-size: 10px !important;
+            font-weight: bold;
+        }
+
         /* CONTENIDO PRINCIPAL */
         .main-wrapper {
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start; /* Empieza desde arriba */
             align-items: center;
-            padding: 120px 8% 60px 8%;
+            padding: 140px 8% 60px 8%; /* Más espacio arriba para el nav */
             max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
         }
 
         .cv-header {
@@ -130,35 +144,13 @@
             text-align: justify;
         }
 
-        /* BOTÓN DESCARGA */
-        .footer-action {
-            margin-top: 60px;
-            text-align: center;
-        }
-
-        .download-btn {
-            display: inline-block;
-            padding: 14px 40px;
-            border: 1px solid var(--azul);
-            color: var(--azul);
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 10px;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .download-btn:hover {
-            background-color: var(--azul);
-            color: var(--blanco);
-        }
-
         /* RESPONSIVE */
         @media (max-width: 900px) {
             .cv-grid { grid-template-columns: 1fr; gap: 40px; }
             .main-wrapper { padding-top: 140px; }
             .cv-title { font-size: 4rem; }
             .cv-section-title { border-bottom: 1px solid #eee; padding-bottom: 10px; }
+            .nav-download { display: none; } /* Lo ocultamos en móvil para no saturar */
         }
     </style>
 </head>
@@ -172,6 +164,7 @@
             <a href="works.html">works</a>
             <a href="contact.html">contact</a>
             <a href="cv.html">cv</a>
+            <a href="assets/pdf/Lucia-Ortiz-CV.pdf" class="nav-download" download="Lucia-Ortiz-CV.pdf">pdf cv</a>
         </div>
     </nav>
 
@@ -223,10 +216,6 @@
                 </div>
             </section>
         </div>
-
-        <div class="footer-action">
-    <a href="assets/pdf/Lucia-Ortiz-CV.pdf" class="download-btn" download="Lucia-Ortiz-CV.pdf">Download PDF CV</a>
-</div>
     </div>
 
 </body>
