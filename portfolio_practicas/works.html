@@ -50,11 +50,18 @@
             backdrop-filter: blur(10px);
         }
 
-        .nav-logo {
-            width: 35px;
-            mix-blend-mode: difference;
-            filter: invert(1);
-        }
+         .nav-logo {
+    width: 35px;
+    mix-blend-mode: difference;
+    filter: invert(1);
+    cursor: pointer;
+    /* Añadimos esto para que el cambio de tamaño sea suave */
+    transition: transform 0.3s ease; 
+}
+
+.nav-logo:hover {
+    transform: scale(1.1); /* Lo amplía un 10% al pasar el ratón */
+}
 
         .nav-links { display: flex; gap: clamp(15px, 3vw, 25px); }
 
@@ -139,7 +146,10 @@
 <body>
 
     <nav>
-        <img src="https://ik.imagekit.io/h7eo6ofoi/android-chrome-192x192.png" alt="logo" class="nav-logo">
+        <a href="index.html" style="display: flex; width: fit-content;">
+    <img src="https://ik.imagekit.io/h7eo6ofoi/android-chrome-192x192.png" alt="logo" class="nav-logo">
+</a>
+        
         <div class="nav-links">
             <a href="index.html">home</a>
             <a href="aboutme.html">about me</a>

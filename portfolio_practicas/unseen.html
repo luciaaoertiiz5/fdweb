@@ -34,11 +34,24 @@
             backdrop-filter: blur(10px);
         }
 
-        .nav-logo {
-            width: 35px;
-            mix-blend-mode: difference;
-            filter: invert(1);
-        }
+         .nav-logo {
+    width: 35px;
+    /* Eliminamos mix-blend-mode y filter para evitar saltos de color */
+    display: block;
+    cursor: pointer;
+    
+    /* Animamos SOLO el tamaño (transform) */
+    transition: transform 0.3s ease-out;
+    
+    /* Evita vibraciones o desenfoque al agrandarse */
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.nav-logo:hover {
+    /* Se agranda un 10% de forma limpia */
+    transform: scale(1.1);
+}
 
         .nav-links { display: flex; gap: clamp(10px, 3vw, 25px); }
 
@@ -197,7 +210,9 @@
 <body>
 
     <nav class="top-nav">
-        <img src="https://ik.imagekit.io/h7eo6ofoi/android-chrome-192x192.png" alt="logo" class="nav-logo">
+        <a href="index.html" style="display: flex; width: fit-content;">
+    <img src="https://ik.imagekit.io/h7eo6ofoi/android-chrome-192x192.png" alt="logo" class="nav-logo">
+</a>
         <div class="nav-links">
             <a href="index.html">home</a>
             <a href="aboutme.html">about me</a>
