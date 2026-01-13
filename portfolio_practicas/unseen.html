@@ -22,9 +22,7 @@
             font-family: 'HelveticaLight', sans-serif;
             background-color: var(--blanco);
             color: var(--negro);
-            /* CORRECCIÓN: Permitimos scroll general para que en pantallas pequeñas no se corte nada */
             overflow-x: hidden;
-            overflow-y: auto;
         }
 
         /* NAVEGACIÓN UNIFICADA */
@@ -55,7 +53,7 @@
 
         nav.top-nav a:hover { opacity: 0.5; }
 
-        /* SIDEBAR FLEXIBLE */
+        /* SIDEBAR */
         .sidebar {
             width: 35%;
             height: 100vh;
@@ -66,7 +64,6 @@
             left: 0; top: 0;
             z-index: 10;
             background-color: var(--blanco);
-            /* Scroll independiente para el HP */
             overflow-y: auto;
             scrollbar-width: none;
         }
@@ -101,18 +98,6 @@
             max-width: 400px;
         }
 
-        /* FOOTER SIDEBAR INTEGRADO */
-        .sidebar-footer {
-            margin-top: auto; 
-            padding-top: 60px;
-            padding-bottom: 20px;
-            font-size: 9px;
-            letter-spacing: 1px;
-            opacity: 0.6;
-            text-transform: uppercase;
-        }
-        .sidebar-footer div { margin-bottom: 5px; }
-
         /* STACK CONTAINER (DERECHA) */
         .stack-container {
             width: 65%;
@@ -143,31 +128,69 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
-        /* Posiciones iniciales de la pila */
+        /* Posiciones iniciales */
         .stack-item:nth-child(1) { transform: rotate(-6deg) translate(-15px, -10px); z-index: 1; }
         .stack-item:nth-child(2) { transform: rotate(4deg) translate(10px, 5px); z-index: 2; }
         .stack-item:nth-child(3) { transform: rotate(-3deg) translate(5px, -12px); z-index: 3; }
         .stack-item:nth-child(4) { transform: rotate(7deg) translate(-8px, 8px); z-index: 4; }
         .stack-item:nth-child(5) { transform: rotate(0deg); z-index: 5; }
 
-        /* Efecto abanico al pasar el ratón */
+        /* Hover abanico */
         .image-stack:hover .stack-item:nth-child(1) { transform: rotate(-15deg) translate(-60px, -20px); }
         .image-stack:hover .stack-item:nth-child(2) { transform: rotate(-8deg) translate(-30px, -10px); }
         .image-stack:hover .stack-item:nth-child(3) { transform: rotate(0deg) translate(0px, 0px); }
         .image-stack:hover .stack-item:nth-child(4) { transform: rotate(8deg) translate(30px, 10px); }
         .image-stack:hover .stack-item:nth-child(5) { transform: rotate(15deg) translate(60px, 20px); }
 
-        .stack-item:hover {
-            z-index: 100 !important;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        /* FOOTER DINÁMICO */
+        .main-footer {
+            position: fixed;
+            bottom: 40px;
+            left: 5%;
+            z-index: 20;
+            font-size: 9px;
+            letter-spacing: 1px;
+            opacity: 0.6;
+            text-transform: uppercase;
+            pointer-events: none;
         }
+        .main-footer div { margin-bottom: 5px; }
 
         /* RESPONSIVE */
         @media (max-width: 900px) {
-            .sidebar { position: relative; width: 100%; height: auto; padding: 100px 8% 40px 8%; overflow-y: visible; }
-            .stack-container { width: 100%; margin-left: 0; height: 70vh; padding: 40px 0; }
-            .image-stack { width: 220px; height: 280px; }
-            .sidebar-footer { padding: 40px 0; border-top: 1px solid rgba(0,0,0,0.05); text-align: center; }
+            .sidebar { 
+                position: relative; 
+                width: 100%; 
+                height: auto; 
+                padding: 100px 8% 40px 8%; 
+                overflow-y: visible; 
+            }
+            
+            .stack-container { 
+                width: 100%; 
+                margin-left: 0; 
+                height: 70vh; 
+                padding: 40px 0; 
+                background-color: var(--blanco);
+            }
+
+            .image-stack { 
+                width: 220px; 
+                height: 280px; 
+            }
+
+            /* FOOTER AL FINAL Y CENTRADO EN MÓVIL */
+            .main-footer {
+                position: relative;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 60px 8% 40px 8%;
+                text-align: center;
+                background-color: var(--blanco);
+                border-top: 1px solid #eee;
+                pointer-events: auto;
+            }
         }
     </style>
 </head>
@@ -202,23 +225,23 @@
             <br>
             <p>The series is mostly in black and white, reflecting the intensity of these emotions. Cold, foggy landscapes create a sense of isolation while the central figure moves through different emotional stages.</p>
         </div>
-
-        <div class="sidebar-footer">
-            <div><b>PRESENTED BY:</b> LUCÍA ORTIZ</div>
-            <div><b>WORKS:</b> 2023–2026</div>
-            <div><b>PROJECT:</b> UNSEEN</div>
-        </div>
     </aside>
 
     <main class="stack-container">
         <div class="image-stack" onclick="window.location.href='unseen_sub.html'">
-            <img src="https://ik.imagekit.io/h7eo6ofoi/20.jpg" class="stack-item">
-            <img src="https://ik.imagekit.io/h7eo6ofoi/18.jpg" class="stack-item">
-            <img src="https://ik.imagekit.io/h7eo6ofoi/13.jpg" class="stack-item">
-            <img src="https://ik.imagekit.io/h7eo6ofoi/3.jpg" class="stack-item">
-            <img src="https://ik.imagekit.io/h7eo6ofoi/10.jpg" class="stack-item">
+            <img src="https://ik.imagekit.io/h7eo6ofoi/20.jpg" class="stack-item" alt="Unseen 1">
+            <img src="https://ik.imagekit.io/h7eo6ofoi/18.jpg" class="stack-item" alt="Unseen 2">
+            <img src="https://ik.imagekit.io/h7eo6ofoi/13.jpg" class="stack-item" alt="Unseen 3">
+            <img src="https://ik.imagekit.io/h7eo6ofoi/3.jpg" class="stack-item" alt="Unseen 4">
+            <img src="https://ik.imagekit.io/h7eo6ofoi/10.jpg" class="stack-item" alt="Unseen 5">
         </div>
     </main>
+
+    <footer class="main-footer">
+        <div><b>PRESENTED BY:</b> LUCÍA ORTIZ</div>
+        <div><b>WORKS:</b> 2023–2026</div>
+        <div><b>PROJECT:</b> UNSEEN</div>
+    </footer>
 
 </body>
 </html>

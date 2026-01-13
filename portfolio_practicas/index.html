@@ -90,11 +90,71 @@
         .arrow { position: absolute; bottom: 80px; width: 25px; cursor: pointer; z-index: 5; }
 
         @media (max-width: 600px) {
-            .folder-wrapper { display: grid; grid-template-columns: 1fr 1fr; padding: 140px 20px; gap: 20px; position: relative; height: auto; }
-            .f-1, .f-2, .f-3, .f-6, .fe-1, .fe-2, .fe-3 { position: static; }
-            .folder-extra { display: none; }
-            .section-footer { flex-direction: column; align-items: center; gap: 30px; text-align: center; position: relative; margin-top: 40px; }
-            .footer-center-group { position: relative; left: 0; transform: none; }
+            /* Pantalla 3: Ajustes para que quepa todo */
+            .screen-3 {
+                height: auto; /* Permite que la sección crezca si hay poco espacio */
+                min-height: 100vh;
+                padding: 100px 0; /* Espacio para que no choque con el carrusel */
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start; /* Empieza desde arriba */
+            }
+
+            .center-text {
+                margin-top: 40px;
+                margin-bottom: 30px;
+                order: 1; /* El texto va primero */
+            }
+
+            .center-text h2 {
+                font-size: 1.8rem; /* Un poco más pequeño para que no ocupe todo */
+            }
+
+            .folder-wrapper {
+                display: grid;
+                grid-template-columns: 1fr 1fr; /* 2 columnas */
+                gap: 30px;
+                padding: 20px;
+                position: relative;
+                height: auto;
+                order: 2; /* Las carpetas van después del texto */
+                width: 100%;
+                justify-items: center;
+            }
+
+            /* Hacemos que las carpetas extra SÍ se vean en móvil pero ordenadas */
+            .f-1, .f-2, .f-3, .f-6, .fe-1, .fe-2, .fe-3 { 
+                position: static !important; 
+                transform: none !important;
+            }
+
+            .folder-extra { 
+                display: flex !important; /* Ahora sí se ven */
+                pointer-events: auto;
+            }
+            
+            .folder-extra img { opacity: 1; }
+
+            /* Footer para móvil */
+            .section-footer { 
+                flex-direction: column; 
+                align-items: center; 
+                gap: 20px; 
+                text-align: center; 
+                position: relative; 
+                margin-top: 60px; 
+                order: 3;
+            }
+
+            .footer-center-group { 
+                position: relative; 
+                left: 0; 
+                transform: none; 
+                margin: 20px 0;
+            }
+
+            .stamp { width: 100px; height: 100px; } /* Sello un poco más pequeño */
+            
             .marquee-capsule { top: 20px; height: 35px; }
         }
     </style>

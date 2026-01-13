@@ -53,7 +53,7 @@
 
         nav.top-nav a:hover { opacity: 0.5; }
 
-        /* SIDEBAR FLEXIBLE CORREGIDO */
+        /* SIDEBAR */
         .sidebar {
             width: 35%;
             height: 100vh;
@@ -64,7 +64,6 @@
             left: 0; top: 0;
             z-index: 10;
             background-color: var(--blanco);
-            /* Activa scroll si el texto es largo en el HP */
             overflow-y: auto; 
             scrollbar-width: none; 
         }
@@ -100,18 +99,6 @@
             max-width: 400px;
         }
 
-        /* FOOTER DENTRO DEL SIDEBAR */
-        .sidebar-footer {
-            margin-top: auto; 
-            padding-top: 60px; /* Espacio extra para que no pegue con el texto */
-            padding-bottom: 20px;
-            font-size: 9px;
-            letter-spacing: 1px;
-            opacity: 0.6;
-            text-transform: uppercase;
-        }
-        .sidebar-footer div { margin-bottom: 5px; }
-
         /* CARRUSEL VERTICAL */
         .carousel-vertical {
             width: 65%;
@@ -140,13 +127,60 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
+        /* FOOTER DINÁMICO */
+        .main-footer {
+            position: fixed;
+            bottom: 40px;
+            left: 5%;
+            z-index: 20;
+            font-size: 9px;
+            letter-spacing: 1px;
+            opacity: 0.6;
+            text-transform: uppercase;
+            pointer-events: none;
+        }
+        .main-footer div { margin-bottom: 5px; }
+
         /* RESPONSIVE */
         @media (max-width: 900px) {
-            .sidebar { position: relative; width: 100%; height: auto; padding: 100px 8% 40px 8%; overflow-y: visible; }
-            .carousel-vertical { width: 100%; margin-left: 0; height: auto; overflow-y: visible; }
-            .carousel-item { height: auto; padding: 20px 8%; scroll-snap-align: none; }
-            .carousel-item img, .carousel-item video { max-height: none; }
-            .sidebar-footer { padding: 40px 0; border-top: 1px solid rgba(0,0,0,0.05); text-align: center; }
+            .sidebar { 
+                position: relative; 
+                width: 100%; 
+                height: auto; 
+                padding: 100px 8% 40px 8%; 
+                overflow-y: visible; 
+            }
+            
+            .carousel-vertical { 
+                width: 100%; 
+                margin-left: 0; 
+                height: auto; 
+                overflow-y: visible; 
+            }
+
+            .carousel-item { 
+                height: auto; 
+                padding: 20px 8%; 
+                scroll-snap-align: none; 
+            }
+
+            .carousel-item img, .carousel-item video { 
+                max-height: none; 
+                margin-bottom: 20px;
+            }
+
+            /* FOOTER AL FINAL Y CENTRADO EN MÓVIL */
+            .main-footer {
+                position: relative;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 60px 8% 40px 8%;
+                text-align: center;
+                background-color: var(--blanco);
+                border-top: 1px solid #eee;
+                pointer-events: auto;
+            }
         }
     </style>
 </head>
@@ -181,12 +215,6 @@
             <br>
             <p>Great care was taken to capture the excitement and rhythm inherent in the cycling experience, while maintaining a visually aesthetic and cohesive style through visual storytelling.</p>
         </div>
-
-        <div class="sidebar-footer">
-            <div><b>PRESENTED BY:</b> LUCÍA ORTIZ</div>
-            <div><b>WORKS:</b> 2023–2026</div>
-            <div><b>PROJECT:</b> ZIPP REVOLUTION</div>
-        </div>
     </aside>
 
     <main class="carousel-vertical">
@@ -204,6 +232,12 @@
             </video>
         </div>
     </main>
+
+    <footer class="main-footer">
+        <div><b>PRESENTED BY:</b> LUCÍA ORTIZ</div>
+        <div><b>WORKS:</b> 2023–2026</div>
+        <div><b>PROJECT:</b> ZIPP REVOLUTION</div>
+    </footer>
 
 </body>
 </html>

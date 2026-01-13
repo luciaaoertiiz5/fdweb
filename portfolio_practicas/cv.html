@@ -22,12 +22,9 @@
             font-family: 'HelveticaLight', sans-serif;
             background-color: var(--blanco);
             color: var(--azul);
-            /* CORRECCIÓN: Permitir scroll natural */
             overflow-x: hidden;
             overflow-y: auto;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
 
         /* NAVEGACIÓN */
@@ -35,51 +32,36 @@
             position: fixed; top: 0; width: 100%;
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 5%; z-index: 1000;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
         }
 
-        .nav-logo {
-            width: 35px;
-            mix-blend-mode: difference;
-            filter: invert(1);
-        }
-
-        .nav-links { display: flex; gap: clamp(10px, 3vw, 25px); align-items: center; }
+        .nav-logo { width: 35px; mix-blend-mode: difference; filter: invert(1); }
+        .nav-links { display: flex; gap: clamp(10px, 3vw, 20px); align-items: center; }
 
         nav.top-nav a {
             text-decoration: none;
             color: var(--negro);
-            font-size: 12px;
+            font-size: 11px;
             text-transform: lowercase;
             letter-spacing: 1.5px;
             transition: opacity 0.3s;
         }
 
-        nav.top-nav a:hover { opacity: 0.5; }
-
-        /* NUEVO ESTILO: Botón de descarga en el Nav */
+        /* Botón de descarga en el Nav (Solo PC) */
         .nav-download {
             background-color: var(--azul);
             color: var(--blanco) !important;
-            padding: 8px 15px !important;
+            padding: 6px 12px;
             border-radius: 2px;
-            margin-left: 10px;
             font-size: 10px !important;
-            font-weight: bold;
         }
 
         /* CONTENIDO PRINCIPAL */
         .main-wrapper {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start; /* Empieza desde arriba */
-            align-items: center;
-            padding: 140px 8% 60px 8%; /* Más espacio arriba para el nav */
-            max-width: 1200px;
+            padding: 140px 8% 60px 8%;
+            max-width: 1100px;
             margin: 0 auto;
-            width: 100%;
         }
 
         .cv-header {
@@ -89,9 +71,12 @@
 
         .cv-title {
             font-family: 'Bodoni', serif;
-            font-size: clamp(3.5rem, 8vw, 4rem);
+            font-size: clamp(2.8rem, 12vw, 5rem); /* Ajustado para que no rompa */
             line-height: 1;
             text-transform: uppercase;
+            word-wrap: break-word; /* Evita que se salga de la pantalla */
+            overflow-wrap: break-word;
+            hyphens: auto; /* Corta la palabra con guion si es necesario */
         }
 
         .cv-subtitle {
@@ -102,12 +87,25 @@
             margin-top: 10px;
         }
 
+        /* Botón de descarga para Móvil */
+        .mobile-download-btn {
+            display: none;
+            margin: 30px auto 0 auto;
+            background-color: var(--azul);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            width: fit-content;
+        }
+
         /* GRID CV */
         .cv-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 50px;
-            width: 100%;
             border-top: 1px solid rgba(43, 61, 82, 0.1);
             padding-top: 40px;
         }
@@ -119,38 +117,22 @@
             letter-spacing: 2px;
             margin-bottom: 25px;
             color: var(--negro);
-            display: block;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding-bottom: 10px;
         }
 
-        .cv-item { margin-bottom: 25px; }
-        .cv-item h3 { 
-            font-size: 14px; 
-            margin-bottom: 5px; 
-            color: var(--negro); 
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .cv-item span { 
-            font-size: 10px; 
-            opacity: 0.5; 
-            display: block; 
-            margin-bottom: 8px; 
-            text-transform: lowercase;
-        }
-        .cv-item p { 
-            font-size: 12px; 
-            line-height: 1.6; 
-            opacity: 0.8;
-            text-align: justify;
-        }
+        .cv-item { margin-bottom: 30px; }
+        .cv-item h3 { font-size: 14px; margin-bottom: 5px; color: var(--negro); text-transform: uppercase; }
+        .cv-item span { font-size: 10px; opacity: 0.5; display: block; margin-bottom: 8px; }
+        .cv-item p { font-size: 12px; line-height: 1.6; opacity: 0.8; text-align: justify; }
 
         /* RESPONSIVE */
         @media (max-width: 900px) {
+            .nav-download { display: none; } /* Ocultar del menú */
+            .mobile-download-btn { display: block; } /* Mostrar en el cuerpo */
             .cv-grid { grid-template-columns: 1fr; gap: 40px; }
-            .main-wrapper { padding-top: 140px; }
-            .cv-title { font-size: 4rem; }
-            .cv-section-title { border-bottom: 1px solid #eee; padding-bottom: 10px; }
-            .nav-download { display: none; } /* Lo ocultamos en móvil para no saturar */
+            .main-wrapper { padding-top: 120px; }
+            .cv-title { font-size: 3.5rem; }
         }
     </style>
 </head>
@@ -164,7 +146,7 @@
             <a href="works.html">works</a>
             <a href="contact.html">contact</a>
             <a href="cv.html">cv</a>
-            <a href="assets/Lucía Ortiz CV.pdf" class="nav-download" download="Lucia-Ortiz-CV.pdf">pdf cv</a>
+            <a href="assets/pdf/Lucía Ortiz CV.pdf" class="nav-download" download>pdf cv</a>
         </div>
     </nav>
 
@@ -172,6 +154,8 @@
         <header class="cv-header">
             <h1 class="cv-title">Curriculum</h1>
             <p class="cv-subtitle">Lucía Ortiz — Graphic Designer</p>
+            
+            <a href="assets/pdf/Lucía Ortiz CV.pdf" class="mobile-download-btn" download>Download PDF CV</a>
         </header>
 
         <div class="cv-grid">
@@ -181,7 +165,7 @@
                     <p>Graphic designer with a focus on organization, detail, and minimalism. Specialized in branding and editorial design, turning complex ideas into clean visual solutions.</p>
                 </div>
                 
-                <h2 class="cv-section-title" style="margin-top:40px">02. Languages</h2>
+                <h2 class="cv-section-title" style="margin-top:20px">02. Languages</h2>
                 <div class="cv-item">
                     <p><b>Spanish:</b> Native</p>
                     <p><b>English:</b> B2 Upper Intermediate</p>
