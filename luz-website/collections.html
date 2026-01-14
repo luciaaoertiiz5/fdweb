@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collections | LUZ Editorial</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo-luz.svg">
+
+  <style>
+    /* --- 1. CONFIGURACIÓN BASE (Mantenemos la identidad) --- */
+    @font-face { font-family: 'MonumentExtended'; src: url('assets/fonts/MonumentExtended-Regular.otf'); font-weight: bold; }
+    @font-face { font-family: 'ABCWhyteInktrap'; src: url('assets/fonts/ABCWhyteInktrap-Variable.woff2'); }
+
+    :root {
+      --rosa: #f7c5d0;
+      --blanco: #ffffff;
+      --negro: #020304;
+      --fuente-titulos: 'MonumentExtended', sans-serif;
+      --fuente-texto: 'ABCWhyteInktrap', sans-serif;
+    }
+
+    body {
+      margin: 0; background-color: var(--blanco); color: var(--negro);
+      font-family: var(--fuente-texto);
+    }
+
+    /* --- 2. CABECERA --- */
+    header {
+      padding: 30px 40px; display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; background: var(--blanco); z-index: 100;
+    }
+    .logo img { height: 35px; }
+    nav a {
+      margin-left: 25px; text-decoration: none; color: var(--negro); font-size: 13px;
+      text-transform: uppercase; letter-spacing: 1px; position: relative; padding-bottom: 5px;
+    }
+    nav a::after {
+      content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0;
+      background-color: var(--rosa); transition: width 0.3s ease;
+    }
+    nav a:hover::after { width: 100%; }
+
+    /* --- 3. DISEÑO DE COLECCIONES (STATIONERY) --- */
+    .seccion-objetos {
+      padding: 80px 40px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr); /* Rejilla de 12 columnas para jugar con los tamaños */
+      gap: 30px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .titulo-coleccion {
+      grid-column: span 12;
+      margin-bottom: 50px;
+    }
+
+    .titulo-coleccion h1 {
+      font-family: var(--fuente-titulos);
+      font-size: clamp(40px, 8vw, 90px);
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    /* Tarjetas de objeto con tamaños distintos */
+    .objeto {
+      position: relative;
+      overflow: hidden;
+      background-color: #f9f9f9;
+      transition: all 0.5s ease;
+    }
+
+    /* Tamaño Grande */
+    .objeto.grande { grid-column: span 8; height: 600px; }
+    /* Tamaño Pequeño */
+    .objeto.pequeño { grid-column: span 4; height: 600px; }
+    /* Tamaño Mediano */
+    .objeto.mediano { grid-column: span 6; height: 500px; }
+
+    .objeto img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: saturate(0.8);
+      transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* INTERACCIÓN: Al pasar el ratón aparece la descripción */
+    .objeto-info {
+      position: absolute;
+      bottom: -100%; /* Escondido abajo */
+      left: 0; width: 100%;
+      padding: 30px;
+      background: rgba(247, 197, 208, 0.9); /* Tu rosa con transparencia */
+      transition: bottom 0.5s ease;
+    }
+
+    .objeto:hover .objeto-info {
+      bottom: 0; /* Sube al pasar el ratón */
+    }
+
+    .objeto:hover img {
+      transform: scale(1.1);
+    }
+
+    .objeto-info h3 {
+      font-family: var(--fuente-titulos);
+      margin: 0; font-size: 18px; text-transform: uppercase;
+    }
+
+    .objeto-info p {
+      margin: 10px 0 0 0; font-size: 14px;
+    }
+
+    /* --- 4. MÓVIL --- */
+    @media (max-width: 900px) {
+      .objeto.grande, .objeto.pequeño, .objeto.mediano { grid-column: span 12; height: 400px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="assets/images/logo-luz.svg" alt="LUZ"></a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="magazine.html">Magazine</a>
+      <a href="photography.html">Photography</a>
+      <a href="collections.html" style="color: var(--rosa);">Collections</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="seccion-objetos">
+      <div class="titulo-coleccion">
+        <h1>Essential<br>Objects</h1>
+        <p>Papelería técnica y objetos de colección para la mente creativa.</p>
+      </div>
+
+      <div class="objeto grande">
+        <img src="assets/images/portada.svg" alt="Objeto 1">
+        <div class="objeto-info">
+          <h3>The Creative Notebook</h3>
+          <p>Papel sueco de 120g, acabado en lino rosa suave.</p>
+        </div>
+      </div>
+
+      <div class="objeto pequeño">
+        <img src="assets/images/revista2.jpg" alt="Objeto 2">
+        <div class="objeto-info">
+          <h3>Archival Print</h3>
+          <p>Impresión numerada en papel de algodón.</p>
+        </div>
+      </div>
+
+      <div class="objeto mediano">
+        <img src="assets/images/revista1.jpg" alt="Objeto 3">
+        <div class="objeto-info">
+          <h3>Work Planner</h3>
+          <p>Diseño minimalista para proyectos editoriales.</p>
+        </div>
+      </div>
+
+      <div class="objeto mediano">
+        <img src="assets/images/revista3.jpg" alt="Objeto 4">
+        <div class="objeto-info">
+          <h3>Editorial Kit</h3>
+          <p>Set de herramientas para edición y maquetación.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

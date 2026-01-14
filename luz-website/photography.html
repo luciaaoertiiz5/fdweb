@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography | LUZ Editorial</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo-luz.svg">
+
+  <style>
+    /* --- 1. CONFIGURACIÓN BASE (Igual que las anteriores) --- */
+    @font-face { font-family: 'MonumentExtended'; src: url('assets/fonts/MonumentExtended-Regular.otf'); font-weight: bold; }
+    @font-face { font-family: 'ABCWhyteInktrap'; src: url('assets/fonts/ABCWhyteInktrap-Variable.woff2'); }
+
+    :root {
+      --rosa: #f7c5d0;
+      --blanco: #ffffff;
+      --negro: #020304;
+      --fuente-titulos: 'MonumentExtended', sans-serif;
+      --fuente-texto: 'ABCWhyteInktrap', sans-serif;
+    }
+
+    body {
+      margin: 0; background-color: var(--blanco); color: var(--negro);
+      font-family: var(--fuente-texto); overflow-x: hidden;
+    }
+
+    /* --- 2. CABECERA --- */
+    header {
+      padding: 30px 40px; display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; background: var(--blanco); z-index: 100;
+    }
+    .logo img { height: 35px; }
+    nav a {
+      margin-left: 25px; text-decoration: none; color: var(--negro); font-size: 13px;
+      text-transform: uppercase; letter-spacing: 1px; position: relative; padding-bottom: 5px;
+    }
+    nav a::after {
+      content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0;
+      background-color: var(--rosa); transition: width 0.3s ease;
+    }
+    nav a:hover::after { width: 100%; }
+
+    /* --- 3. INTRO SECCIÓN --- */
+    .intro-photography {
+      padding: 100px 40px;
+      text-align: center;
+    }
+
+    .intro-photography h1 {
+      font-family: var(--fuente-titulos);
+      font-size: clamp(40px, 10vw, 120px);
+      text-transform: uppercase;
+      margin: 0;
+      line-height: 0.8;
+    }
+
+    /* --- 4. EL CARRUSEL INFINITO (MOVIMIENTO) --- */
+    .carrusel-contenedor {
+      width: 100%;
+      overflow: hidden;
+      padding: 50px 0;
+      background-color: var(--blanco);
+      white-space: nowrap; /* Para que las fotos estén en una sola línea */
+      position: relative;
+    }
+
+    /* La animación que mueve las fotos de derecha a izquierda */
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .carrusel-track {
+      display: inline-flex;
+      animation: scroll 40s linear infinite; /* 40 segundos para dar la vuelta */
+    }
+
+    .carrusel-track:hover {
+      animation-play-state: paused; /* Se para al pasar el ratón */
+    }
+
+    .foto-carrusel {
+      width: 400px; /* Tamaño de cada foto */
+      height: 500px;
+      margin-right: 30px;
+      background-color: var(--rosa);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .foto-carrusel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: all 0.5s ease;
+    }
+
+    .foto-carrusel:hover img {
+      filter: grayscale(0%);
+      transform: scale(1.05);
+    }
+
+    /* Texto que se mueve abajo */
+    .marquesina-texto {
+      background: var(--negro);
+      color: var(--blanco);
+      padding: 20px 0;
+      font-family: var(--fuente-titulos);
+      text-transform: uppercase;
+      font-size: 20px;
+      overflow: hidden;
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="assets/images/logo-luz.svg" alt="LUZ"></a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="magazine.html">Magazine</a>
+      <a href="photography.html" style="color: var(--rosa);">Photography</a>
+      <a href="collections.html">Collections</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro-photography">
+      <h1>Visual<br><span style="color: var(--rosa);">Narratives</span></h1>
+    </section>
+
+    <div class="carrusel-contenedor">
+      <div class="carrusel-track">
+        <div class="foto-carrusel"><img src="assets/images/revista1.jpg" alt="Photo 1"></div>
+        <div class="foto-carrusel"><img src="assets/images/revista2.jpg" alt="Photo 2"></div>
+        <div class="foto-carrusel"><img src="assets/images/revista3.jpg" alt="Photo 3"></div>
+        <div class="foto-carrusel"><img src="assets/images/portada.svg" alt="Photo 4"></div>
+        <div class="foto-carrusel"><img src="assets/images/revista1.jpg" alt="Photo 1"></div>
+        <div class="foto-carrusel"><img src="assets/images/revista2.jpg" alt="Photo 2"></div>
+        <div class="foto-carrusel"><img src="assets/images/revista3.jpg" alt="Photo 3"></div>
+        <div class="foto-carrusel"><img src="assets/images/portada.svg" alt="Photo 4"></div>
+      </div>
+    </div>
+
+    <div style="padding: 100px 40px; text-align: center; max-width: 800px; margin: 0 auto;">
+      <p style="font-size: 24px; line-height: 1.4;">"La fotografía en LUZ no es solo imagen, es el papel, es la tinta y es la intención detrás de cada disparo."</p>
+    </div>
+
+  </main>
+
+</body>
+</html>

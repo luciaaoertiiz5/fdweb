@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magazine | LUZ Editorial</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo-luz.svg">
+
+  <style>
+    /* --- 1. CONFIGURACIÓN IDÉNTICA AL INDEX (Para mantener coherencia) --- */
+    @font-face { font-family: 'MonumentExtended'; src: url('assets/fonts/MonumentExtended-Regular.otf'); font-weight: bold; }
+    @font-face { font-family: 'ABCWhyteInktrap'; src: url('assets/fonts/ABCWhyteInktrap-Variable.woff2'); }
+
+    :root {
+      --rosa: #f7c5d0;
+      --blanco: #ffffff;
+      --negro: #020304;
+      --fuente-titulos: 'MonumentExtended', sans-serif;
+      --fuente-texto: 'ABCWhyteInktrap', sans-serif;
+    }
+
+    body {
+      margin: 0; background-color: var(--blanco); color: var(--negro);
+      font-family: var(--fuente-texto); overflow-x: hidden;
+    }
+
+    /* --- 2. CABECERA (Copia exacta del Index) --- */
+    header {
+      padding: 30px 40px; display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; background: var(--blanco); z-index: 100;
+    }
+    .logo img { height: 35px; }
+    nav a {
+      margin-left: 25px; text-decoration: none; color: var(--negro); font-size: 13px;
+      text-transform: uppercase; letter-spacing: 1px; position: relative; padding-bottom: 5px;
+    }
+    nav a::after {
+      content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0;
+      background-color: var(--rosa); transition: width 0.3s ease;
+    }
+    nav a:hover::after { width: 100%; }
+
+    /* --- 3. DISEÑO DE MAGAZINE (Editorial Style) --- */
+    .intro-magazine {
+      padding: 100px 40px 50px 40px;
+      max-width: 1200px;
+    }
+
+    .intro-magazine h1 {
+      font-family: var(--fuente-titulos);
+      font-size: clamp(40px, 8vw, 80px);
+      margin: 0;
+      text-transform: uppercase;
+      line-height: 0.9;
+    }
+
+    /* Contenedor de las revistas en formato lista elegante */
+    .revista-row {
+      display: flex;
+      align-items: center;
+      padding: 80px 40px;
+      border-bottom: 1px solid rgba(2, 3, 4, 0.1);
+      transition: background-color 0.4s ease;
+    }
+
+    .revista-row:hover {
+      background-color: #fafafa; /* Un gris casi blanco muy sutil */
+    }
+
+    .revista-numero {
+      font-family: var(--fuente-titulos);
+      font-size: 14px;
+      width: 100px;
+      color: var(--rosa);
+    }
+
+    .revista-info {
+      flex: 1;
+    }
+
+    .revista-info h2 {
+      font-family: var(--fuente-titulos);
+      font-size: clamp(24px, 4vw, 40px);
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    .revista-imagen {
+      width: 300px;
+      height: 400px;
+      background-color: var(--rosa);
+      overflow: hidden;
+      /* Aquí creamos el efecto de movimiento suave */
+      transition: transform 0.3s ease-out;
+    }
+
+    .revista-imagen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .revista-row:hover .revista-imagen img {
+      transform: scale(1.1);
+    }
+
+    /* Animación de los textos al pasar el ratón */
+    .revista-row:hover .revista-info h2 {
+      color: var(--rosa);
+      transform: translateX(20px);
+      transition: all 0.4s ease;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="assets/images/logo-luz.svg" alt="LUZ"></a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="magazine.html" style="color: var(--rosa);">Magazine</a>
+      <a href="photography.html">Photography</a>
+      <a href="collections.html">Collections</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro-magazine">
+      <h1>Selected<br>Issues</h1>
+      <p style="max-width: 500px; margin-top: 30px; line-height: 1.6;">
+        Explora nuestra biblioteca de publicaciones impresas. Cada número es una pieza de colección dedicada al arte visual y la cultura contemporánea.
+      </p>
+    </section>
+
+    <div class="revista-row">
+      <div class="revista-numero">Nº 01</div>
+      <div class="revista-info">
+        <h2>The Light Issue</h2>
+        <p>Winter 2024 — 180 páginas</p>
+      </div>
+      <div class="revista-imagen">
+        <img src="assets/images/revista1.jpg" alt="Issue 01">
+      </div>
+    </div>
+
+    <div class="revista-row">
+      <div class="revista-numero">Nº 02</div>
+      <div class="revista-info">
+        <h2>Paper & Ink</h2>
+        <p>Spring 2024 — 210 páginas</p>
+      </div>
+      <div class="revista-imagen">
+        <img src="assets/images/revista2.jpg" alt="Issue 02">
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>
