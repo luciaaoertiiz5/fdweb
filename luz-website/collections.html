@@ -7,7 +7,6 @@
   <link rel="icon" type="image/svg+xml" href="assets/images/logo-luz.svg">
 
   <style>
-    /* --- 1. CONFIGURACIÓN BASE (Mantenemos la identidad) --- */
     @font-face { font-family: 'MonumentExtended'; src: url('assets/fonts/MonumentExtended-Regular.otf'); font-weight: bold; }
     @font-face { font-family: 'ABCWhyteInktrap'; src: url('assets/fonts/ABCWhyteInktrap-Variable.woff2'); }
 
@@ -21,99 +20,104 @@
 
     body {
       margin: 0; background-color: var(--blanco); color: var(--negro);
-      font-family: var(--fuente-texto);
+      font-family: var(--fuente-texto); overflow-x: hidden;
     }
 
-    /* --- 2. CABECERA --- */
-    header {
-      padding: 30px 40px; display: flex; justify-content: space-between; align-items: center;
-      position: sticky; top: 0; background: var(--blanco); z-index: 100;
+    /* --- NAVEGACIÓN --- */
+    header { 
+      padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; 
+      position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+      width: calc(100% - 80px); max-width: 1400px; box-sizing: border-box;
+      background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); 
+      border: 1px solid rgba(0, 0, 0, 0.05); z-index: 100; border-radius: 2px;
     }
-    .logo img { height: 35px; }
-    nav a {
-      margin-left: 25px; text-decoration: none; color: var(--negro); font-size: 13px;
-      text-transform: uppercase; letter-spacing: 1px; position: relative; padding-bottom: 5px;
-    }
-    nav a::after {
-      content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0;
-      background-color: var(--rosa); transition: width 0.3s ease;
-    }
-    nav a:hover::after { width: 100%; }
+    .logo img { height: 26px; }
+    nav a { margin-left: 25px; text-decoration: none; color: var(--negro); font-size: 10px; text-transform: uppercase; letter-spacing: 2px; }
+    nav a.active { color: var(--rosa); }
 
-    /* --- 3. DISEÑO DE COLECCIONES (STATIONERY) --- */
-    .seccion-objetos {
-      padding: 80px 40px;
-      display: grid;
-      grid-template-columns: repeat(12, 1fr); /* Rejilla de 12 columnas para jugar con los tamaños */
-      gap: 30px;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
+    /* --- LAYOUT --- */
+    main { padding-top: 120px; min-height: 100vh; display: flex; flex-direction: column; }
 
-    .titulo-coleccion {
-      grid-column: span 12;
+    .intro-collections { padding: 40px 60px; text-align: left; }
+    .intro-collections h1 { font-family: var(--fuente-titulos); font-size: clamp(30px, 5vw, 60px); text-transform: uppercase; margin: 0; line-height: 1; }
+
+    .collections-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: rgba(0,0,0,0.05);
       margin-bottom: 50px;
     }
 
-    .titulo-coleccion h1 {
-      font-family: var(--fuente-titulos);
-      font-size: clamp(40px, 8vw, 90px);
-      text-transform: uppercase;
-      margin: 0;
+    .collection-row {
+      display: grid;
+      grid-template-columns: 350px 1fr;
+      background: var(--blanco);
+      height: 450px;
+      overflow: hidden;
     }
 
-    /* Tarjetas de objeto con tamaños distintos */
-    .objeto {
+    .col-info {
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid rgba(0,0,0,0.05);
+      z-index: 2;
+      background: var(--blanco);
+    }
+    .col-info h2 { font-family: var(--fuente-titulos); font-size: 18px; text-transform: uppercase; margin: 0; }
+    .col-info p { font-size: 13px; line-height: 1.6; opacity: 0.6; margin-top: 20px; }
+    .col-tag { font-size: 10px; text-transform: uppercase; letter-spacing: 3px; color: var(--rosa); font-weight: bold; }
+
+    /* --- VISUAL TRACK OPTIMIZADO --- */
+    .col-visual-wrapper {
       position: relative;
       overflow: hidden;
-      background-color: #f9f9f9;
-      transition: all 0.5s ease;
+      display: flex;
+      align-items: center;
+      background: #fcfcfc;
     }
 
-    /* Tamaño Grande */
-    .objeto.grande { grid-column: span 8; height: 600px; }
-    /* Tamaño Pequeño */
-    .objeto.pequeño { grid-column: span 4; height: 600px; }
-    /* Tamaño Mediano */
-    .objeto.mediano { grid-column: span 6; height: 500px; }
+    .col-images-track {
+      display: flex;
+      gap: 30px;
+      padding: 0 40px;
+      transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+    }
 
-    .objeto img {
-      width: 100%; height: 100%;
+    /* Desplazamiento suave sin que desaparezcan */
+    .collection-row:hover .col-images-track {
+      transform: translateX(-15%); 
+    }
+
+    .product-img {
+      width: 350px;
+      height: 350px;
+      flex-shrink: 0;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+    
+    .product-img img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      filter: saturate(0.8);
-      transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      /* Eliminado el grayscale */
+      transition: transform 0.8s ease;
     }
 
-    /* INTERACCIÓN: Al pasar el ratón aparece la descripción */
-    .objeto-info {
-      position: absolute;
-      bottom: -100%; /* Escondido abajo */
-      left: 0; width: 100%;
-      padding: 30px;
-      background: rgba(247, 197, 208, 0.9); /* Tu rosa con transparencia */
-      transition: bottom 0.5s ease;
+    .collection-row:hover .product-img img {
+      transform: scale(1.03);
     }
 
-    .objeto:hover .objeto-info {
-      bottom: 0; /* Sube al pasar el ratón */
-    }
+    footer { padding: 40px 60px; display: flex; justify-content: space-between; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.4; }
 
-    .objeto:hover img {
-      transform: scale(1.1);
-    }
-
-    .objeto-info h3 {
-      font-family: var(--fuente-titulos);
-      margin: 0; font-size: 18px; text-transform: uppercase;
-    }
-
-    .objeto-info p {
-      margin: 10px 0 0 0; font-size: 14px;
-    }
-
-    /* --- 4. MÓVIL --- */
-    @media (max-width: 900px) {
-      .objeto.grande, .objeto.pequeño, .objeto.mediano { grid-column: span 12; height: 400px; }
+    @media (max-width: 1000px) {
+      .collection-row { grid-template-columns: 1fr; height: auto; }
+      .col-info { padding: 40px; border-right: none; }
+      .col-images-track { padding: 40px 20px; }
+      .collection-row:hover .col-images-track { transform: translateX(0); }
     }
   </style>
 </head>
@@ -128,50 +132,75 @@
       <a href="index.html">Home</a>
       <a href="magazine.html">Magazine</a>
       <a href="photography.html">Photography</a>
-      <a href="collections.html" style="color: var(--rosa);">Collections</a>
+      <a href="collections.html" class="active">Collections</a>
       <a href="about.html">About</a>
     </nav>
   </header>
 
   <main>
-    <div class="seccion-objetos">
-      <div class="titulo-coleccion">
-        <h1>Essential<br>Objects</h1>
-        <p>Papelería técnica y objetos de colección para la mente creativa.</p>
-      </div>
+    <section class="intro-collections">
+      <span class="col-tag">Object Series</span>
+      <h1>Essential<br><span style="color: var(--rosa);">Tools</span></h1>
+    </section>
 
-      <div class="objeto grande">
-        <img src="assets/images/portada.svg" alt="Objeto 1">
-        <div class="objeto-info">
-          <h3>The Creative Notebook</h3>
-          <p>Papel sueco de 120g, acabado en lino rosa suave.</p>
+    <div class="collections-grid">
+      
+      <section class="collection-row">
+        <div class="col-info">
+          <div>
+            <h2>Notebooks</h2>
+            <p>120g Swedish paper with blind embossing. Designed to last and capture pure ideas.</p>
+          </div>
+          <span class="col-tag">01 / 03</span>
         </div>
-      </div>
+        <div class="col-visual-wrapper">
+          <div class="col-images-track">
+            <div class="product-img"><img src="https://ik.imagekit.io/h7eo6ofoi/l5.png?updatedAt=1768242230770" alt="Notebook 1"></div>
+            <div class="product-img"><img src="https://ik.imagekit.io/h7eo6ofoi/l2.png?updatedAt=1768242231304" alt="Notebook 2"></div>
+            <div class="product-img"><img src="https://ik.imagekit.io/h7eo6ofoi/l1.png?updatedAt=1768242232057" alt="Notebook 3"></div>
+          </div>
+        </div>
+      </section>
 
-      <div class="objeto pequeño">
-        <img src="assets/images/revista2.jpg" alt="Objeto 2">
-        <div class="objeto-info">
-          <h3>Archival Print</h3>
-          <p>Impresión numerada en papel de algodón.</p>
+      <section class="collection-row">
+        <div class="col-info">
+          <div>
+            <h2>Planners</h2>
+            <p>A minimalist structure for creative project management and moments of reflection.</p>
+          </div>
+          <span class="col-tag">02 / 03</span>
         </div>
-      </div>
+        <div class="col-visual-wrapper">
+          <div class="col-images-track">
+            <div class="product-img"><img src="https://ik.imagekit.io/h7eo6ofoi/a3.png?updatedAt=1768242000143" alt="Planner 1"></div>
+            <div class="product-img"><img src="https://ik.imagekit.io/h7eo6ofoi/a1.png?updatedAt=1768241999478" alt="Planner 2"></div>
+            <div class="product-img"><img src="https://ik.imagekit.io/h7eo6ofoi/a2.png?updatedAt=1768242001839" alt="Planner 3"></div>
+          </div>
+        </div>
+      </section>
 
-      <div class="objeto mediano">
-        <img src="assets/images/revista1.jpg" alt="Objeto 3">
-        <div class="objeto-info">
-          <h3>Work Planner</h3>
-          <p>Diseño minimalista para proyectos editoriales.</p>
+      <section class="collection-row">
+        <div class="col-info">
+          <div>
+            <h2>Bookmarks</h2>
+            <p>Brushed steel and Italian leather. A precise detail for your most important readings.</p>
+          </div>
+          <span class="col-tag">03 / 03</span>
         </div>
-      </div>
+        <div class="col-visual-wrapper">
+          <div class="col-images-track">
+            <div class="product-img"><img src="https://ik.imagekit.io/h7eo6ofoi/M2.png?updatedAt=1768242210980" alt="Bookmark 1"></div>
+            <div class="product-img"><img src="https://ik.imagekit.io/h7eo6ofoi/M1.png?updatedAt=1768242232155" alt="Bookmark 2"></div>
+          </div>
+        </div>
+      </section>
 
-      <div class="objeto mediano">
-        <img src="assets/images/revista3.jpg" alt="Objeto 4">
-        <div class="objeto-info">
-          <h3>Editorial Kit</h3>
-          <p>Set de herramientas para edición y maquetación.</p>
-        </div>
-      </div>
     </div>
+
+    <footer>
+      <span>Editorial Company</span>
+      <span>Collection Series — 2026</span>
+    </footer>
   </main>
 
 </body>

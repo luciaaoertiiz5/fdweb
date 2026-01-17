@@ -7,7 +7,6 @@
   <link rel="icon" type="image/svg+xml" href="assets/images/logo-luz.svg">
 
   <style>
-    /* --- 1. CONFIGURACIÓN BASE --- */
     @font-face { font-family: 'MonumentExtended'; src: url('assets/fonts/MonumentExtended-Regular.otf'); font-weight: bold; }
     @font-face { font-family: 'ABCWhyteInktrap'; src: url('assets/fonts/ABCWhyteInktrap-Variable.woff2'); }
 
@@ -20,121 +19,148 @@
     }
 
     body {
-      margin: 0; background-color: var(--blanco); color: var(--negro);
-      font-family: var(--fuente-texto); line-height: 1.6;
+      margin: 0; background-color: var(--negro); color: var(--blanco);
+      font-family: var(--fuente-texto); -webkit-font-smoothing: antialiased;
+      overflow: hidden; /* Una sola pantalla */
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* --- 2. CABECERA --- */
-    header {
-      padding: 30px 40px; display: flex; justify-content: space-between; align-items: center;
-      position: sticky; top: 0; background: var(--blanco); z-index: 100;
+    /* --- NAVEGACIÓN --- */
+    header { 
+      padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; 
+      position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+      width: calc(100% - 80px); max-width: 1400px; box-sizing: border-box;
+      background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); 
+      border: 1px solid rgba(255, 255, 255, 0.1); z-index: 100; border-radius: 2px;
     }
-    .logo img { height: 35px; }
-    nav a {
-      margin-left: 25px; text-decoration: none; color: var(--negro); font-size: 13px;
-      text-transform: uppercase; letter-spacing: 1px; position: relative; padding-bottom: 5px;
-    }
-    nav a::after {
-      content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0;
-      background-color: var(--rosa); transition: width 0.3s ease;
-    }
-    nav a:hover::after { width: 100%; }
+    .logo img { height: 26px; filter: invert(1); }
+    nav a { margin-left: 25px; text-decoration: none; color: var(--blanco); font-size: 10px; text-transform: uppercase; letter-spacing: 2px; }
+    nav a.active { color: var(--rosa); }
 
-    /* --- 3. DISEÑO DE "ABOUT" (Manifiesto) --- */
-    .contenedor-about {
-      padding: 100px 40px;
+    /* --- CONTENIDO PRINCIPAL --- */
+    main { 
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 40px;
       max-width: 1200px;
       margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: center;
     }
 
     .about-header h1 {
       font-family: var(--fuente-titulos);
-      font-size: clamp(50px, 12vw, 150px);
-      line-height: 0.8;
+      font-size: clamp(40px, 7vw, 90px);
+      line-height: 0.85;
       text-transform: uppercase;
-      margin: 0 0 50px 0;
-      letter-spacing: -5px;
+      margin: 0;
+      letter-spacing: -4px;
     }
 
-    .seccion-texto {
-      display: grid;
-      grid-template-columns: 1fr 1fr; /* Dos columnas: una vacía o con imagen y otra con texto */
-      gap: 50px;
-      margin-top: 100px;
+    .about-content p {
+      font-size: 16px;
+      line-height: 1.6;
+      opacity: 0.7;
+      margin-bottom: 20px;
     }
 
-    .texto-grande {
-      font-size: clamp(24px, 3vw, 32px);
-      font-family: var(--fuente-texto);
-      grid-column: 2; /* Movemos el texto a la derecha */
-      border-left: 4px solid var(--rosa);
-      padding-left: 30px;
-    }
-
-    .mision {
-      margin-top: 100px;
-      background-color: var(--negro);
-      color: var(--blanco);
-      padding: 100px 40px;
-      text-align: center;
-    }
-
-    .mision h2 {
+    .highlight-text {
+      color: var(--rosa);
       font-family: var(--fuente-titulos);
-      font-size: clamp(30px, 5vw, 60px);
+      font-size: 20px;
       text-transform: uppercase;
-      max-width: 900px;
-      margin: 0 auto;
+      display: block;
+      margin-top: 30px;
     }
 
-    /* --- 4. FOOTER (PIE DE PÁGINA) --- */
-    footer {
-      padding: 100px 40px;
-      background-color: var(--blanco);
-      border-top: 1px solid rgba(0,0,0,0.1);
+    /* --- EL SELLO CENTRADO ABAJO --- */
+    .sello-contenedor {
+      position: absolute;
+      bottom: 30px; /* A la altura del footer */
+      left: 50%;
+      transform: translateX(-50%); /* Centrado perfecto */
+      width: 100px;
+      height: 100px;
+      z-index: 10;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
     }
 
-    .footer-logo {
-      font-family: var(--fuente-titulos);
-      font-size: clamp(100px, 20vw, 300px);
-      margin: 0;
-      color: var(--negro);
-      opacity: 0.05; /* Un efecto de fondo muy sutil */
-      user-select: none;
+    .sello-texto {
+      width: 100%;
+      height: 100%;
+      animation: rotarSello 15s linear infinite;
     }
 
-    .contacto-links {
-      margin-top: -50px; /* Sube los links sobre el logo gigante */
-      display: flex;
-      gap: 40px;
-      z-index: 10;
+    @keyframes rotarSello {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
-    .contacto-links a {
-      text-decoration: none;
-      color: var(--negro);
+    .sello-texto text {
       font-family: var(--fuente-titulos);
-      font-size: 14px;
+      font-size: 13px;
+      fill: var(--rosa);
       text-transform: uppercase;
-      transition: color 0.3s;
+      letter-spacing: 4px;
     }
 
-    .contacto-links a:hover {
-      color: var(--rosa);
+    .sello-centro {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: var(--rosa);
+      border-radius: 50%;
     }
 
-    /* --- 5. MÓVIL --- */
+    /* --- FOOTER --- */
+    footer {
+      padding: 40px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 5;
+    }
+
+    .contact-links a {
+      color: var(--blanco);
+      text-decoration: none;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-right: 25px;
+      opacity: 0.5;
+      transition: 0.3s;
+    }
+    .contact-links a:hover { opacity: 1; color: var(--rosa); }
+
+    .footer-copy {
+      font-size: 9px;
+      opacity: 0.3;
+      letter-spacing: 2px;
+    }
+
     @media (max-width: 900px) {
-      .seccion-texto { grid-template-columns: 1fr; }
-      .texto-grande { grid-column: 1; }
-      .contacto-links { flex-direction: column; align-items: center; gap: 20px; margin-top: 20px;}
+      .about-grid { grid-template-columns: 1fr; text-align: center; }
+      .about-content p { margin: 0 auto 20px; }
+      .sello-contenedor { bottom: 100px; }
+      footer { flex-direction: column; gap: 15px; }
     }
   </style>
 </head>
-
 <body>
 
   <header>
@@ -146,42 +172,43 @@
       <a href="magazine.html">Magazine</a>
       <a href="photography.html">Photography</a>
       <a href="collections.html">Collections</a>
-      <a href="about.html" style="color: var(--rosa);">About</a>
+      <a href="about.html" class="active">About</a>
     </nav>
   </header>
 
   <main>
-    <section class="contenedor-about">
+    <div class="about-grid">
       <div class="about-header">
-        <h1>Paper,<br><span style="color: var(--rosa);">Ink</span> & Light.</h1>
+        <h1>Pure<br>Editorial<br><span style="color: var(--rosa);">Form.</span></h1>
       </div>
 
-      <div class="seccion-texto">
-        <div class="texto-grande">
-          LUZ es una casa editorial independiente nacida de la necesidad de preservar el valor táctil de la imagen. Creemos en la permanencia de lo físico en una era puramente digital.
-        </div>
+      <div class="about-content">
+        <p>LUZ is a platform dedicated to the curation of visual culture, contemporary photography, and the design of tactile objects.</p>
+        <p>Founded in 2026 with a clear mission: to restore silence and pause to the creative consumption experience. We don’t just publish magazines; we build physical archives.</p>
+        <span class="highlight-text">Where shadows find their form.</span>
       </div>
-    </section>
-
-    <section class="mision">
-      <h2>Curamos historias visuales que merecen ser impresas.</h2>
-    </section>
-
-    <section class="contenedor-about" style="text-align: right;">
-      <p style="max-width: 600px; margin-left: auto; font-size: 18px;">
-        Nuestra selección de revistas y objetos de papelería técnica están diseñados para creativos que ven el mundo a través del contraste y la forma. Cada pieza que sale de nuestra editorial es un compromiso con la calidad y la cultura visual.
-      </p>
-    </section>
+    </div>
   </main>
 
+  <div class="sello-contenedor">
+    <svg class="sello-texto" viewBox="0 0 100 100">
+      <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent"/>
+      <text>
+        <textPath xlink:href="#circlePath">
+          Editorial Brand LUZ • Editorial Brand LUZ •
+        </textPath>
+      </text>
+    </svg>
+    <div class="sello-centro"></div>
+  </div>
+
   <footer>
-    <div class="contacto-links">
-      <a href="mailto:hello@luzeditorial.com">Email</a>
+    <div class="contact-links">
+      <a href="mailto:hello@luz.com">Email</a>
       <a href="#">Instagram</a>
-      <a href="#">Twitter</a>
-      <a href="#">LinkedIn</a>
+      <a href="#">Archive</a>
     </div>
-    <h2 class="footer-logo">LUZ</h2>
+    <span class="footer-copy">2026 © LUZ EDITORIAL</span>
   </footer>
 
 </body>
