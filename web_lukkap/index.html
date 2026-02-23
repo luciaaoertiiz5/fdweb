@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lukkap | Human Experience Company</title>
+
+<!-- FAVICON CORRECTO -->
+<link rel="icon" type="image/png" href="https://ik.imagekit.io/h7eo6ofoi/lukkap/IsotipoLukkap_Color.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+/* ---------- RESET ---------- */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',sans-serif;
+color:#111;
+background:#fff;
+line-height:1.6;
+scroll-behavior:smooth;
+}
+
+/* ---------- HEADER ---------- */
+
+header{
+position:fixed;
+width:100%;
+top:0;
+left:0;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,0.95);
+backdrop-filter:blur(8px);
+z-index:1000;
+border-bottom:1px solid #eee;
+}
+
+.logo img{
+height:38px;
+}
+
+nav a{
+margin-left:30px;
+text-decoration:none;
+color:#111;
+font-weight:500;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#0077ff;
+}
+
+/* ---------- HERO ---------- */
+
+.hero{
+height:100vh;
+background:url('https://ik.imagekit.io/h7eo6ofoi/lukkap/Portada_Customer_Experience.jpeg') center/cover no-repeat;
+display:flex;
+align-items:center;
+padding:0 8%;
+position:relative;
+color:#fff;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.45);
+}
+
+.hero-content{
+position:relative;
+max-width:800px;
+}
+
+.hero h1{
+font-size:3.8rem;
+font-weight:900;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:1.2rem;
+margin-bottom:35px;
+color:#e5e5e5;
+}
+
+.btn{
+display:inline-block;
+background:#0077ff;
+color:#fff;
+padding:14px 32px;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#005edb;
+}
+
+/* Scroll indicator */
+
+.scroll-indicator{
+position:absolute;
+bottom:30px;
+left:50%;
+transform:translateX(-50%);
+font-size:0.9rem;
+animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+0%,100%{transform:translate(-50%,0);}
+50%{transform:translate(-50%,8px);}
+}
+
+/* ---------- SECTIONS ---------- */
+
+section{
+padding:120px 8%;
+}
+
+.section-intro{
+max-width:800px;
+margin-bottom:70px;
+}
+
+.section-intro h2{
+font-size:2.5rem;
+margin-bottom:20px;
+}
+
+/* ---------- EDITORIAL BLOQUES ---------- */
+
+.editorial{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+margin-bottom:80px;
+}
+
+.editorial img{
+width:100%;
+border-radius:20px;
+}
+
+.editorial.reverse img{
+order:-1;
+}
+
+/* ---------- METODO ---------- */
+
+.metodo{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:40px;
+}
+
+.metodo div{
+background:#f4f6fa;
+padding:40px;
+border-radius:20px;
+}
+
+/* ---------- CARRUSEL ---------- */
+
+.carousel{
+  position:relative;
+  max-width:800px;
+  margin:40px auto 0;
+  text-align:center;
+}
+
+.slide{
+  display:none;
+  font-size:1.2rem;
+  padding:0 20px;
+  transition:0.5s ease;
+}
+
+.slide.active{
+  display:block;
+}
+
+.slide p{
+  margin-bottom:15px;
+  font-style:italic;
+}
+
+.slide strong{
+  display:block;
+  margin-top:10px;
+  color:#0077ff;
+}
+
+.prev, .next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:none;
+  border:none;
+  font-size:30px;
+  cursor:pointer;
+  color:#0077ff;
+  transition:0.3s;
+}
+
+.prev:hover, .next:hover{
+  color:#005edb;
+}
+
+.prev{ left:-40px; }
+.next{ right:-40px; }
+
+.dots{
+  margin-top:20px;
+}
+
+.dot{
+  height:10px;
+  width:10px;
+  margin:0 5px;
+  background:#ccc;
+  border-radius:50%;
+  display:inline-block;
+  cursor:pointer;
+}
+
+.dot.active{
+  background:#0077ff;
+}
+
+/* ---------- CTA ---------- */
+
+.cta{
+background:#0077ff;
+color:white;
+text-align:center;
+padding:90px 20px;
+border-radius:30px;
+}
+
+.cta h2{
+margin-bottom:25px;
+font-size:2rem;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer{
+padding:50px;
+text-align:center;
+color:#777;
+font-size:0.9rem;
+border-top:1px solid #eee;
+}
+
+.social{
+margin-top:20px;
+}
+
+.social a{
+margin:0 15px;
+text-decoration:none;
+color:#111;
+font-weight:500;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:900px){
+.editorial{
+grid-template-columns:1fr;
+}
+.hero h1{
+font-size:2.5rem;
+}
+}
+
+</style>
+</head>
+<body>
+
+<header>
+<a href="index.html" class="logo">
+<img src="https://ik.imagekit.io/h7eo6ofoi/lukkap/Lukkap_Azul.png" alt="Lukkap">
+</a>
+<nav>
+<a href="#quehacemos">Qué hacemos</a>
+<a href="#metodo">Metodología</a>
+<a href="#testimonios">Clientes</a>
+<a href="#contacto">Contacto</a>
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<h1>Convertimos la experiencia en ventaja competitiva.</h1>
+<p>Integramos Customer Experience, Employee Experience y Data para transformar organizaciones desde dentro y hacia el mercado.</p>
+<a href="#contacto" class="btn">Hablemos</a>
+</div>
+<div class="scroll-indicator">Scroll ↓</div>
+</section>
+
+<!-- QUE HACEMOS -->
+<section id="quehacemos">
+<div class="section-intro">
+<h2>Qué hacemos</h2>
+<p>Diseñamos estrategias centradas en personas, apoyadas en datos y alineadas con resultados de negocio.</p>
+</div>
+
+<div class="editorial">
+<div>
+<h3>Customer Experience</h3>
+<p>Diseñamos experiencias que generan lealtad, diferenciación y crecimiento sostenible.</p>
+</div>
+<img src="https://ik.imagekit.io/h7eo6ofoi/lukkap/Nosotros_CX.jpeg">
+</div>
+
+<div class="editorial reverse">
+<div>
+<h3>Employee Experience</h3>
+<p>Activamos culturas organizativas que impulsan compromiso, liderazgo y rendimiento.</p>
+</div>
+<img src="https://ik.imagekit.io/h7eo6ofoi/lukkap/Nosotros_EX.jpeg">
+</div>
+
+</section>
+
+<!-- METODO -->
+<section id="metodo">
+<div class="section-intro">
+<h2>Nuestra metodología</h2>
+<p>Un enfoque estructurado y medible orientado a resultados reales.</p>
+</div>
+
+<div class="metodo">
+<div>
+<h3>Diagnóstico</h3>
+<p>Evaluamos la experiencia actual mediante datos y percepción.</p>
+</div>
+<div>
+<h3>Diseño estratégico</h3>
+<p>Definimos iniciativas alineadas con cultura y negocio.</p>
+</div>
+<div>
+<h3>Implementación</h3>
+<p>Acompañamos la ejecución asegurando impacto sostenible.</p>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section id="testimonios" class="testimonials">
+  <div class="section-intro">
+    <h2>Qué opinan nuestros clientes</h2>
+  </div>
+
+  <div class="carousel">
+
+    <div class="slides">
+      <div class="slide active">
+        <p>"Lukkap transformó nuestra cultura organizativa con impacto real."</p>
+        <strong>Director General – Sector Retail</strong>
+      </div>
+
+      <div class="slide">
+        <p>"Un enfoque estratégico que conecta experiencia y resultados."</p>
+        <strong>HR Director – Multinacional</strong>
+      </div>
+
+      <div class="slide">
+        <p>"Datos convertidos en decisiones accionables."</p>
+        <strong>CEO – Servicios Financieros</strong>
+      </div>
+    </div>
+
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+
+    <div class="dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+<div class="cta">
+<h2>¿Preparados para transformar vuestra organización?</h2>
+<a href="#" class="btn">Contactar</a>
+</div>
+</section>
+
+<footer>
+© 2026 Lukkap — Human Experience Company
+<div class="social">
+<a href="#">Instagram</a>
+<a href="#">Twitter / X</a>
+<a href="#">LinkedIn</a>
+</div>
+</footer>
+
+<script>
+let slides=document.querySelectorAll(".slide");
+let dots=document.querySelectorAll(".dot");
+let index=0;
+
+function showSlide(i){
+  slides.forEach(s=>s.classList.remove("active"));
+  dots.forEach(d=>d.classList.remove("active"));
+  slides[i].classList.add("active");
+  dots[i].classList.add("active");
+  index=i;
+}
+
+// Botones
+document.querySelector(".next").onclick=()=>{
+  index=(index+1)%slides.length;
+  showSlide(index);
+}
+
+document.querySelector(".prev").onclick=()=>{
+  index=(index-1+slides.length)%slides.length;
+  showSlide(index);
+}
+
+// Dots
+dots.forEach((dot,i)=>{
+  dot.onclick=()=>showSlide(i);
+});
+
+// Auto slide cada 6s
+setInterval(()=>{
+  index=(index+1)%slides.length;
+  showSlide(index);
+},6000);
+</script>
+
+</body>
+</html>
